@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": "7ee9152d-738f-4da0-b0da-5fbeab50ba19",
+      "username": "admin",
+      "password": "pw",
+      "description": "Admin account",
+      "role": "admin"
+    },
+    {
+      "id": "97fdb283-6a3b-46b2-b5c5-8ef222853ca6",
+      "username": "user",
+      "password": "pw",
+      "description": "Random user account",
+      "role": "user"
+    },
+    {
+      "id": "d3e17946-2e7d-434c-9d2f-50615c249369",
+      "username": "user2",
+      "password": "pw",
+      "description": "Another random user account",
+      "role": "user"
+    }
+  ]
+}

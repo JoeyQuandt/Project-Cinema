@@ -4,25 +4,49 @@
       "id": "511988a5-dcea-430e-a30c-053677676fdc",
       "name": "The revenge of Joey",
       "description": "A movie about the villain Joey who wreaks havoc on the small town of Rotterdamdorp.",
-      "time": "12:30",
-      "date": "31-12-2019",
-      "duration": "02:30"
+      "duration": "02:30",
+      "genres": [
+        "comedy",
+        "action"
+      ]
     },
     {
       "id": "6702de0d-f0bf-4b2b-9050-107e49a75367",
       "name": "G.I. Joey",
       "description": "A movie about a brave soldier.",
-      "time": "22:30",
-      "date": "01-02-2020",
-      "duration": "01:30"
-    }
-  ],
-  "users": [
+      "duration": "01:30",
+      "genres": [
+        "comedy",
+        "action"
+      ]
+    },
     {
-      "id": "7ee9152d-738f-4da0-b0da-5fbeab50ba19",
-      "username": "admin",
-      "password": "pw",
-      "description": "admin user account"
+      "id": "846cbb2e-c532-40df-b822-1162f3e88724",
+      "name": "Joey in the house",
+      "description": "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.",
+      "duration": "01:15",
+      "genres": [
+        "comedy"
+      ]
+    },
+    {
+      "id": "4071f7ee-df0b-467e-bcf3-f5980ff94ebe",
+      "name": "Joey Almighty",
+      "description": "A simple workingclass man suddenly becomes a literal god.",
+      "duration": "01:30",
+      "genres": [
+        "comedy"
+      ]
+    },
+    {
+      "id": "8d7f2760-e19f-4780-a481-246b75003d27",
+      "name": "A night in Joey's house",
+      "description": "A couple of urban explorers check out a haunted house.",
+      "duration": "02:15",
+      "genres": [
+        "horror",
+        "thriller"
+      ]
     }
   ]
 }
