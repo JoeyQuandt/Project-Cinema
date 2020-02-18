@@ -1,0 +1,28 @@
+{
+  "movies": [
+    {
+      "id": "511988a5-dcea-430e-a30c-053677676fdc",
+      "name": "The revenge of Joey",
+      "description": "A movie about the villain Joey who wreaks havoc on the small town of Rotterdamdorp.",
+      "time": "12:30",
+      "date": "31-12-2019",
+      "duration": "02:30"
+    },
+    {
+      "id": "6702de0d-f0bf-4b2b-9050-107e49a75367",
+      "name": "G.I. Joey",
+      "description": "A movie about a brave soldier.",
+      "time": "22:30",
+      "date": "01-02-2020",
+      "duration": "01:30"
+    }
+  ],
+  "users": [
+    {
+      "id": "7ee9152d-738f-4da0-b0da-5fbeab50ba19",
+      "username": "admin",
+      "password": "pw",
+      "description": "admin user account"
+    }
+  ]
+}
