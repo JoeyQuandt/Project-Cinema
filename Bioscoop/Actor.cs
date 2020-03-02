@@ -5,9 +5,10 @@ public class Actor
     private string firstName;
     private string lastName;
 
-    // contstructor
-	public Actor()
+    // Constructor
+	public Actor(string firstName, string lastName)
 	{
-
+        this.firstName = firstName;
+        this.lastName = lastName;
 	}
 }
