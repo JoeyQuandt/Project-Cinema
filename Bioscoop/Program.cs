@@ -7,8 +7,8 @@ namespace Bioscoop
         static void Main(string[] args)
         {
             // Create dummy actor objects
-            Actor joey = new Actor();
-            Actor thomas = new Actor();
+            Actor joey = new Actor("Joey", "Dummy");
+            Actor thomas = new Actor("Thomas", "Dummy");
             // Put actors in array
             Actor[] actors = { joey, thomas };
 

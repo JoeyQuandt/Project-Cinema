@@ -18,6 +18,9 @@ public class Movie
         this.releaseDate = releaseDate;
     }
 
+    /// <summary>
+    /// Get all movie details in string format
+    /// </summary>
     public string getMovieDetails()
     {
         return this.name + "\n" + this.description + "\n" + this.duration.ToString() + " minutes";
