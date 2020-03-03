@@ -16,7 +16,10 @@ namespace Bioscoop
             Movie movie = new Movie("Joey's revenge", "A movie about the evil man Joey getting his revenge on Fransesco", 99, actors, DateTime.Now);
 
             // Write the movie details from the movie object in the console
-            Console.WriteLine(movie.getMovieDetails());
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(movie.GetMovieDetails());
+            Console.BackgroundColor = ConsoleColor.Black;
         }
     }
 }

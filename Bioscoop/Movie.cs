@@ -5,7 +5,7 @@ public class Movie
     private Guid movieId;
     private string name; // Name of the movie
     private string description; // Description of the movie
-    private int duration; // In minutes
+    private int duration { get; set; }// In minutes
     private Actor[] actors; // A list of actors playing in the movie
     private DateTime releaseDate; // Releasedate
     private int ageRestriction; // Age restriction
@@ -25,7 +25,7 @@ public class Movie
     /// <summary>
     /// Get all movie details in string format
     /// </summary>
-    public string getMovieDetails()
+    public string GetMovieDetails()
     {
         return this.name + "\n" + this.description + "\n" + this.duration.ToString() + " minutes";
     }
