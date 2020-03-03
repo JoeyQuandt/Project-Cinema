@@ -6,11 +6,11 @@ public class Ticket
     private Movie movie;
     private DateTime dateTime;
     private double price;
-    private int room;
+    private Room room;
     private int seatNumber;
 
     // Constructor
-	public Ticket(Movie movie, DateTime dateTime, double price, int room, int seatNumber)
+	public Ticket(Movie movie, DateTime dateTime, double price, Room room, int seatNumber)
 	{
         ticketId = System.Guid.NewGuid();
         this.movie = movie;

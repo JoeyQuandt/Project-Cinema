@@ -8,9 +8,10 @@ public class Movie
     private int duration; // In minutes
     private Actor[] actors; // A list of actors playing in the movie
     private DateTime releaseDate; // Releasedate
+    private int ageRestriction; // Age restriction
 
     // Constructor
-    public Movie(string name, string description, int duration, Actor[] actors, DateTime releaseDate)
+    public Movie(string name, string description, int duration, Actor[] actors, DateTime releaseDate, int ageRestriction = 99)
     {
         movieId = System.Guid.NewGuid();
         this.name = name;
@@ -18,6 +19,7 @@ public class Movie
         this.duration = duration;
         this.actors = actors;
         this.releaseDate = releaseDate;
+        this.ageRestriction = ageRestriction;
     }
 
     /// <summary>
