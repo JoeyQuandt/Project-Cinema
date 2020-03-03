@@ -2,6 +2,7 @@
 
 public class Movie
 {
+    private Guid movieId;
     private string name; // Name of the movie
     private string description; // Description of the movie
     private int duration; // In minutes
@@ -11,6 +12,7 @@ public class Movie
     // Constructor
     public Movie(string name, string description, int duration, Actor[] actors, DateTime releaseDate)
     {
+        movieId = System.Guid.NewGuid();
         this.name = name;
         this.description = description;
         this.duration = duration;
