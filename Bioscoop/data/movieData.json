@@ -1,50 +1,45 @@
 {
   "movies": [
     {
-      "id": "511988a5-dcea-430e-a30c-053677676fdc",
-      "name": "The revenge of Joey",
-      "description": "A movie about the villain Joey who wreaks havoc on the small town of Rotterdamdorp.",
-      "duration": "02:30",
+      "name": "The revenge of alexandro",
+      "description": "A movie about the villain alexandro who wreaks havoc on the small town of Rotterdamdorp.",
+      "duration": 210,
       "genres": [
-        "comedy",
+        "thriller",
         "action"
       ]
     },
     {
-      "id": "6702de0d-f0bf-4b2b-9050-107e49a75367",
-      "name": "G.I. Joey",
+      "name": "G.I. Joe",
       "description": "A movie about a brave soldier.",
-      "duration": "01:30",
+      "duration": 210,
       "genres": [
-        "comedy",
+        "thriller",
         "action"
       ]
     },
     {
-      "id": "846cbb2e-c532-40df-b822-1162f3e88724",
-      "name": "Joey in the house",
+      "name": Cory in the house,
       "description": "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.",
-      "duration": "01:15",
+      "duration": 140,
       "genres": [
         "comedy"
       ]
     },
     {
-      "id": "4071f7ee-df0b-467e-bcf3-f5980ff94ebe",
-      "name": "Joey Almighty",
+      "name": "The Almighty",
       "description": "A simple workingclass man suddenly becomes a literal god.",
-      "duration": "01:30",
+      "duration": 180,
       "genres": [
         "comedy"
       ]
     },
     {
-      "id": "8d7f2760-e19f-4780-a481-246b75003d27",
-      "name": "joey akka",
-      "description": "A couple of urban explorers check out a haunted house.",
-      "duration": "02:15",
+      "name": "Fast and Furious 15",
+      "description": "Dom seeks revenge to his racing rival The Rock",
+      "duration": 140,
       "genres": [
-        "horror",
+        "action",
         "thriller"
       ]
     }
