@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace Bioscoop
 {
@@ -6,8 +7,10 @@ namespace Bioscoop
     {
         static void Main(string[] args)
         {
-            Menu menu = new Menu();
-            menu.menu();
+            Data data = new Data();
+            data.LoadMovies();
+            //Menu menu = new Menu();
+            //menu.menu();
         }
     }
 }

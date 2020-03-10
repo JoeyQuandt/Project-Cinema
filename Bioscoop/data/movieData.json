@@ -3,54 +3,32 @@
     {
       "name": "The revenge of alexandro",
       "description": "A movie about the villain alexandro who wreaks havoc on the small town of Rotterdamdorp.",
-      "duration": 210,
-      "genres": [
-        "thriller",
-        "action"
-      ]
+      "duration": 210
     },
     {
       "name": "Fast and Furious 15",
       "description": "A movie about racing",
-      "duration": 240,
-      "genres": [
-          "thriller",
-          "action"
-        ]
+      "duration": 240
     },
     {
       "name": "Cory in the house",
       "description": "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.",
-      "duration": 140,
-      "genres": [
-        "comedy"
-      ]
+      "duration": 140
     },
     {
       "name": "The Almighty",
       "description": "A simple workingclass man suddenly becomes a literal god.",
-      "duration": 180,
-      "genres": [
-        "comedy"
-      ]
+      "duration": 180
     },
     {
       "name": "A night in a musuem",
       "description": "A couple of urban explorers check out a haunted musuem.",
-      "duration": 180,
-      "genres": [
-        "horror",
-        "thriller"
-      ]
+      "duration": 180
     },
     {
       "name": "Fast and Furious 15",
       "description": "Dom seeks revenge to his racing rival The Rock",
-      "duration": 140,
-      "genres": [
-        "action",
-        "thriller"
-      ]
+      "duration": 140
     }
   ]
 }
