@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joeyq\\OneDrive\\Documents\\GitHub\\Echte Project-Cinema\\Project-Cinema\\Bioscoop\\Bioscoop.csproj",
+      "projectUniqueName": "C:\\Users\\joeyq\\OneDrive\\Documents\\GitHub\\Project-Cinema\\Bioscoop\\Bioscoop.csproj",
       "projectName": "Bioscoop",
-      "projectPath": "C:\\Users\\joeyq\\OneDrive\\Documents\\GitHub\\Echte Project-Cinema\\Project-Cinema\\Bioscoop\\Bioscoop.csproj",
+      "projectPath": "C:\\Users\\joeyq\\OneDrive\\Documents\\GitHub\\Project-Cinema\\Bioscoop\\Bioscoop.csproj",
       "packagesPath": "C:\\Users\\joeyq\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joeyq\\OneDrive\\Documents\\GitHub\\Echte Project-Cinema\\Project-Cinema\\Bioscoop\\obj\\",
+      "outputPath": "C:\\Users\\joeyq\\OneDrive\\Documents\\GitHub\\Project-Cinema\\Bioscoop\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\joeyq\\AppData\\Roaming\\NuGet\\NuGet.Config",
