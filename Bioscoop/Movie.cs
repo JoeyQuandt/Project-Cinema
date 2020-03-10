@@ -23,7 +23,7 @@ public class Movie
     /// </summary>
     public string getMovieDetails()
     {
-        return this.name + "\n" + this.description + "\n" + this.duration.ToString() + " minutes";
+        return "Title:"+this.name + "\n" + "Description:"+this.description + "\n" + "Duration:"+this.duration.ToString() + " minutes";
     }
 
 }

@@ -17,4 +17,9 @@ public class Ticket
         this.room = room;
         this.seatNumber = seatNumber;
 	}
+
+    public string getTicketDetails()
+    {
+        return "Title:"+this.movie + "\n" +"Date:"+ this.dateTime + "\n" +"Price:$"+this.price.ToString() + "\n" +"Room:"+ this.room.ToString()+ "\n"+"SeatNumber:"+this.seatNumber.ToString();
+    }
 }
