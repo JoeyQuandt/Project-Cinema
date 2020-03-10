@@ -20,7 +20,7 @@ public class Ticket
         this.seatNumber = seatNumber;
 	}
 
-    public string getTicketDetails()
+    public string GetTicketDetails()
     {
         return "Title:"+this.movie + "\n" +"Date:"+ this.dateTime + "\n" +"Price:$"+this.price.ToString() + "\n" +"Room:"+ this.room.ToString()+ "\n"+"SeatNumber:"+this.seatNumber.ToString();
     }
