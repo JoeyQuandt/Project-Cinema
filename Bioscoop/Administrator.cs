@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class Administrator : User
+public class Administrator
 {
 	public Administrator()
 	{
