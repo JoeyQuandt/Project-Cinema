@@ -1,6 +1,6 @@
 ﻿using System;
 
-public class Customer : User
+public class Customer
 {
 	public Customer()
 	{
