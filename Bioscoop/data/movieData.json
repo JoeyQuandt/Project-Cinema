@@ -1,49 +1,27 @@
 {
   "movies": [
     {
-<<<<<<< HEAD
-      "name": "The Darkest Future",
-      "description": "A movie about the villain darksider who wreaks havoc on the small town of Rotterdamdorp.",
-      "duration": 180,
-      "genres": [
-        "revenge",
-=======
       "name": "The revenge of alexandro",
       "description": "A movie about the villain alexandro who wreaks havoc on the small town of Rotterdamdorp.",
       "duration": 210,
       "genres": [
         "thriller",
->>>>>>> master
         "action"
       ]
     },
     {
-<<<<<<< HEAD
       "name": "Fast and Furious 15",
       "description": "A movie about racing",
       "duration": 240,
       "genres": [
-        "comedy",
-=======
-      "name": "G.I. Joe",
-      "description": "A movie about a brave soldier.",
-      "duration": 210,
-      "genres": [
-        "thriller",
->>>>>>> master
-        "action"
-      ]
+          "thriller",
+          "action"
+        ]
     },
     {
-<<<<<<< HEAD
       "name": "Cory in the house",
       "description": "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.",
-      "duration": 120,
-=======
-      "name": Cory in the house,
-      "description": "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.",
       "duration": 140,
->>>>>>> master
       "genres": [
         "comedy"
       ]
@@ -51,17 +29,12 @@
     {
       "name": "The Almighty",
       "description": "A simple workingclass man suddenly becomes a literal god.",
-<<<<<<< HEAD
-      "duration": 140,
-=======
       "duration": 180,
->>>>>>> master
       "genres": [
         "comedy"
       ]
     },
     {
-<<<<<<< HEAD
       "name": "A night in a musuem",
       "description": "A couple of urban explorers check out a haunted musuem.",
       "duration": 180,
@@ -70,14 +43,7 @@
         "thriller"
       ]
     },
-        {
-      "name": "The Outbreak",
-      "description": "A virus contains the world",
-      "duration": 120,
-      "genres": [
-        "comedy"
-      ]
-=======
+    {
       "name": "Fast and Furious 15",
       "description": "Dom seeks revenge to his racing rival The Rock",
       "duration": 140,
@@ -85,7 +51,6 @@
         "action",
         "thriller"
       ]
->>>>>>> master
     }
   ]
 }
