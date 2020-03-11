@@ -363,6 +363,9 @@ Bioscoop/.vs/Bioscoop/DesignTimeBuild/.dtbcache
 Bioscoop/.vs/
 *.ide
 *.cache
+*.cache
+*.cache
+*.cache
 *.ide
 Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.assets.cache
 Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.csprojAssemblyReference.cache
