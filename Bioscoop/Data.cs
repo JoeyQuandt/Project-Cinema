@@ -26,8 +26,22 @@ public class Data
         {
             string json = r.ReadToEnd();
             List<User> items = JsonConvert.DeserializeObject<List<User>>(json);
-            foreach(User item in items){
+            /*foreach(User item in items){
                 Console.WriteLine(item.GetFirstName() +" "+ item.GetLastName() + "\n");
+            }*/
+        }
+    }
+
+    public void LoadActors()
+    {
+        // Load the movieData.json here and parse to Movie objects
+        using (StreamReader r = new StreamReader(@"../../../data/actorData.json"))
+        {
+            string json = r.ReadToEnd();
+            List<Actor> items = JsonConvert.DeserializeObject<List<Actor>>(json);
+            foreach (Actor item in items)
+            {
+                Console.WriteLine(item.GetFirstName() + " " + item.GetLastName() + "\n");
             }
         }
     }
