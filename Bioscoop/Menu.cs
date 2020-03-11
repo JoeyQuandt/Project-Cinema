@@ -22,9 +22,9 @@ public class Menu
 
     public Movie[] Getmovies()
     {
-        Movie movie = new Movie("Joey's revenge", "A movie about the evil man Joey getting his revenge on Fransesco", 99, GetActors(), DateTime.Now);
-        Movie TheRevenge = new Movie("Alexandro's Revenge", "A movie about the villain alexandro who wreaks havoc on the small town of Rotterdamdorp.", 180, GetActors(), DateTime.Now);
-        Movie CoryintheHouse = new Movie("Cory in the House", "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.", 220, GetActors(), DateTime.Now);
+        Movie movie = new Movie("110d3232-edeb-4d5e-b544-7b3fa52b8924", "Joey's revenge", "A movie about the evil man Joey getting his revenge on Fransesco", 99, GetActors(), DateTime.Now);
+        Movie TheRevenge = new Movie("00e94834-8460-4667-9ee1-60bd8371c710", "Alexandro's Revenge", "A movie about the villain alexandro who wreaks havoc on the small town of Rotterdamdorp.", 180, GetActors(), DateTime.Now);
+        Movie CoryintheHouse = new Movie("f8afc815-bdef-4785-8105-c3aa4f03112a", "Cory in the House", "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.", 220, GetActors(), DateTime.Now);
         Movie[] movies = { movie, TheRevenge, CoryintheHouse };
         return movies;
     }
