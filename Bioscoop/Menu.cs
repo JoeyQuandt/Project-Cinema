@@ -20,6 +20,13 @@ public class Menu
         var x = Console.ReadLine();
     }
 
+    public void Error_code()
+    {
+        Console.Clear();
+        Console.WriteLine("Error, only use the numbers from the option menu");
+        PressEnter();
+    }
+
     public Movie[] Getmovies()
     {
         Movie movie = new Movie("110d3232-edeb-4d5e-b544-7b3fa52b8924", "Joey's revenge", "A movie about the evil man Joey getting his revenge on Fransesco", 99, GetActors(), DateTime.Now);
@@ -70,6 +77,7 @@ public class Menu
             case "4":
                 return false;
             default:
+                Error_code();
                 return true;
         }
         
@@ -79,7 +87,8 @@ public class Menu
     public void Ticket_information()
     {
         Console.Clear();
-        Console.WriteLine("Welcome to ");
+        Console.WriteLine("=====Ticket Information=====");
+        Console.WriteLine("Here you can see all the information about prices\nFor Adults(18 years and older): $20\nFor Children(17 years and younger): $15");
         PressEnter();
     }
 
