@@ -93,11 +93,61 @@ public class Menu
         PressEnter();
     }
 
-    //Hier komt de login informatie te staan
+    // Fucntionality for logging in
     public void Login_information()
     {
-        Console.Clear();
-        Console.WriteLine("login information");
-        PressEnter();
+        // Prepare variables
+        Data data = new Data();
+        User authorizedUser = null;
+        bool loginSuccesfull = false;
+        bool loginLoop = true;
+
+        // Loop while user wants to try to enter a user account
+        while (loginLoop)
+        {
+            // Let the user enter credentials 
+            Console.Clear();
+            Console.WriteLine("Login\n");
+            Console.WriteLine("Username: ");
+            string un = Console.ReadLine();
+            Console.WriteLine("Password: ");
+            string pw = Console.ReadLine();
+
+
+            // Loop over all the users from the JSON and check if one has the given credentials
+            foreach (User user in data.LoadUsers())
+            {
+                if (user.VerifyLogin(un, pw) && !loginSuccesfull)
+                {
+                    loginSuccesfull = true;
+                    authorizedUser = user;
+                }
+
+            }
+
+            // If login is successfull, let the user know. Otherwise let them know they entered the wrong info.
+            if (loginSuccesfull)
+            {
+                // Login successfull, let the user know and let them return to the menu
+                Console.Clear();
+                Console.WriteLine("Log in succesfull");
+                Console.WriteLine("Welcome, " + authorizedUser.GetFirstName());
+                loginLoop = false;
+                PressEnter();
+            }
+            else
+            {
+                // Wrong credentials. Prompt the user to try again or leave.
+                Console.Clear();
+                Console.WriteLine("Wrong username or password");
+                Console.WriteLine("1. Try again");
+                Console.WriteLine("2. Go back");
+                string option = Console.ReadLine();
+                if(option == "2")
+                {
+                    loginLoop = false;
+                }
+            }
+        }
     }
 }

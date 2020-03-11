@@ -1,5 +1,6 @@
 [
   {
+    "id": "680042c0-d107-41cf-9970-46f4cd2c6833",
     "username": "admin",
     "password": "pw",
     "firstname": "Allesandro",
@@ -8,6 +9,7 @@
     "role": "admin"
   },
   {
+    "id": "9eaeb3fb-3844-4f34-951c-b46607af2c74",
     "username": "user",
     "password": "pw",
     "firstname": "Lennert",
@@ -16,6 +18,7 @@
     "role": "user"
   },
   {
+    "id": "e72ea71b-31a3-4d73-930a-4d4818a33c7b",
     "username": "user2",
     "password": "pw",
     "firstname": "Thomas",
@@ -24,6 +27,7 @@
     "role": "user"
   },
   {
+    "id": "ec5f0e6e-90fd-4211-b9c3-70a7174c2c16",
     "username": "user3",
     "password": "pw",
     "firstname": "Kimberly",
@@ -32,6 +36,7 @@
     "role": "user"
   },
   {
+    "id": "fb3c8868-9359-4d4a-966d-855223a4991c",
     "username": "user4",
     "password": "pw",
     "firstname": "Joey",
