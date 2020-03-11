@@ -3,6 +3,7 @@ using System;
 
 public class Menu
 {   
+
     public Actor[] GetActors()
     {
         // Create dummy actor objects
@@ -12,6 +13,13 @@ public class Menu
         Actor[] actors = { joey, thomas };
         return actors;
     }
+
+    public void PressEnter()
+    {
+        Console.WriteLine("\r\nPress Enter to return to Main Menu");
+        var x = Console.ReadLine();
+    }
+
     public Movie[] Getmovies()
     {
         Movie movie = new Movie("Joey's revenge", "A movie about the evil man Joey getting his revenge on Fransesco", 99, GetActors(), DateTime.Now);
@@ -30,6 +38,7 @@ public class Menu
         Console.WriteLine("=====Welcome to Jack Cinema.===== \nThis cinema has 8 rooms with the latest movies releases. The Cinema is everday open between 8:30-22:00 \nType 1 for the movie availability\nType 2 to buy an ticket\nType 3 for the user account information");
         Console.Write("\r\nSelect an option: ");
     }
+
     public void Movie_availability()
     {
         Console.WriteLine("Here you can see all the available movies");
@@ -40,29 +49,50 @@ public class Menu
         bar();
         Console.WriteLine(Getmovies()[2].GetMovieDetails());
         bar();
+        PressEnter();
     }
-    public void menu()
+    public bool MainMenu()
     {
-        // Welcome text and menu text
-        Menu_text();
-        if (Console.ReadLine() == "1")
+        Console.Clear();
+        Console.WriteLine("=====Welcome to Jack Cinema.=====");
+        Console.WriteLine("1) For movie availability");
+        Console.WriteLine("2) For ticket information");
+        Console.WriteLine("3) For login  information");
+        Console.WriteLine("4) Exit");
+        Console.Write("\r\nSelect an option: ");
+        //Hier kijkt de programma naar welke pagina moet.
+        switch (Console.ReadLine())
         {
-            Movie_availability();
+            case "1":
+                Movie_availability();
+                return true;
+            case "2":
+                Ticket_information();
+                return true;
+            case "3":
+                Login_information();
+                return true;
+            case "4":
+                return false;
+            default:
+                return true;
         }
-        else if (Console.ReadLine() == "2")
-        {
-            Console.WriteLine("Here you can buy tickets and can you see what the prices are");
-
-        }
-
-        else if (Console.ReadLine() == "3")
-        {
-            Console.WriteLine("Here can you register or login");
-        }
-        else
-        {
-            Console.WriteLine("Please put in the correct number");
-        }
+        
     }
-    
+
+    //Hier komt de ticket informatie te staan
+    public void Ticket_information()
+    {
+        Console.Clear();
+        Console.WriteLine("test2");
+        PressEnter();
+    }
+
+    //Hier komt de login informatie te staan
+    public void Login_information()
+    {
+        Console.Clear();
+        Console.WriteLine("login information");
+        PressEnter();
+    }
 }

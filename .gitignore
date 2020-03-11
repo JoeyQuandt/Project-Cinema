@@ -339,3 +339,6 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.csprojAssemblyReference.cache
+Bioscoop/.vs/Bioscoop/v16/.suo
+Bioscoop/.vs/Bioscoop/v16/Server/sqlite3/storage.ide
+Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.csprojAssemblyReference.cache
