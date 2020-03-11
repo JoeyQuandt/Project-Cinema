@@ -17,9 +17,9 @@ public class Movie
         this.name = name;
         this.description = description;
         this.duration = duration;
-        this.actors = actors;
-        this.releaseDate = releaseDate;
-        this.ageRestriction = ageRestriction;
+        //this.actors = actors;
+        //this.releaseDate = releaseDate;
+        //this.ageRestriction = ageRestriction;
     }
 
     /// <summary>

@@ -8,7 +8,7 @@ namespace Bioscoop
         static void Main(string[] args)
         {
             Data data = new Data();
-            data.LoadMovies();
+            data.LoadUsers();
             //Menu menu = new Menu();
             //menu.menu();
         }
