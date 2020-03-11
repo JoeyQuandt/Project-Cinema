@@ -348,3 +348,10 @@ Bioscoop/.vs/Bioscoop/v16/Server/sqlite3/storage.ide
 Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.csprojAssemblyReference.cache
 Bioscoop/.vs/Bioscoop/v16/Server/sqlite3/db.lock
 *.cache
+Bioscoop/obj/project.assets.json
+Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.csprojAssemblyReference.cache
+Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.assets.cache
+Bioscoop/obj/Bioscoop.csproj.nuget.g.props
+Bioscoop/obj/Bioscoop.csproj.nuget.dgspec.json
+Bioscoop/obj/Bioscoop.csproj.nuget.cache
+Bioscoop/.vs/Bioscoop/v16/.suo
