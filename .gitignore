@@ -360,8 +360,16 @@ Bioscoop/.vs/Bioscoop/v16/.suo
 Bioscoop/.vs/Bioscoop/v16/Server/sqlite3/storage.ide
 Bioscoop/.vs/Bioscoop/v16/.suo
 Bioscoop/.vs/Bioscoop/DesignTimeBuild/.dtbcache
+Bioscoop/.vs/
 *.ide
 *.cache
 *.cache
 *.cache
 *.cache
+*.ide
+Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.assets.cache
+Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.csprojAssemblyReference.cache
+Bioscoop/obj/
+Bioscoop/.vs/
+Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.csprojAssemblyReference.cache
+Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.assets.cache
