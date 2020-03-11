@@ -361,3 +361,5 @@ Bioscoop/.vs/Bioscoop/v16/Server/sqlite3/storage.ide
 Bioscoop/.vs/Bioscoop/v16/.suo
 Bioscoop/.vs/Bioscoop/DesignTimeBuild/.dtbcache
 *.ide
+*.cache
+*.ide
