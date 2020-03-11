@@ -43,6 +43,7 @@ public class Menu
 
     public void Movie_availability()
     {
+        Console.Clear();
         Console.WriteLine("Here you can see all the available movies");
         bar();
         Console.WriteLine(Getmovies()[0].GetMovieDetails());
