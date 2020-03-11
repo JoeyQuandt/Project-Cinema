@@ -22,6 +22,6 @@ public class Ticket
 
     public string GetTicketDetails()
     {
-        return "Title:"+this.movie + "\n" +"Date:"+ this.dateTime + "\n" +"Price:$"+this.price.ToString() + "\n" +"Room:"+ this.room.ToString()+ "\n"+"SeatNumber:"+this.seatNumber.ToString();
+        return "Title: "+this.movie + "\n" +"Date: "+ this.dateTime + "\n" +"Price: $"+this.price.ToString() + "\n" +"Room: "+ this.room.ToString()+ "\n"+"SeatNumber: "+this.seatNumber.ToString();
     }
 }
