@@ -6,43 +6,46 @@ using System.Reflection;
 
 public class Data
 {
-    public void LoadMovies()
+    public List<Movie> LoadMovies()
     {
         // Load the movieData.json here and parse to Movie objects
         using (StreamReader r = new StreamReader(@"../../../data/movieData.json"))
         {
             string json = r.ReadToEnd();
             List<Movie> items = JsonConvert.DeserializeObject<List<Movie>>(json);
+            return items;
             /*foreach(Movie item in items){
                 Console.WriteLine(item.GetMovieDetails() + "\n\n");
             }*/
         }
     }
 
-    public void LoadUsers()
+    public List<User> LoadUsers()
     {
         // Load the movieData.json here and parse to Movie objects
         using (StreamReader r = new StreamReader(@"../../../data/userData.json"))
         {
             string json = r.ReadToEnd();
             List<User> items = JsonConvert.DeserializeObject<List<User>>(json);
+            return items;
             /*foreach(User item in items){
                 Console.WriteLine(item.GetFirstName() +" "+ item.GetLastName() + "\n");
             }*/
         }
     }
 
-    public void LoadActors()
+    public List<Actor> LoadActors()
     {
         // Load the movieData.json here and parse to Movie objects
         using (StreamReader r = new StreamReader(@"../../../data/actorData.json"))
         {
             string json = r.ReadToEnd();
             List<Actor> items = JsonConvert.DeserializeObject<List<Actor>>(json);
-            foreach (Actor item in items)
+            return items;
+            /*foreach (Actor item in items)
             {
                 Console.WriteLine(item.GetFirstName() + " " + item.GetLastName() + "\n");
-            }
+            }*/
         }
     }
 }
