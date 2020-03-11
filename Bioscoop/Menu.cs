@@ -28,15 +28,10 @@ public class Menu
         Movie[] movies = { movie, TheRevenge, CoryintheHouse };
         return movies;
     }
+
     public void bar()
     {
         Console.WriteLine("=========================================");
-    }
-    public void Menu_text()
-    {
-        Console.Clear();
-        Console.WriteLine("=====Welcome to Jack Cinema.===== \nThis cinema has 8 rooms with the latest movies releases. The Cinema is everday open between 8:30-22:00 \nType 1 for the movie availability\nType 2 to buy an ticket\nType 3 for the user account information");
-        Console.Write("\r\nSelect an option: ");
     }
 
     public void Movie_availability()
