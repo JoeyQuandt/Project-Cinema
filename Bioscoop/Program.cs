@@ -7,10 +7,15 @@ namespace Bioscoop
     {
         static void Main(string[] args)
         {
-            Data data = new Data();
-            data.LoadActors();
-            //Menu menu = new Menu();
-            //menu.menu();
+            Menu menu = new Menu();
+            bool showMenu = true;
+
+            while (showMenu)
+            {
+                showMenu = menu.MainMenu();
+                
+            }
         }
+        //Menu waarbij je 4 keuze opties hebt. Je kan een optie kiezen door te typen
     }
 }

@@ -3,6 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Fucking C# VS2019 shit
+*.vs/
+Bioscoop/.vs/
+
 # User-specific files
 *.rsuser
 *.suo
@@ -338,3 +342,8 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.csprojAssemblyReference.cache
+Bioscoop/.vs/Bioscoop/v16/.suo
+Bioscoop/.vs/Bioscoop/v16/Server/sqlite3/storage.ide
+Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.csprojAssemblyReference.cache
+Bioscoop/.vs/Bioscoop/v16/Server/sqlite3/db.lock
