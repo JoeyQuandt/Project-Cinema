@@ -79,7 +79,7 @@ public class Menu
     public void Ticket_information()
     {
         Console.Clear();
-        Console.WriteLine("test2");
+        Console.WriteLine("Welcome to ");
         PressEnter();
     }
 
