@@ -44,14 +44,11 @@ public class Menu
     public void Movie_availability()
     {
         Console.Clear();
-        Console.WriteLine("Here you can see all the available movies");
-        bar();
-        Console.WriteLine(Getmovies()[0].GetMovieDetails());
-        bar();
-        Console.WriteLine(Getmovies()[1].GetMovieDetails());
-        bar();
-        Console.WriteLine(Getmovies()[2].GetMovieDetails());
-        bar();
+        Data data = new Data();
+        foreach (Movie movie in data.LoadMovies())
+        {
+            Console.WriteLine(movie.GetMovieDetails());
+        }
         PressEnter();
     }
     public bool MainMenu()
