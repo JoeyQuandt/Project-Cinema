@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
-public class Data
+public static class Data
 {
-    public List<Movie> LoadMovies()
+    public static List<Movie> LoadMovies()
     {
         // Load the movieData.json here and parse to Movie objects
         using (StreamReader r = new StreamReader(@"../../../data/movieData.json"))
@@ -20,7 +20,7 @@ public class Data
         }
     }
 
-    public List<User> LoadUsers()
+    public static List<User> LoadUsers()
     {
         // Load the movieData.json here and parse to Movie objects
         using (StreamReader r = new StreamReader(@"../../../data/userData.json"))
@@ -34,7 +34,7 @@ public class Data
         }
     }
 
-    public List<Actor> LoadActors()
+    public static List<Actor> LoadActors()
     {
         // Load the movieData.json here and parse to Movie objects
         using (StreamReader r = new StreamReader(@"../../../data/actorData.json"))
@@ -49,7 +49,7 @@ public class Data
         }
     }
 
-    public List<Room> LoadRooms()
+    public static List<Room> LoadRooms()
     {
         // Load the movieData.json here and parse to Movie objects
         using (StreamReader r = new StreamReader(@"../../../data/roomData.json"))
