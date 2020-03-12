@@ -20,8 +20,7 @@ public class Menu
     public void Movie_information()
     {
         Console.Clear();
-        Data data = new Data();
-        foreach (Movie movie in data.LoadMovies())
+        foreach (Movie movie in Data.LoadMovies())
         {
             Console.WriteLine(movie.GetMovieDetails()+"\n==============");
         }
@@ -40,7 +39,6 @@ public class Menu
     public void Login_information()
     {
         // Prepare variables
-        Data data = new Data();
         User authorizedUser = null;
         bool loginSuccesfull = false;
         bool loginLoop = true;
@@ -58,7 +56,7 @@ public class Menu
 
 
             // Loop over all the users from the JSON and check if one has the given credentials
-            foreach (User user in data.LoadUsers())
+            foreach (User user in Data.LoadUsers())
             {
                 if (user.VerifyLogin(un, pw) && !loginSuccesfull)
                 {
