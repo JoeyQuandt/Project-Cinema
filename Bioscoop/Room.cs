@@ -8,9 +8,9 @@ public class Room
     private int takenSeats = 0;
 
     // Constructor
-    public Room(string roomName, int seats)
+    public Room(string id, string roomName, int seats)
 	{
-        roomId = System.Guid.NewGuid();
+        this.roomId = new Guid(id.Replace("-", ""));
         this.roomName = roomName;
         this.seats = seats;
     }

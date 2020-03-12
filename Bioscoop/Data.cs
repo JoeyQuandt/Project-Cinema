@@ -48,4 +48,19 @@ public class Data
             }*/
         }
     }
+
+    public List<Room> LoadRooms()
+    {
+        // Load the movieData.json here and parse to Movie objects
+        using (StreamReader r = new StreamReader(@"../../../data/roomData.json"))
+        {
+            string json = r.ReadToEnd();
+            List<Room> items = JsonConvert.DeserializeObject<List<Room>>(json);
+            return items;
+            /*foreach (Actor item in items)
+            {
+                Console.WriteLine(item.GetFirstName() + " " + item.GetLastName() + "\n");
+            }*/
+        }
+    }
 }
