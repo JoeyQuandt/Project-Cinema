@@ -95,7 +95,7 @@ public class Menu
     //Fuctionality for the main menu
     public bool MainMenu()
     {
-        Data data = new Data();
+        //Data data = new Data();
         User authorizedUser = null;
         bool loginSuccesfull = false;
         bool loginLoop = true;
