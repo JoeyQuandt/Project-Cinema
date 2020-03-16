@@ -11,15 +11,15 @@ public class Movie
     private int ageRestriction; // Age restriction
 
     // Constructor
-    public Movie(string name, string description, int duration, Actor[] actors, DateTime releaseDate, int ageRestriction = 99)
+    public Movie(string id, string name, string description, int duration, Actor[] actors, DateTime releaseDate, int ageRestriction = 99)
     {
-        movieId = System.Guid.NewGuid();
+        this.movieId = new Guid(id.Replace("-", ""));
         this.name = name;
         this.description = description;
         this.duration = duration;
-        this.actors = actors;
-        this.releaseDate = releaseDate;
-        this.ageRestriction = ageRestriction;
+        //this.actors = actors;
+        //this.releaseDate = releaseDate;
+        //this.ageRestriction = ageRestriction;
     }
 
     /// <summary>
@@ -27,7 +27,7 @@ public class Movie
     /// </summary>
     public string GetMovieDetails()
     {
-        return "Title:"+this.name + "\n" + "Description:"+this.description + "\n" + "Duration:"+this.duration.ToString() + " minutes";
+        return "Title: "+this.name + "\n" + "Description: "+this.description + "\n" + "Duration: "+this.duration.ToString() + " minutes";
     }
 
 }
