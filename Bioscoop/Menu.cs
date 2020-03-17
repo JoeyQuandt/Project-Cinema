@@ -48,32 +48,57 @@ public class Menu
         }
         return MovieList;
     }
+
+    // Error handles inputs and casts them to integers.
+    public int integer_Input(string message, int limit = 1000)
+    {
+        bool correct = true;
+        while (correct)
+        {
+            Console.WriteLine(message);
+            var input = Console.ReadLine();
+            //var intMovieNumber = Int32.Parse(movieNumber);
+            if (Int32.TryParse(input, out int castedInput))
+            { 
+                if (castedInput > limit)
+                {
+                    Console.WriteLine("Enter a value between 1 and " + limit);
+                }
+                else
+                {
+                    return castedInput;
+                }
+                
+            }
+            else
+            {
+                //It failed, do other stuff
+                Console.WriteLine("Enter a different value");
+            }
+        }
+        return 0;
+    }
     //List<Reservation>
     public int Make_reservation()
     {
-        var MovieLists = Make_movielist();
+        var MovieList = Make_movielist();
 
         //Console.WriteLine(MovieLists[1]);
-        for (int x = 1; x < MovieLists.Count + 1; x++)
+        for (int x = 1; x < MovieList.Count + 1; x++)
         {
-            Console.WriteLine(x + ") " + MovieLists[x - 1].GetMovieTitles());
+            Console.WriteLine(x + ") " + MovieList[x - 1].GetMovieTitles());
         }
-        Console.WriteLine("Enter the number of the movie you want to reserve for.");
 
-        var movieNumber = Console.ReadLine();
-        var intMovieNumber = Int32.Parse(movieNumber);
-        Console.WriteLine("Confirm to place a reservation for " + MovieLists[intMovieNumber - 1].GetMovieTitles());
-        PressEnter();
+        int MovieNumber = integer_Input("Enter the number of the movie you want to reserve for.", MovieList.Count);
+        Console.WriteLine("Confirm to place a reservation for " + MovieList[MovieNumber - 1].GetMovieTitles());
 
-        Console.WriteLine("Enter the number of tickets you want");
-        var ticketAmount = Console.ReadLine();
-        var intTicketAmount = Int32.Parse(ticketAmount);
+        int ticketAmount = integer_Input("Enter the amount of tickets you want");
 
-        Console.WriteLine("How many adult tickets do you want?");
-        var adultTicketAmount = Console.ReadLine();
+        int adultTicketAmount = integer_Input("How many adult tickets do you want?", ticketAmount);
 
-        Console.WriteLine("How many child tickets do you want?");
-        var childTicketAmount = Console.ReadLine();
+        int childTicketAmount = integer_Input("How many child tickets do you want?", ticketAmount-adultTicketAmount);
+
+        Console.WriteLine();
         PressEnter();
         return 0;
     }
