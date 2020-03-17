@@ -104,8 +104,6 @@ public class Menu
                 return 0;
         }
 
-
-
         Console.WriteLine();
         PressEnter();
         return 0;
