@@ -52,23 +52,22 @@ public class Menu
     // Error handles inputs and casts them to integers.
     public int integer_Input(string message, int limit = 1000)
     {
-        bool correct = true;
-        while (correct)
+        while (true)
         {
             Console.WriteLine(message);
             var input = Console.ReadLine();
             //var intMovieNumber = Int32.Parse(movieNumber);
             if (Int32.TryParse(input, out int castedInput))
             { 
-                if (castedInput > limit)
+                if (castedInput < 1 && castedInput > limit)
                 {
                     Console.WriteLine("Enter a value between 1 and " + limit);
                 }
                 else
                 {
+
                     return castedInput;
                 }
-                
             }
             else
             {
@@ -76,7 +75,6 @@ public class Menu
                 Console.WriteLine("Enter a different value");
             }
         }
-        return 0;
     }
     //List<Reservation>
     public int Make_reservation()
@@ -90,7 +88,17 @@ public class Menu
         }
 
         int MovieNumber = integer_Input("Enter the number of the movie you want to reserve for.", MovieList.Count);
-        Console.WriteLine("Confirm to place a reservation for " + MovieList[MovieNumber - 1].GetMovieTitles());
+        Console.WriteLine("Confirm to place a reservation for " + MovieList[MovieNumber - 1].GetMovieTitles() + "\n Y/N" );
+        string Response = Console.ReadLine();
+        switch (Console.ReadLine())
+        {
+            case "Y":
+                Make_reservation();
+                return 0;
+            case "N":
+
+                return true;
+        }
 
         int ticketAmount = integer_Input("Enter the amount of tickets you want");
 
