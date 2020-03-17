@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections.Generic;
 
 public class Menu
 {   
@@ -7,7 +8,7 @@ public class Menu
     public void PressEnter()
     {
         Console.WriteLine("Press Enter to return to Main Menu");
-        var x = Console.ReadLine();
+        Console.ReadLine();
     }
     //Error function
     public void Error_code()
@@ -20,10 +21,13 @@ public class Menu
     public void Movie_information()
     {
         Console.Clear();
+
         foreach (Movie movie in Data.LoadMovies())
         {
+            
             Console.WriteLine(movie.GetMovieDetails()+"\n==============");
         }
+
         PressEnter();
     }
     //Ticket Information
@@ -34,8 +38,49 @@ public class Menu
         Console.WriteLine("Here you can see all the information about prices\nFor Adults(18 years and older): $20\nFor Children(17 years and younger): $15");
         PressEnter();
     }
+    // Makes a list of all the movies.
+    public List<Movie> Make_movielist()
+    {
+        var MovieList = new List<Movie>();
+        foreach (Movie movie in Data.LoadMovies())
+        {
+            MovieList.Add(movie);
+        }
+        return MovieList;
+    }
+    //List<Reservation>
+    public int Make_reservation()
+    {
+        var MovieLists = Make_movielist();
 
-    // Fucntionality for logging in
+        //Console.WriteLine(MovieLists[1]);
+        for (int x = 1; x < MovieLists.Count + 1; x++)
+        {
+            Console.WriteLine(x + ") " + MovieLists[x - 1].GetMovieTitles());
+        }
+        Console.WriteLine("Enter the number of the movie you want to reserve for.");
+
+        var movieNumber = Console.ReadLine();
+        var intMovieNumber = Int32.Parse(movieNumber);
+        Console.WriteLine("Confirm to place a reservation for " + MovieLists[intMovieNumber - 1].GetMovieTitles());
+        PressEnter();
+
+        Console.WriteLine("Enter the number of tickets you want");
+        var ticketAmount = Console.ReadLine();
+        var intTicketAmount = Int32.Parse(ticketAmount);
+
+        Console.WriteLine("How many adult tickets do you want?");
+        var adultTicketAmount = Console.ReadLine();
+
+        Console.WriteLine("How many child tickets do you want?");
+        var childTicketAmount = Console.ReadLine();
+        PressEnter();
+        return 0;
+    }
+
+
+
+    // Functionality for logging in
     public void Login_information()
     {
         // Prepare variables
@@ -110,6 +155,8 @@ public class Menu
         Console.WriteLine("2) For ticket information");
         Console.WriteLine("3) For login  information");
         Console.WriteLine("4) Exit");
+        Console.WriteLine("5) Place reservation");
+        
         Console.Write("\r\nSelect an option: ");
         //switch checking which number is pressed
         switch (Console.ReadLine())
@@ -125,6 +172,9 @@ public class Menu
                 return true;
             case "4":
                 return false;
+            case "5":
+                Make_reservation();
+                return true;
             default:
                 Error_code();
                 return true;

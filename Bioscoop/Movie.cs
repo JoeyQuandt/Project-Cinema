@@ -30,4 +30,9 @@ public class Movie
         return "Title: "+this.name + "\n" + "Description: "+this.description + "\n" + "Duration: "+this.duration.ToString() + " minutes";
     }
 
+    public string GetMovieTitles()
+    {
+        return this.name;
+    }
+
 }
