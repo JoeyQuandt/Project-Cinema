@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace Bioscoop
 {
@@ -7,7 +8,14 @@ namespace Bioscoop
         static void Main(string[] args)
         {
             Menu menu = new Menu();
-            menu.menu();
+            bool showMenu = true;
+
+            while (showMenu)
+            {
+                showMenu = menu.MainMenu();
+                
+            }
         }
+        //Menu waarbij je 4 keuze opties hebt. Je kan een optie kiezen door te typen
     }
 }

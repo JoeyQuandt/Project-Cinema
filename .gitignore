@@ -3,6 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Fucking C# VS2019 shit
+*.vs/
+Bioscoop/.vs/
+
 # User-specific files
 *.rsuser
 *.suo
@@ -338,3 +342,35 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.csprojAssemblyReference.cache
+Bioscoop/.vs/Bioscoop/v16/.suo
+Bioscoop/.vs/Bioscoop/v16/Server/sqlite3/storage.ide
+Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.csprojAssemblyReference.cache
+*.cache
+Bioscoop/.vs/Bioscoop/v16/.suo
+Bioscoop/.vs/Bioscoop/DesignTimeBuild/.dtbcache
+Bioscoop/.vs/Bioscoop/v16/Server/sqlite3/db.lock
+*.cache
+Bioscoop/obj/project.assets.json
+Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.csprojAssemblyReference.cache
+Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.assets.cache
+Bioscoop/obj/Bioscoop.csproj.nuget.g.props
+Bioscoop/obj/Bioscoop.csproj.nuget.dgspec.json
+Bioscoop/obj/Bioscoop.csproj.nuget.cache
+Bioscoop/.vs/Bioscoop/v16/.suo
+Bioscoop/.vs/Bioscoop/v16/Server/sqlite3/storage.ide
+Bioscoop/.vs/Bioscoop/v16/.suo
+Bioscoop/.vs/Bioscoop/DesignTimeBuild/.dtbcache
+Bioscoop/.vs/
+*.ide
+*.cache
+*.cache
+*.cache
+*.cache
+*.ide
+Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.assets.cache
+Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.csprojAssemblyReference.cache
+Bioscoop/obj/
+Bioscoop/.vs/
+Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.csprojAssemblyReference.cache
+Bioscoop/obj/Debug/netcoreapp3.0/Bioscoop.assets.cache

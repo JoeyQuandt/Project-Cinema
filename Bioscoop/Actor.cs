@@ -13,4 +13,14 @@ public class Actor
         this.firstName = firstName;
         this.lastName = lastName;
 	}
+
+    public string GetFirstName()
+    {
+        return this.firstName;
+    }
+
+    public string GetLastName()
+    {
+        return this.lastName;
+    }
 }
