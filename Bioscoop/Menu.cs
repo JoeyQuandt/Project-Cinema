@@ -88,10 +88,10 @@ public class Menu
         }
 
         int MovieNumber = integer_Input("Enter the number of the movie you want to reserve for.", MovieList.Count);
-        Console.WriteLine("Confirm to place a reservation for " + MovieList[MovieNumber - 1].GetMovieTitles() + "\nY/N" );
-        switch (Console.ReadLine())
+        Console.WriteLine("Confirm to place a reservation for " + MovieList[MovieNumber - 1].GetMovieTitles() + "\ny/n" );
+        switch (Console.ReadLine().ToLower())
         {
-            case "Y":
+            case "y":
                 int ticketAmount = integer_Input("Enter the amount of tickets you want");
 
                 int adultTicketAmount = integer_Input("How many adult tickets do you want?", ticketAmount);
@@ -99,16 +99,16 @@ public class Menu
                 int childTicketAmount = integer_Input("How many child tickets do you want?", ticketAmount - adultTicketAmount);
 
                 return 0;
-            case "N":
+
+            case "n":
+                Make_reservation();
+                return 0;
+
+            default:
                 Make_reservation();
                 return 0;
         }
 
-
-
-        Console.WriteLine();
-        PressEnter();
-        return 0;
     }
 
 
