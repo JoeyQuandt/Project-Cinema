@@ -88,10 +88,10 @@ public class Menu
         }
 
         int MovieNumber = integer_Input("Enter the number of the movie you want to reserve for.", MovieList.Count);
-        Console.WriteLine("Confirm to place a reservation for " + MovieList[MovieNumber - 1].GetMovieTitles() + "\ny/n" );
-        switch (Console.ReadLine().ToLower())
+        Console.WriteLine("Confirm to place a reservation for " + MovieList[MovieNumber - 1].GetMovieTitles() + "\nY/N" );
+        switch (Console.ReadLine())
         {
-            case "y":
+            case "Y":
                 int ticketAmount = integer_Input("Enter the amount of tickets you want");
 
                 int adultTicketAmount = integer_Input("How many adult tickets do you want?", ticketAmount);
@@ -99,16 +99,14 @@ public class Menu
                 int childTicketAmount = integer_Input("How many child tickets do you want?", ticketAmount - adultTicketAmount);
 
                 return 0;
-
-            case "n":
-                Make_reservation();
-                return 0;
-
-            default:
+            case "N":
                 Make_reservation();
                 return 0;
         }
 
+        Console.WriteLine();
+        PressEnter();
+        return 0;
     }
 
 
@@ -149,10 +147,18 @@ public class Menu
             {
                 // Login successfull, let the user know and let them return to the menu
                 Console.Clear();
-                Console.WriteLine("Log in succesfull");
-                Console.WriteLine("Welcome, " + authorizedUser.GetFirstName());
-                loginLoop = false;
-                PressEnter();
+                if (authorizedUser.GetRole() == "admin")
+                {
+                    Administrator.Menu();
+                    loginLoop = false;
+                } else
+                {
+                    Console.WriteLine("Log in succesfull");
+                    Console.WriteLine("Welcome, " + authorizedUser.GetFirstName());
+                    loginLoop = false;
+                    PressEnter();
+                }
+                
             }
             else
             {
@@ -176,7 +182,6 @@ public class Menu
         //Data data = new Data();
         User authorizedUser = null;
         bool loginSuccesfull = false;
-        bool loginLoop = true;
         //menu options
         Console.Clear();
         Console.WriteLine("=====Welcome to Jack Cinema.=====");
