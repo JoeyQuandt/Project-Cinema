@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 public static class Administrator
 {
@@ -10,8 +11,20 @@ public static class Administrator
 
     private static void ErrorCode()
     {
-        Console.Clear();
         Console.WriteLine("Error, only use the numbers from the option menu");
+    }
+
+    private static void ListMoviesAsOptions()
+    {
+        List<Movie> movies = Data.LoadMovies();
+        Console.Clear();
+        foreach(Movie movie in movies)
+        {
+            Console.WriteLine(movie.GetMovieTitle());
+            Console.WriteLine(movie.GetMovieDescription());
+            Console.WriteLine(movie.GetMovieDuration().ToString() + " minutes");
+            Console.WriteLine("");
+        }
         PressEnter();
     }
 
@@ -20,6 +33,7 @@ public static class Administrator
         bool loop = true;
         while (loop)
         {
+            Console.Clear();
             // Present the menu options
             Console.WriteLine("Welcome to the admin part");
             Console.WriteLine("1) View all movies");
@@ -28,11 +42,10 @@ public static class Administrator
             Console.WriteLine("4) Remove a movie");
             Console.WriteLine("5) Exit the admin part and go back to the main menu");
             // Prompt the user to choose
-            string option = Console.ReadLine();
-            switch (option)
+            switch (Console.ReadLine())
             {
                 case "1":
-                    Console.WriteLine("Option 1");
+                    ListMoviesAsOptions();
                     continue;
                 case "2":
                     Console.WriteLine("Option 2");
@@ -48,12 +61,10 @@ public static class Administrator
                     loop = false;
                     continue;
                 default:
-                    Console.WriteLine("\nPlease enter a valid option\n");
+                    ErrorCode();
                     PressEnter();
                     continue;
             }
         }
-       
-
     }
 }
