@@ -45,6 +45,11 @@ public class Movie
         return this.duration;
     }
 
+    public int GetAgeRestriction()
+    {
+        return this.ageRestriction;
+    }
+
     public string GetMovieTitles()
     {
         return this.name;
