@@ -182,7 +182,6 @@ public class Menu
         //Data data = new Data();
         User authorizedUser = null;
         bool loginSuccesfull = false;
-        bool loginLoop = true;
         //menu options
         Console.Clear();
         Console.WriteLine("=====Welcome to Jack Cinema.=====");
