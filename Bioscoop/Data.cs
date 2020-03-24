@@ -20,6 +20,11 @@ public static class Data
         }
     }
 
+    public static void AddMovie(string title, string description, int duration)
+    {
+        Console.WriteLine("Added Movie: " + title );
+    }
+
     public static List<User> LoadUsers()
     {
         // Load the movieData.json here and parse to Movie objects
@@ -63,4 +68,6 @@ public static class Data
             }*/
         }
     }
+
+    
 }
