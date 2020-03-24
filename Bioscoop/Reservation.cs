@@ -3,11 +3,11 @@
 public class Reservation
 {
     private Guid reservationId;
-    private Ticket tickets;
+    private Ticket[] tickets;
     private int ticketAmount;
 
 
-    public Reservation (Ticket tickets, int ticketAmount)
+    public Reservation (Ticket[] tickets, int ticketAmount)
     {
         reservationId = System.Guid.NewGuid();
         this.tickets = tickets;
