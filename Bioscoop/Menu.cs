@@ -147,10 +147,18 @@ public class Menu
             {
                 // Login successfull, let the user know and let them return to the menu
                 Console.Clear();
-                Console.WriteLine("Log in succesfull");
-                Console.WriteLine("Welcome, " + authorizedUser.GetFirstName());
-                loginLoop = false;
-                PressEnter();
+                if (authorizedUser.GetRole() == "admin")
+                {
+                    Administrator.Menu();
+                    loginLoop = false;
+                } else
+                {
+                    Console.WriteLine("Log in succesfull");
+                    Console.WriteLine("Welcome, " + authorizedUser.GetFirstName());
+                    loginLoop = false;
+                    PressEnter();
+                }
+                
             }
             else
             {
