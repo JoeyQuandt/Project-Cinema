@@ -3,12 +3,45 @@
         "id": "979b03f7-c133-47a4-8c7a-c1f0fd554528",
         "movieId": "2dc2759d-f106-436c-b716-2702c4739d2e",
         "roomId": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
+<<<<<<< HEAD
+        "dateTime": "13-03-2020 13:30"
+=======
         "dateTime": "13-03-2020 10:15"
+>>>>>>> master
     },
     {
         "id": "847f33d0-9d7a-43fa-997e-68a6982f7279",
         "movieId": "847f33d0-9d7a-43fa-997e-68a6982f7279",
         "roomId": "27b005fd-f9ab-42f3-a9a6-f12c10d4ecb5",
+<<<<<<< HEAD
+        "dateTime": "13-03-2020 13:45"
+    },
+    {
+        "id": "9901f7fc-573a-44ca-8272-def1c9069a6d",
+        "movieId": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
+        "roomId": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
+        "dateTime": "13-03-2020 14:00"
+
+    },
+    {
+        "id": "230c14cd-7981-4f73-b601-78e9262fbdfb",
+        "movieId": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
+        "roomId": "ec65ea51-a0c9-465a-af71-934c811b2894",
+        "dateTime": "13-03-2020 14:15"
+
+    },
+    {
+        "id": "a2642413-95e7-4e38-ba37-5f1c79d396eb",
+        "movieId": "415de207-2c1b-4bd0-9e65-7a15afa3fef2",
+        "roomId": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
+        "dateTime": "13-03-2020 17:15"
+    },
+    {
+        "id": "9c5da546-dd9a-4321-8bc7-5aaceed6a483",
+        "movieId": "0c40126a-303b-41d5-b7b3-7c41901be756",
+        "roomId": "27b005fd-f9ab-42f3-a9a6-f12c10d4ecb5",
+        "dateTime": "13-03-2020 18:00",
+        "=======": null,
         "dateTime": "13-03-2020 10:20"
     },
     {
@@ -173,6 +206,7 @@
         "movieId": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
         "roomId": "ec65ea51-a0c9-465a-af71-934c811b2894",
         "dateTime": "13-03-2020 23:55"
+>>>>>>> master
     }
 
         
