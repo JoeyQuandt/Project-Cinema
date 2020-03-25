@@ -1,6 +1,8 @@
 
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 public class Menu
 {   
@@ -49,6 +51,15 @@ public class Menu
         return MovieList;
     }
 
+    public List<Room> Make_roomlist()
+    {
+        var RoomList = new List<Room>();
+        foreach (Room room in Data.LoadRooms())
+        {
+            RoomList.Add(room);
+        }
+        return RoomList;
+    }
     // Error handles inputs and casts them to integers.
     public int integer_Input(string message, int limit = 1000)
     {
@@ -65,7 +76,6 @@ public class Menu
                 }
                 else
                 {
-
                     return castedInput;
                 }
             }
@@ -79,23 +89,36 @@ public class Menu
     //List<Reservation>
     public int Make_reservation()
     {
+        var RoomList = Make_roomlist();
         var MovieList = Make_movielist();
 
         //Console.WriteLine(MovieLists[1]);
         for (int x = 1; x < MovieList.Count + 1; x++)
         {
-            Console.WriteLine(x + ") " + MovieList[x - 1].GetMovieTitles());
+            Console.WriteLine(x + ") " + MovieList[x - 1].GetMovieTitle());
         }
 
         int MovieNumber = integer_Input("Enter the number of the movie you want to reserve for.", MovieList.Count);
-        Console.WriteLine("Confirm to place a reservation for " + MovieList[MovieNumber - 1].GetMovieTitles() + "\ny/n");
+        Console.WriteLine("Confirm to place a reservation for " + MovieList[MovieNumber - 1].GetMovieTitle() + "\ny/n");
         switch (Console.ReadLine().ToLower())
         {
             case "y":
+                DateTime timeReservation = new DateTime(2020, 5, 21);
+
+
+               // var list = JsonConvert.DeserializeObject<List<Ticket>>(@"../../../data/ticketData.json");
+               // list.Add(new Ticket(MovieList[MovieNumber - 1], timeReservation, RoomList[0], 1, "Adult"));
+               // JsonConvert.SerializeObject(list, Formatting.Indented);
+
+                
+
+                Ticket test = new Ticket(MovieList[MovieNumber - 1], timeReservation, RoomList[0], 1, "Adult");
+                string storeticket = JsonConvert.SerializeObject(test, Formatting.Indented);
+                File.AppendAllText(@"../../../data/ticketData.json", storeticket + ",\n");
+                Console.WriteLine("Stored!");
+
                 int ticketAmount = integer_Input("Enter the amount of tickets you want");
-
                 int adultTicketAmount = integer_Input("How many adult tickets do you want?", ticketAmount);
-
                 int childTicketAmount = integer_Input("How many child tickets do you want?", ticketAmount - adultTicketAmount);
 
                 return 0;

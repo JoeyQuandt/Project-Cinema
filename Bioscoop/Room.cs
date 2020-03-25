@@ -2,16 +2,16 @@
 
 public class Room
 {
-    private Guid roomId;
-    private string roomName;
-    private int seats;
-    private int takenSeats = 0;
+    public Guid roomId;
+    public string name;
+    public int seats;
+    public int takenSeats = 0;
 
     // Constructor
-    public Room(string id, string roomName, int seats)
+    public Room(string id, string name, int seats)
 	{
         this.roomId = new Guid(id.Replace("-", ""));
-        this.roomName = roomName;
+        this.name = name;
         this.seats = seats;
     }
 
@@ -31,5 +31,9 @@ public class Room
     public int GetAvailableSeats()
     {
         return this.seats - this.takenSeats;
+    }
+    public string GetRoomName()
+    {
+        return this.name;
     }
 }

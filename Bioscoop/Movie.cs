@@ -2,13 +2,13 @@
 
 public class Movie
 {
-    private Guid movieId;
-    private string name; // Name of the movie
-    private string description; // Description of the movie
-    private int duration { get; set; }// In minutes
-    private Actor[] actors; // A list of actors playing in the movie
-    private DateTime releaseDate; // Releasedate
-    private int ageRestriction; // Age restriction
+    public Guid movieId;
+    public string name; // Name of the movie
+    public string description; // Description of the movie
+    public int duration { get; set; }// In minutes
+    public Actor[] actors; // A list of actors playing in the movie
+    public DateTime releaseDate; // Releasedate
+    public int ageRestriction; // Age restriction
 
     // Constructor
     public Movie(string id, string name, string description, int duration, Actor[] actors, DateTime releaseDate, int ageRestriction = 99)
@@ -45,14 +45,5 @@ public class Movie
         return this.duration;
     }
 
-    public int GetAgeRestriction()
-    {
-        return this.ageRestriction;
-    }
-
-    public string GetMovieTitles()
-    {
-        return this.name;
-    }
 
 }
