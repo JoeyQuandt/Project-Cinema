@@ -2,22 +2,22 @@
     {
         "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
         "name": "zaal 1",
-        "numberOfSeats": 100
+        "seats": 100
     },
     {
         "id": "27b005fd-f9ab-42f3-a9a6-f12c10d4ecb5",
         "name": "zaal 2",
-        "numberOfSeats": 75
+        "seats": 75
     },
     {
         "id": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
-        "name": "zaal 4",
-        "numberOfSeats": 150
+        "name": "zaal 3",
+        "seats": 150
     },
     { "$ref": "#" },
     {
         "id": "ec65ea51-a0c9-465a-af71-934c811b2894",
         "name": "zaal 4",
-        "numberOfSeats": 125
+        "seats": 125
     }
 ]

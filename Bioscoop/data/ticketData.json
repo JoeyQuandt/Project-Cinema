@@ -1,5 +1,24 @@
-{
+[
   {
-    type
+    "ticketId": "0d39c0cc-a3bc-428f-9482-d7ad9f2b0397",
+    "movie": {
+      "movieId": "847f33d0-9d7a-43fa-997e-68a6982f7279",
+      "name": "Fast and Furious 15",
+      "description": "A movie about racing",
+      "actors": null,
+      "releaseDate": "0001-01-01T00:00:00",
+      "ageRestriction": 0,
+      "duration": 240
+    },
+    "dateTime": "2020-05-21T00:00:00",
+    "room": {
+      "roomId": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
+      "name": "zaal 1",
+      "seats": 100,
+      "takenSeats": 0
+    },
+    "seatNumber": 1,
+    "type": "Adult"
   }
-}
+]
+
