@@ -69,5 +69,19 @@ public static class Data
         }
     }
 
-    
+    public static List<Ticket> LoadTickets()
+    {
+        // Load the movieData.json here and parse to Movie objects
+        using (StreamReader r = new StreamReader(@"../../../data/ticketData.json"))
+        {
+            string json = r.ReadToEnd();
+            List<Ticket> items = JsonConvert.DeserializeObject<List<Ticket>>(json);
+            return items;
+            /*foreach(Movie item in items){
+                Console.WriteLine(item.GetMovieDetails() + "\n\n");
+            }*/
+        }
+    }
+
+
 }

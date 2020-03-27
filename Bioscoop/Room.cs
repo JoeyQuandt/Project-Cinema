@@ -2,7 +2,7 @@
 
 public class Room
 {
-    public Guid roomId;
+    public Guid id;
     public string name;
     public int seats;
     public int takenSeats = 0;
@@ -10,7 +10,7 @@ public class Room
     // Constructor
     public Room(string id, string name, int seats)
 	{
-        this.roomId = new Guid(id.Replace("-", ""));
+        this.id = new Guid(id.Replace("-", ""));
         this.name = name;
         this.seats = seats;
     }

@@ -40,7 +40,9 @@ public class Menu
         Console.WriteLine("Here you can see all the information about prices\nFor Adults(18 years and older): $20\nFor Children(17 years and younger): $15");
         PressEnter();
     }
-    // Makes a list of all the movies.
+
+
+    // Uses the objects in the JSON "movieData" and returns a list of them.
     public List<Movie> Make_movielist()
     {
         var MovieList = new List<Movie>();
@@ -51,6 +53,7 @@ public class Menu
         return MovieList;
     }
 
+    // Uses the objects in the JSON "roomData" and returns a list of them.
     public List<Room> Make_roomlist()
     {
         var RoomList = new List<Room>();
@@ -60,17 +63,32 @@ public class Menu
         }
         return RoomList;
     }
-    // Error handles inputs and casts them to integers.
-    public int integer_Input(string message, int limit = 1000)
+
+
+    // Uses the objects in the JSON "ticketData" and returns a list of them.
+    public List<Ticket> Make_ticketlist()
+    {
+        var TicketList = new List<Ticket>();
+        foreach (Ticket ticket in Data.LoadTickets())
+        {
+            TicketList.Add(ticket);
+        }
+        return TicketList;
+    }
+
+
+    // A function made to be able to error handle inputs where you want an integer as result.
+    // Parameters are for a message and a limit 
+    public int Integer_input(string message, int limit = 100)
     {
         while (true)
         {
             Console.WriteLine(message);
             var input = Console.ReadLine();
-            //var intMovieNumber = Int32.Parse(movieNumber);
+            // This function tries to make the input as an integer and if it does you get "castedInput" if not it will run the else.
             if (Int32.TryParse(input, out int castedInput))
             { 
-                if (castedInput < 1 && castedInput > limit)
+                if (castedInput < 1 || castedInput > limit)
                 {
                     Console.WriteLine("Enter a value between 1 and " + limit);
                 }
@@ -81,45 +99,42 @@ public class Menu
             }
             else
             {
-                //It failed, do other stuff
                 Console.WriteLine("Enter a different value");
             }
         }
     }
+
+
     //List<Reservation>
     public int Make_reservation()
     {
         var RoomList = Make_roomlist();
         var MovieList = Make_movielist();
-
-        //Console.WriteLine(MovieLists[1]);
+        // Shows all the movie titles
         for (int x = 1; x < MovieList.Count + 1; x++)
         {
             Console.WriteLine(x + ") " + MovieList[x - 1].GetMovieTitle());
         }
 
-        int MovieNumber = integer_Input("Enter the number of the movie you want to reserve for.", MovieList.Count);
+        int MovieNumber = Integer_input("Enter the number of the movie you want to reserve for.", MovieList.Count);
         Console.WriteLine("Confirm to place a reservation for " + MovieList[MovieNumber - 1].GetMovieTitle() + "\ny/n");
         switch (Console.ReadLine().ToLower())
         {
             case "y":
                 DateTime timeReservation = new DateTime(2020, 5, 21);
 
+                List<Ticket> list = Make_ticketlist();
+                list.Add(new Ticket(MovieList[MovieNumber - 1], timeReservation, RoomList[0], 1, "Adult"));
+                var test = JsonConvert.SerializeObject(list, Formatting.Indented);
+                File.WriteAllText(@"../../../data/ticketData.json", test);
 
-               // var list = JsonConvert.DeserializeObject<List<Ticket>>(@"../../../data/ticketData.json");
-               // list.Add(new Ticket(MovieList[MovieNumber - 1], timeReservation, RoomList[0], 1, "Adult"));
-               // JsonConvert.SerializeObject(list, Formatting.Indented);
 
-                
+                int ticketAmount = Integer_input("Enter the amount of tickets you want", RoomList[0].GetAvailableSeats());
+                int adultTicketAmount = Integer_input("How many adult tickets do you want?", ticketAmount);
+                int childTicketAmount = ticketAmount - adultTicketAmount;
 
-                Ticket test = new Ticket(MovieList[MovieNumber - 1], timeReservation, RoomList[0], 1, "Adult");
-                string storeticket = JsonConvert.SerializeObject(test, Formatting.Indented);
-                File.AppendAllText(@"../../../data/ticketData.json", storeticket + ",\n");
-                Console.WriteLine("Stored!");
-
-                int ticketAmount = integer_Input("Enter the amount of tickets you want");
-                int adultTicketAmount = integer_Input("How many adult tickets do you want?", ticketAmount);
-                int childTicketAmount = integer_Input("How many child tickets do you want?", ticketAmount - adultTicketAmount);
+                // For when more types of tickets will be added
+                // int childTicketAmount = Integer_input("How many child tickets do you want?", ticketAmount - adultTicketAmount);
 
                 return 0;
 
@@ -136,7 +151,7 @@ public class Menu
 
         // Functionality for logging in
         public void Login_information()
-    {
+        {
         // Prepare variables
         User authorizedUser = null;
         bool loginSuccesfull = false;
