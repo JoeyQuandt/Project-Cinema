@@ -55,7 +55,7 @@ public class Movie
         return this.name;
     }
 
-    public DateTime GetMoviereleaseDate()
+    public DateTime GetMovieReleaseDate()
     {
         return this.releaseDate;
     }
