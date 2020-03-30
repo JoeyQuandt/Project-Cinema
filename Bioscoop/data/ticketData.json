@@ -1,6 +1,6 @@
 [
   {
-    "ticketId": "9795aac5-ec50-441e-8179-09d66d29ed41",
+    "ticketId": "8ea45eec-a182-480d-bcde-d3649ee13d36",
     "movie": {
       "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
       "name": "Cory in the house",
@@ -21,116 +21,11 @@
     "type": "Adult"
   },
   {
-    "ticketId": "c1532ccc-97db-4f93-99e4-bd4a901457cc",
+    "ticketId": "a7186686-97eb-4625-8276-51081e186b95",
     "movie": {
-      "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
-      "name": "Cory in the house",
-      "description": "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.",
-      "actors": null,
-      "releaseDate": "0001-01-01T00:00:00",
-      "ageRestriction": 0,
-      "duration": 140
-    },
-    "dateTime": "2020-05-21T00:00:00",
-    "room": {
-      "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-      "name": "zaal 1",
-      "seats": 100,
-      "takenSeats": 0
-    },
-    "seatNumber": 1,
-    "type": "Adult"
-  },
-  {
-    "ticketId": "59a3e294-eeb6-400b-b31f-e10fe9abeb98",
-    "movie": {
-      "id": "415de207-2c1b-4bd0-9e65-7a15afa3fef2",
-      "name": "A night in a musuem",
-      "description": "A couple of urban explorers check out a haunted musuem.",
-      "actors": null,
-      "releaseDate": "0001-01-01T00:00:00",
-      "ageRestriction": 0,
-      "duration": 180
-    },
-    "dateTime": "2020-05-21T00:00:00",
-    "room": {
-      "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-      "name": "zaal 1",
-      "seats": 100,
-      "takenSeats": 0
-    },
-    "seatNumber": 1,
-    "type": "Adult"
-  },
-  {
-    "ticketId": "8fda7de7-5caf-4cd0-92c0-14607a95a223",
-    "movie": {
-      "id": "847f33d0-9d7a-43fa-997e-68a6982f7279",
-      "name": "Fast and Furious 15",
-      "description": "A movie about racing",
-      "actors": null,
-      "releaseDate": "0001-01-01T00:00:00",
-      "ageRestriction": 0,
-      "duration": 240
-    },
-    "dateTime": "2020-05-21T00:00:00",
-    "room": {
-      "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-      "name": "zaal 1",
-      "seats": 100,
-      "takenSeats": 0
-    },
-    "seatNumber": 1,
-    "type": "Adult"
-  },
-  {
-    "ticketId": "461d2042-be58-4e19-9872-84653748396c",
-    "movie": {
-      "id": "415de207-2c1b-4bd0-9e65-7a15afa3fef2",
-      "name": "A night in a musuem",
-      "description": "A couple of urban explorers check out a haunted musuem.",
-      "actors": null,
-      "releaseDate": "0001-01-01T00:00:00",
-      "ageRestriction": 0,
-      "duration": 180
-    },
-    "dateTime": "2020-05-21T00:00:00",
-    "room": {
-      "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-      "name": "zaal 1",
-      "seats": 100,
-      "takenSeats": 0
-    },
-    "seatNumber": 1,
-    "type": "Adult"
-  },
-  {
-    "ticketId": "bf8a8d57-3cd7-440b-9bcc-353192a428ae",
-    "movie": {
-      "id": "847f33d0-9d7a-43fa-997e-68a6982f7279",
-      "name": "Fast and Furious 15",
-      "description": "A movie about racing",
-      "actors": null,
-      "releaseDate": "0001-01-01T00:00:00",
-      "ageRestriction": 0,
-      "duration": 240
-    },
-    "dateTime": "2020-05-21T00:00:00",
-    "room": {
-      "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-      "name": "zaal 1",
-      "seats": 100,
-      "takenSeats": 0
-    },
-    "seatNumber": 1,
-    "type": "Adult"
-  },
-  {
-    "ticketId": "8521d4ee-4b50-45dc-8488-905effd7571a",
-    "movie": {
-      "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
-      "name": "Cory in the house",
-      "description": "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.",
+      "id": "0c40126a-303b-41d5-b7b3-7c41901be756",
+      "name": "Fast and Furious 16",
+      "description": "Dom seeks revenge to his racing rival The Rock",
       "actors": null,
       "releaseDate": "0001-01-01T00:00:00",
       "ageRestriction": 0,

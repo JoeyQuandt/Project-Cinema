@@ -111,9 +111,10 @@ public class Menu
         var RoomList = Make_roomlist();
         var MovieList = Make_movielist();
         // Shows all the movie titles
-        for (int x = 1; x < MovieList.Count + 1; x++)
+
+        for (int x = 1; x < Data.LoadMovies().Count + 1; x++)
         {
-            Console.WriteLine(x + ") " + MovieList[x - 1].GetMovieTitle());
+            Console.WriteLine(x + ") " + Data.LoadMovies()[x - 1].GetMovieTitle());
         }
 
         int MovieNumber = Integer_input("Enter the number of the movie you want to reserve for.", MovieList.Count);
@@ -122,8 +123,7 @@ public class Menu
         {
             case "y":
                 DateTime timeReservation = new DateTime(2020, 5, 21);
-
-                List<Ticket> list = Make_ticketlist();
+                List<Ticket> list = Data.LoadTickets();
                 list.Add(new Ticket(MovieList[MovieNumber - 1], timeReservation, RoomList[0], 1, "Adult"));
                 var test = JsonConvert.SerializeObject(list, Formatting.Indented);
                 File.WriteAllText(@"../../../data/ticketData.json", test);
