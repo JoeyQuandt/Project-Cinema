@@ -55,4 +55,9 @@ public class Movie
         return this.name;
     }
 
+    public DateTime GetMoviereleaseDate()
+    {
+        return this.releaseDate;
+    }
+
 }
