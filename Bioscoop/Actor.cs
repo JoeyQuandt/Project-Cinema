@@ -7,9 +7,9 @@ public class Actor
     private string lastName;
 
     // Constructor
-	public Actor(string id, string firstName, string lastName)
+	public Actor(string firstName, string lastName)
 	{
-        this.id = new Guid(id.Replace("-", ""));
+        id = Guid.NewGuid();
         this.firstName = firstName;
         this.lastName = lastName;
 	}

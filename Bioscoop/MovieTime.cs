@@ -7,9 +7,9 @@ public class MovieTime
 	public Room room;
 	public DateTime date;
 
-	public MovieTime(string id, Movie movie, Room room, DateTime date)
+	public MovieTime(Movie movie, Room room, DateTime date)
 	{
-	this.id = new Guid(id.Replace("-", ""));
+    id = Guid.NewGuid();
 	this.movie = movie;
 	this.room = room;
 	this.date = date;

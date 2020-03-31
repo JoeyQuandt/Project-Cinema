@@ -68,10 +68,6 @@ public class Menu
     }
 
 
-
-    //var SerializedList = JsonConvert.SerializeObject(MovieTimesList, Formatting.Indented);
-    //File.WriteAllText(@"../../../data/json1.json", SerializedList);
-    //DateTime.Compare(MovieTimesList[x - 1].GetDate(), DateTime.Now) < 1
     //List<Reservation>
     public int MakeReservation()
     {
@@ -79,7 +75,7 @@ public class Menu
         List<Room> RoomList = Data.LoadRooms();
         List<Movie> MovieList = Data.LoadMovies();
         List<MovieTime> MovieTimesList = Data.LoadMovieTimes();
-        MovieTimesList.Sort((x, y) => DateTime.Compare(x.date, y.date));
+        MovieTimesList.Sort((listA, ListB) => DateTime.Compare(listA.date, ListB.date));
         List<MovieTime> SortedMovieTimes = new List<MovieTime>();
         for (int x = 1; x < MovieTimesList.Count; x++)
         {
@@ -103,25 +99,46 @@ public class Menu
         }
         int MovieNumber = IntegerInput("Enter the number of the movie you want to reserve for.", SortedMovieTimes.Count);
 
-        if (MovieTimesList[(MovieNumber)].GetRoom().IsFull())
+        if (SortedMovieTimes[MovieNumber-1].GetRoom().IsFull())
         {
             Console.WriteLine("Sorry, this movie has no more room left. Please select a different movie.");
             MakeReservation();
         }
         else
         {
-            Console.WriteLine($"Confirm to place a reservation for {MovieTimesList[MovieNumber].GetMovie().GetMovieTitle()}\ny/n");
+            Console.WriteLine($"Confirm to place a reservation for {SortedMovieTimes[MovieNumber-1].GetMovie().GetMovieTitle()}\ny/n");
             switch (Console.ReadLine().ToLower())
             {
                 case "y":
-
-                    //list.Add(new Ticket(MovieList[MovieNumber - 1], timeReservation, RoomList[0], 1, "Adult"));
-                    int ticketAmount = IntegerInput("Enter the amount of tickets you want", RoomList[0].GetAvailableSeats());
-                    int adultTicketAmount = IntegerInput("How many adult tickets do you want?", ticketAmount);
-                    int childTicketAmount = ticketAmount - adultTicketAmount;
-
+                    int TicketAmount = IntegerInput("Enter the amount of tickets you want", SortedMovieTimes[MovieNumber].GetRoom().GetAvailableSeats());
+                    int AdultTicketAmount = IntegerInput("How many adult tickets do you want?", TicketAmount);
+                    int ChildTicketAmount = TicketAmount - AdultTicketAmount;
                     // For when more types of tickets will be added
                     // int childTicketAmount = Integer_input("How many child tickets do you want?", ticketAmount - adultTicketAmount);
+
+
+                    List<Ticket> TicketList = Data.LoadTickets();
+                    int SeatNumber = SortedMovieTimes[MovieNumber].GetRoom().GetTakenSeats();
+                    for (int x = 0; x < AdultTicketAmount; x++)
+                    {
+                        TicketList.Add(new Ticket(SeatNumber, "Adult"));
+                        SeatNumber += 1;
+                    }
+                    for (int x = 0; x < ChildTicketAmount; x++)
+                    {
+                        TicketList.Add(new Ticket(SeatNumber, "Child"));
+                        SeatNumber += 1;
+                    }
+
+                    SortedMovieTimes[MovieNumber].GetRoom().FillSeats(TicketAmount);
+
+
+                    var SerializedList = JsonConvert.SerializeObject(TicketList, Formatting.Indented);
+                    File.WriteAllText(@"../../../data/json1.json", SerializedList);
+                    Console.WriteLine("STORED!");
+
+
+
                     return 0;
 
                 case "n":
@@ -133,6 +150,7 @@ public class Menu
                     return 0;
             }
         }
+        return 0;
     }
 
         // Functionality for logging in

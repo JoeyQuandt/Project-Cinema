@@ -9,9 +9,9 @@ public class User
     private string lastName;
     private string role;
 
-	public User(string id, string username, string password, string firstName, string lastName, string role)
+	public User(string username, string password, string firstName, string lastName, string role)
 	{
-        this.id = new Guid(id.Replace("-", ""));
+        id = Guid.NewGuid();
         this.username = username;
         this.password = password;
         this.firstName = firstName;

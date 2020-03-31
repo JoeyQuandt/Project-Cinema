@@ -8,7 +8,7 @@ public class Ticket
     // Constructor
 	public Ticket(int seatNumber, string type)
 	{
-        id = System.Guid.NewGuid();
+        id = Guid.NewGuid();
         this.seatNumber = seatNumber;
         this.type = type;
 	}

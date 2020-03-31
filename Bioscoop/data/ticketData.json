@@ -1,44 +1,5 @@
 [
   {
-    "ticketId": "8ea45eec-a182-480d-bcde-d3649ee13d36",
-    "movie": {
-      "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
-      "name": "Cory in the house",
-      "description": "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.",
-      "actors": null,
-      "releaseDate": "0001-01-01T00:00:00",
-      "ageRestriction": 0,
-      "duration": 140
-    },
-    "dateTime": "2020-05-21T00:00:00",
-    "room": {
-      "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-      "name": "zaal 1",
-      "seats": 100,
-      "takenSeats": 0
-    },
-    "seatNumber": 1,
-    "type": "Adult"
-  },
-  {
-    "ticketId": "a7186686-97eb-4625-8276-51081e186b95",
-    "movie": {
-      "id": "0c40126a-303b-41d5-b7b3-7c41901be756",
-      "name": "Fast and Furious 16",
-      "description": "Dom seeks revenge to his racing rival The Rock",
-      "actors": null,
-      "releaseDate": "0001-01-01T00:00:00",
-      "ageRestriction": 0,
-      "duration": 140
-    },
-    "dateTime": "2020-05-21T00:00:00",
-    "room": {
-      "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-      "name": "zaal 1",
-      "seats": 100,
-      "takenSeats": 0
-    },
-    "seatNumber": 1,
-    "type": "Adult"
+
   }
 ]

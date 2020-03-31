@@ -8,10 +8,10 @@ public class Reservation
     public List<Ticket> ticketlist;
     public MovieTime movietimes;
 
-    public Reservation(string id, User user, List<Ticket> ticketlist, MovieTime movietimes )
+    public Reservation(User user, List<Ticket> ticketlist, MovieTime movietimes )
     {
         // Get all new information
-        this.id = new Guid(id.Replace("-", ""));
+        id = Guid.NewGuid();
         this.user = user;
         this.ticketlist = ticketlist;
         this.movietimes = movietimes;
