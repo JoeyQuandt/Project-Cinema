@@ -71,15 +71,18 @@ public class Menu
     //List<Reservation>
     public int MakeReservation()
     {
-        
+        // Makes Lists from the data in the JSON
         List<Room> RoomList = Data.LoadRooms();
         List<Movie> MovieList = Data.LoadMovies();
         List<MovieTime> MovieTimesList = Data.LoadMovieTimes();
         MovieTimesList.Sort((listA, ListB) => DateTime.Compare(listA.date, ListB.date));
+        // Sorts the MovieTimes
         List<MovieTime> SortedMovieTimes = new List<MovieTime>();
+        // Counter for items removed
         int Removed = 0;
         for (int x = 1; x < MovieTimesList.Count; x++)
         {
+            // Checks if this movie has aired already, if it has it will not add it to this list.
             if(DateTime.Compare(MovieTimesList[x].GetDate(), DateTime.Now) == 1)
             {
                 SortedMovieTimes.Add(MovieTimesList[x]);
@@ -88,7 +91,7 @@ public class Menu
                 Removed++;
             }
         }
-        // A for loop that shows all the movie titles that are in the database.
+        // A for loop that shows all the movie titles that are in the database. And also checks if a movie is full or not
         for (int x = 1; x < SortedMovieTimes.Count + 1; x++)
         {
             if (SortedMovieTimes[x -1].GetRoom().IsFull() == true)
@@ -136,19 +139,16 @@ public class Menu
                         SeatNumber += 1;
                     }
 
-
-
-
+                    // Adds Reservation to JSON file.
                     MovieTimesList[MovieNumber+Removed].GetRoom().FillSeats(TicketAmount);
                     string SerializedMovieTimesList = JsonConvert.SerializeObject(MovieTimesList, Formatting.Indented);
-                    File.WriteAllText(@"../../../data/json1.json", SerializedMovieTimesList);
+                    File.WriteAllText(@"../../../data/movieTimesData.json", SerializedMovieTimesList);
                     Console.WriteLine("STORED!");
-
+                    // Adds Tickets to JSON file
                     string SerializedTicketList = JsonConvert.SerializeObject(TicketList, Formatting.Indented);
                     File.WriteAllText(@"../../../data/ticketData.json", SerializedTicketList);
                     Console.WriteLine("STORED!");
-
-
+                    // Adds Reservation to JSON file.
                     List<Reservation> ReservationList = Data.LoadReservations();
                     Reservation Reservation = new Reservation("Lennert", TicketListReservation, MovieTimesList[MovieNumber + Removed]);
                     ReservationList.Add(Reservation);

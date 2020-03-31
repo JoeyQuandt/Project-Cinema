@@ -86,7 +86,7 @@ public static class Data
     public static List<MovieTime> LoadMovieTimes()
     {
         // Load the movieData.json here and parse to Movie objects
-        using (StreamReader r = new StreamReader(@"../../../data/json1.json"))
+        using (StreamReader r = new StreamReader(@"../../../data/movieTimesData.json"))
         {
             string json = r.ReadToEnd();
             List<MovieTime> items = JsonConvert.DeserializeObject<List<MovieTime>>(json);

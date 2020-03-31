@@ -153,5 +153,50 @@
       },
       "date": "2020-04-10T14:00:00"
     }
+  },
+  {
+    "id": "6dc89d37-8489-4329-8eb3-d4ecc6f0f55c",
+    "user": "Lennert",
+    "ticketlist": [
+      {
+        "id": "4990938a-5c54-4f76-8a98-14bae31b8d41",
+        "seatNumber": 14,
+        "type": "Adult"
+      },
+      {
+        "id": "d0554bea-1ba8-41eb-8892-b5e22512c5af",
+        "seatNumber": 15,
+        "type": "Adult"
+      },
+      {
+        "id": "ed01c32a-9157-49d9-8a56-70fbdbd677a6",
+        "seatNumber": 16,
+        "type": "Child"
+      },
+      {
+        "id": "68a5cfc7-2181-4ae8-b751-8cca021a58f6",
+        "seatNumber": 17,
+        "type": "Child"
+      }
+    ],
+    "MovieRoom": {
+      "id": "3bfd8998-be11-4273-94a9-b58231eb84b2",
+      "movie": {
+        "id": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
+        "name": "The Almighty",
+        "description": "A simple workingclass man suddenly becomes a literal god.",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 100
+      },
+      "room": {
+        "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
+        "name": "zaal 1",
+        "seats": 100,
+        "takenSeats": 18
+      },
+      "date": "2020-04-12T20:00:00"
+    }
   }
 ]
