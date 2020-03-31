@@ -13,136 +13,166 @@ public class Menu
         Console.ReadLine();
     }
     //Error function
-    public void Error_code()
+    public void ErrorMessage()
     {
         Console.Clear();
         Console.WriteLine("Error, only use the numbers from the option menu");
         PressEnter();
     }
     //Movie Information
-    public void Movie_information()
+    public void ShowMovieDetails()
     {
         Console.Clear();
 
         foreach (Movie movie in Data.LoadMovies())
         {
-            
             Console.WriteLine(movie.GetMovieDetails()+"\n==============");
         }
-
         PressEnter();
     }
     //Ticket Information
-    public void Ticket_information()
+    public void ShowTicketDetails()
     {
         Console.Clear();
         Console.WriteLine("=====Ticket Information=====");
         Console.WriteLine("Here you can see all the information about prices\nFor Adults(18 years and older): $20\nFor Children(17 years and younger): $15");
         PressEnter();
     }
-    // Makes a list of all the movies.
-    public List<Movie> Make_movielist()
-    {
-        var MovieList = new List<Movie>();
-        foreach (Movie movie in Data.LoadMovies())
-        {
-            MovieList.Add(movie);
-        }
-        return MovieList;
-    }
 
-    public List<Room> Make_roomlist()
-    {
-        var RoomList = new List<Room>();
-        foreach (Room room in Data.LoadRooms())
-        {
-            RoomList.Add(room);
-        }
-        return RoomList;
-    }
-    // Error handles inputs and casts them to integers.
-    public int integer_Input(string message, int limit = 1000)
+    // A function made to be able to error handle inputs where you want an integer as result.
+    // Parameters are for a message and a limit 
+    public int IntegerInput(string Message, int Limit = 100)
     {
         while (true)
         {
-            Console.WriteLine(message);
-            var input = Console.ReadLine();
-            //var intMovieNumber = Int32.Parse(movieNumber);
-            if (Int32.TryParse(input, out int castedInput))
+            Console.WriteLine(Message);
+            string input = Console.ReadLine();
+            // This function tries to make / parse the input to an integer, if it succeeds you get an integer called "ParsedInput".
+            // If it fails to parse the input to an integer it will run the else.
+            if (Int32.TryParse(input, out int ParsedInput))
             { 
-                if (castedInput < 1 && castedInput > limit)
+                if (ParsedInput < 1 || ParsedInput > Limit)
                 {
-                    Console.WriteLine("Enter a value between 1 and " + limit);
+                    Console.WriteLine($"Enter a value between 1 and {Limit}.");
                 }
                 else
                 {
-                    return castedInput;
+                    return ParsedInput;
                 }
             }
             else
             {
-                //It failed, do other stuff
-                Console.WriteLine("Enter a different value");
+                Console.WriteLine("Please enter a different value.");
             }
         }
     }
+
+
     //List<Reservation>
-    public int Make_reservation()
+    public int MakeReservation()
     {
-        var RoomList = Make_roomlist();
-        var MovieList = Make_movielist();
-
-        //Console.WriteLine(MovieLists[1]);
-        for (int x = 1; x < MovieList.Count + 1; x++)
+        
+        List<Room> RoomList = Data.LoadRooms();
+        List<Movie> MovieList = Data.LoadMovies();
+        List<MovieTime> MovieTimesList = Data.LoadMovieTimes();
+        MovieTimesList.Sort((listA, ListB) => DateTime.Compare(listA.date, ListB.date));
+        List<MovieTime> SortedMovieTimes = new List<MovieTime>();
+        int Removed = 0;
+        for (int x = 1; x < MovieTimesList.Count; x++)
         {
-            Console.WriteLine(x + ") " + MovieList[x - 1].GetMovieTitle());
+            if(DateTime.Compare(MovieTimesList[x].GetDate(), DateTime.Now) == 1)
+            {
+                SortedMovieTimes.Add(MovieTimesList[x]);
+            } else
+            {
+                Removed++;
+            }
         }
-
-        int MovieNumber = integer_Input("Enter the number of the movie you want to reserve for.", MovieList.Count);
-        Console.WriteLine("Confirm to place a reservation for " + MovieList[MovieNumber - 1].GetMovieTitle() + "\ny/n");
-        switch (Console.ReadLine().ToLower())
+        // A for loop that shows all the movie titles that are in the database.
+        for (int x = 1; x < SortedMovieTimes.Count + 1; x++)
         {
-            case "y":
-                DateTime timeReservation = DateTime.Now;
-
-
-                // var list = JsonConvert.DeserializeObject<List<Ticket>>(@"../../../data/ticketData.json");
-                // list.Add(new Ticket(MovieList[MovieNumber - 1], timeReservation, RoomList[0], 1, "Adult"));
-                // JsonConvert.SerializeObject(list, Formatting.Indented);
-                
-                int ticketAmount = integer_Input("Enter the amount of tickets you want");
-                int adultTicketAmount = integer_Input("How many adult tickets do you want?", ticketAmount);
-                int childTicketAmount = integer_Input("How many child tickets do you want?", ticketAmount - adultTicketAmount);
-
-                Ticket test = new Ticket(MovieList[MovieNumber - 1], timeReservation, RoomList[0], 1, "Adult");
-                string storeticket = JsonConvert.SerializeObject(test, Formatting.Indented);
-                File.AppendAllText(@"../../../data/ticketData.json", storeticket + ",\n");
-                Console.WriteLine("Stored!");
-
-                // Write reservation to Json file
-                Reservation newReservation = new Reservation("Ingelogde User", timeReservation, ticketAmount, test);
-                string saveReservation = JsonConvert.SerializeObject(newReservation, Formatting.Indented);
-                File.AppendAllText(@"../../../data/reservationData.json", saveReservation + ",\n");
-                Console.WriteLine("Thank you for your reservation!");
-                PressEnter();
-
-
-                return 0;
-
-            case "n":
-                Make_reservation();
-                return 0;
-
-            default:
-                Make_reservation();
-                return 0;
+            if (SortedMovieTimes[x -1].GetRoom().IsFull() == true)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(x + ") " + SortedMovieTimes[x -1].GetMovieTimeDetails());
+                Console.ForegroundColor = ConsoleColor.Gray;
+            } else
+            {
+                Console.WriteLine(x + ") " + SortedMovieTimes[x -1].GetMovieTimeDetails());
+            }
         }
+        int MovieNumber = IntegerInput("Enter the number of the movie you want to reserve for.", SortedMovieTimes.Count);
 
+        if (SortedMovieTimes[MovieNumber-1].GetRoom().IsFull())
+        {
+            Console.WriteLine("Sorry, this movie has no more room left. Please select a different movie.");
+            MakeReservation();
+        }
+        else
+        {
+            Console.WriteLine($"Confirm to place a reservation for {SortedMovieTimes[MovieNumber-1].GetMovie().GetMovieTitle()}\ny/n");
+            switch (Console.ReadLine().ToLower())
+            {
+                case "y":
+                    int TicketAmount = IntegerInput("Enter the amount of tickets you want", SortedMovieTimes[MovieNumber-1].GetRoom().GetAvailableSeats());
+                    int AdultTicketAmount = IntegerInput("How many adult tickets do you want?", TicketAmount);
+                    int ChildTicketAmount = TicketAmount - AdultTicketAmount;
+                    // For when more types of tickets will be added
+                    // int childTicketAmount = Integer_input("How many child tickets do you want?", ticketAmount - adultTicketAmount);
+
+                    List<Ticket> TicketListReservation =  new List<Ticket>();
+                    List<Ticket> TicketList = Data.LoadTickets();
+                    int SeatNumber = SortedMovieTimes[MovieNumber-1].GetRoom().GetTakenSeats();
+                    for (int x = 0; x < AdultTicketAmount; x++)
+                    {
+                        TicketList.Add(new Ticket(SeatNumber, "Adult"));
+                        TicketListReservation.Add(new Ticket(SeatNumber, "Adult"));
+                        SeatNumber += 1;
+                    }
+                    for (int x = 0; x < ChildTicketAmount; x++)
+                    {
+                        TicketList.Add(new Ticket(SeatNumber, "Child"));
+                        TicketListReservation.Add(new Ticket(SeatNumber, "Child"));
+                        SeatNumber += 1;
+                    }
+
+
+
+
+                    MovieTimesList[MovieNumber+Removed].GetRoom().FillSeats(TicketAmount);
+                    string SerializedMovieTimesList = JsonConvert.SerializeObject(MovieTimesList, Formatting.Indented);
+                    File.WriteAllText(@"../../../data/json1.json", SerializedMovieTimesList);
+                    Console.WriteLine("STORED!");
+
+                    string SerializedTicketList = JsonConvert.SerializeObject(TicketList, Formatting.Indented);
+                    File.WriteAllText(@"../../../data/ticketData.json", SerializedTicketList);
+                    Console.WriteLine("STORED!");
+
+
+                    List<Reservation> ReservationList = Data.LoadReservations();
+                    Reservation Reservation = new Reservation("Lennert", TicketListReservation, MovieTimesList[MovieNumber + Removed]);
+                    ReservationList.Add(Reservation);
+                    string SerializedReservationList = JsonConvert.SerializeObject(ReservationList, Formatting.Indented);
+                    File.WriteAllText(@"../../../data/reservationData.json", SerializedReservationList);
+                    Console.WriteLine("STORED!");
+
+                    return 0;
+
+                case "n":
+                    MakeReservation();
+                    return 0;
+
+                default:
+                    MakeReservation();
+                    return 0;
+            }
+        }
+        return 0;
     }
 
         // Functionality for logging in
         public void Login_information()
-    {
+        {
         // Prepare variables
         User authorizedUser = null;
         bool loginSuccesfull = false;
@@ -229,10 +259,10 @@ public class Menu
         switch (Console.ReadLine())
         {
             case "1":
-                Movie_information();
+                ShowMovieDetails();
                 return true;
             case "2":
-                Ticket_information();
+                ShowTicketDetails();
                 return true;
             case "3":
                 Login_information();
@@ -240,10 +270,10 @@ public class Menu
             case "4":
                 return false;
             case "5":
-                Make_reservation();
+                MakeReservation();
                 return true;
             default:
-                Error_code();
+                ErrorMessage();
                 return true;
         }
 

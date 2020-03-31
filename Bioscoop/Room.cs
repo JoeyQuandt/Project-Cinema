@@ -2,15 +2,15 @@
 
 public class Room
 {
-    public Guid roomId;
+    public Guid id;
     public string name;
     public int seats;
     public int takenSeats = 0;
 
     // Constructor
-    public Room(string id, string name, int seats)
+    public Room(string name, int seats)
 	{
-        this.roomId = new Guid(id.Replace("-", ""));
+        id = Guid.NewGuid();
         this.name = name;
         this.seats = seats;
     }
@@ -35,5 +35,9 @@ public class Room
     public string GetRoomName()
     {
         return this.name;
+    }
+    public int GetTakenSeats()
+    {
+        return this.takenSeats;
     }
 }

@@ -1,24 +1,137 @@
 [
   {
-    "ticketId": "0d39c0cc-a3bc-428f-9482-d7ad9f2b0397",
-    "movie": {
-      "movieId": "847f33d0-9d7a-43fa-997e-68a6982f7279",
-      "name": "Fast and Furious 15",
-      "description": "A movie about racing",
-      "actors": null,
-      "releaseDate": "0001-01-01T00:00:00",
-      "ageRestriction": 0,
-      "duration": 240
-    },
-    "dateTime": "2020-05-21T00:00:00",
-    "room": {
-      "roomId": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-      "name": "zaal 1",
-      "seats": 100,
-      "takenSeats": 0
-    },
-    "seatNumber": 1,
+    "id": "a813ddea-c8bd-49fc-89f1-1b963e16e22e",
+    "seatNumber": 0,
+    "type": null
+  },
+  {
+    "id": "4fff6276-4bf8-4735-a944-03f52173381a",
+    "seatNumber": 3,
     "type": "Adult"
+  },
+  {
+    "id": "0339eac8-f587-4f10-8853-74e05930453d",
+    "seatNumber": 4,
+    "type": "Adult"
+  },
+  {
+    "id": "57a9de3b-d9ba-498e-8cba-be3c7133d1ba",
+    "seatNumber": 5,
+    "type": "Child"
+  },
+  {
+    "id": "faaf27b5-718f-4906-9ea6-02797043015c",
+    "seatNumber": 6,
+    "type": "Child"
+  },
+  {
+    "id": "d5e8ba1d-f518-40a3-80d4-3172266e6e3a",
+    "seatNumber": 7,
+    "type": "Child"
+  },
+  {
+    "id": "642c804d-035e-454c-99e0-2de0be2d3698",
+    "seatNumber": 8,
+    "type": "Adult"
+  },
+  {
+    "id": "c02cb6ab-9038-4dce-9952-5bff8cb5b67a",
+    "seatNumber": 9,
+    "type": "Adult"
+  },
+  {
+    "id": "4b48a3ce-2258-4a09-928a-d0e86f913464",
+    "seatNumber": 10,
+    "type": "Child"
+  },
+  {
+    "id": "aa5c700d-ffcb-40a0-ab19-33080fdba163",
+    "seatNumber": 11,
+    "type": "Child"
+  },
+  {
+    "id": "e273daa0-179c-4ee8-9ceb-b3d729605d62",
+    "seatNumber": 12,
+    "type": "Child"
+  },
+  {
+    "id": "1b0d2da0-b6be-4f14-88f4-39874cf2254c",
+    "seatNumber": 13,
+    "type": "Child"
+  },
+  {
+    "id": "6d37383a-de6d-4624-a403-7343975c42dd",
+    "seatNumber": 6,
+    "type": "Adult"
+  },
+  {
+    "id": "b6225922-b6d6-49e3-8b37-3a109c13b708",
+    "seatNumber": 7,
+    "type": "Adult"
+  },
+  {
+    "id": "2c50d184-3bfd-4d4b-a668-3882a73fb056",
+    "seatNumber": 8,
+    "type": "Adult"
+  },
+  {
+    "id": "6bac53bb-5003-45ea-b881-32e46432783c",
+    "seatNumber": 9,
+    "type": "Adult"
+  },
+  {
+    "id": "05a1990f-477a-4249-aa1c-aec79cc27454",
+    "seatNumber": 10,
+    "type": "Adult"
+  },
+  {
+    "id": "b50630d2-3071-454c-8fb2-2806568f1dba",
+    "seatNumber": 11,
+    "type": "Child"
+  },
+  {
+    "id": "4cd5241e-84b0-4b90-b8b8-9df5a3ff9a70",
+    "seatNumber": 12,
+    "type": "Child"
+  },
+  {
+    "id": "4b130ffa-c3d3-4d47-8ebd-8525b58e6872",
+    "seatNumber": 13,
+    "type": "Child"
+  },
+  {
+    "id": "9a97a3af-ccb6-4e7c-b1af-c55871933334",
+    "seatNumber": 14,
+    "type": "Child"
+  },
+  {
+    "id": "b858a486-a780-4d31-a592-b17ae48374ab",
+    "seatNumber": 15,
+    "type": "Child"
+  },
+  {
+    "id": "2c681386-ad20-46c0-87ee-8d369705908a",
+    "seatNumber": 16,
+    "type": "Child"
+  },
+  {
+    "id": "4c517bd6-c38c-4172-b99c-987646294003",
+    "seatNumber": 17,
+    "type": "Child"
+  },
+  {
+    "id": "05553b81-c65c-4ca1-8566-153026bca3ca",
+    "seatNumber": 18,
+    "type": "Child"
+  },
+  {
+    "id": "61ee3bc3-b56b-42a5-a894-5c984e4a4569",
+    "seatNumber": 19,
+    "type": "Child"
+  },
+  {
+    "id": "881d911d-9847-40d0-b1dc-46358ccf0420",
+    "seatNumber": 20,
+    "type": "Child"
   }
 ]
-
