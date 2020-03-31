@@ -51,4 +51,9 @@ public class Movie
         return this.releaseDate;
     }
 
+    public int GetAgeRestriction()
+    {
+        return this.ageRestriction;
+    }
+
 }

@@ -2,14 +2,14 @@
 
 public class Actor
 {
-    private Guid actorId;
+    private Guid id;
     private string firstName;
     private string lastName;
 
     // Constructor
-	public Actor(string firstName, string lastName)
+	public Actor(string id, string firstName, string lastName)
 	{
-        actorId = System.Guid.NewGuid();
+        this.id = new Guid(id.Replace("-", ""));
         this.firstName = firstName;
         this.lastName = lastName;
 	}

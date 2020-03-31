@@ -38,16 +38,6 @@ public class Menu
         Console.WriteLine("Here you can see all the information about prices\nFor Adults(18 years and older): $20\nFor Children(17 years and younger): $15");
         PressEnter();
     }
-    // Uses the objects in the JSON "ticketData" and returns a list of them.
-    public List<Ticket> Make_ticketlist()
-    {
-        var TicketList = new List<Ticket>();
-        foreach (Ticket ticket in Data.LoadTickets())
-        {
-            TicketList.Add(ticket);
-        }
-        return TicketList;
-    }
 
     // A function made to be able to error handle inputs where you want an integer as result.
     // Parameters are for a message and a limit 
@@ -78,59 +68,71 @@ public class Menu
     }
 
 
+
+    //var SerializedList = JsonConvert.SerializeObject(MovieTimesList, Formatting.Indented);
+    //File.WriteAllText(@"../../../data/json1.json", SerializedList);
+    //DateTime.Compare(MovieTimesList[x - 1].GetDate(), DateTime.Now) < 1
     //List<Reservation>
     public int MakeReservation()
     {
-        // 2 variables that get data from the database.
+        
         List<Room> RoomList = Data.LoadRooms();
         List<Movie> MovieList = Data.LoadMovies();
-
-        // A for loop that shows all the movie titles that are in the database.
-        for (int x = 1; x < MovieList.Count + 1; x++)
+        List<MovieTime> MovieTimesList = Data.LoadMovieTimes();
+        MovieTimesList.Sort((x, y) => DateTime.Compare(x.date, y.date));
+        List<MovieTime> SortedMovieTimes = new List<MovieTime>();
+        for (int x = 1; x < MovieTimesList.Count; x++)
         {
-            Console.WriteLine(x + ") " + MovieList[x - 1].GetMovieTitle());
+            if(DateTime.Compare(MovieTimesList[x].GetDate(), DateTime.Now) == 1)
+            {
+                SortedMovieTimes.Add(MovieTimesList[x]);
+            }
         }
-
-        int MovieNumber = IntegerInput("Enter the number of the movie you want to reserve for.", MovieList.Count);
-        if (RoomList[(MovieNumber - 1)].IsFull())
+        // A for loop that shows all the movie titles that are in the database.
+        for (int x = 1; x < SortedMovieTimes.Count + 1; x++)
         {
-            Console.WriteLine("Sorry this movie has no more room left. \n Please press enter to return..");
-            Console.ReadLine();
-            PressEnter();
+            if (SortedMovieTimes[x -1].GetRoom().IsFull() == true)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(x + ") " + SortedMovieTimes[x -1].GetMovieTimeDetails());
+                Console.ForegroundColor = ConsoleColor.Gray;
+            } else
+            {
+                Console.WriteLine(x + ") " + SortedMovieTimes[x -1].GetMovieTimeDetails());
+            }
+        }
+        int MovieNumber = IntegerInput("Enter the number of the movie you want to reserve for.", SortedMovieTimes.Count);
+
+        if (MovieTimesList[(MovieNumber)].GetRoom().IsFull())
+        {
+            Console.WriteLine("Sorry, this movie has no more room left. Please select a different movie.");
+            MakeReservation();
         }
         else
         {
-            Console.WriteLine($"Confirm to place a reservation for {MovieList[MovieNumber - 1].GetMovieTitle()}\ny/n");
+            Console.WriteLine($"Confirm to place a reservation for {MovieTimesList[MovieNumber].GetMovie().GetMovieTitle()}\ny/n");
+            switch (Console.ReadLine().ToLower())
+            {
+                case "y":
+
+                    //list.Add(new Ticket(MovieList[MovieNumber - 1], timeReservation, RoomList[0], 1, "Adult"));
+                    int ticketAmount = IntegerInput("Enter the amount of tickets you want", RoomList[0].GetAvailableSeats());
+                    int adultTicketAmount = IntegerInput("How many adult tickets do you want?", ticketAmount);
+                    int childTicketAmount = ticketAmount - adultTicketAmount;
+
+                    // For when more types of tickets will be added
+                    // int childTicketAmount = Integer_input("How many child tickets do you want?", ticketAmount - adultTicketAmount);
+                    return 0;
+
+                case "n":
+                    MakeReservation();
+                    return 0;
+
+                default:
+                    MakeReservation();
+                    return 0;
+            }
         }
-        Console.WriteLine("Confirm to place a reservation for " + MovieList[MovieNumber - 1].GetMovieTitle() + "\ny/n");
-        switch (Console.ReadLine().ToLower())
-        {
-            case "y":
-                DateTime timeReservation = new DateTime(2020, 5, 21);
-                List<Ticket> list = Data.LoadTickets();
-                list.Add(new Ticket(MovieList[MovieNumber - 1], timeReservation, RoomList[0], 1, "Adult"));
-                var test = JsonConvert.SerializeObject(list, Formatting.Indented);
-                File.WriteAllText(@"../../../data/ticketData.json", test);
-
-
-                int ticketAmount = IntegerInput("Enter the amount of tickets you want", RoomList[0].GetAvailableSeats());
-                int adultTicketAmount = IntegerInput("How many adult tickets do you want?", ticketAmount);
-                int childTicketAmount = ticketAmount - adultTicketAmount;
-
-                // For when more types of tickets will be added
-                // int childTicketAmount = Integer_input("How many child tickets do you want?", ticketAmount - adultTicketAmount);
-
-                return 0;
-
-            case "n":
-                MakeReservation();
-                return 0;
-
-            default:
-                MakeReservation();
-                return 0;
-        }
-
     }
 
         // Functionality for logging in

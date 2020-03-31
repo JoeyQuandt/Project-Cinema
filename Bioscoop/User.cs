@@ -2,7 +2,7 @@
 
 public class User
 {
-    private Guid userId;
+    private Guid id;
     private string username;
     private string password; // Because who needs hashing
     private string firstName;
@@ -11,7 +11,7 @@ public class User
 
 	public User(string id, string username, string password, string firstName, string lastName, string role)
 	{
-        this.userId = new Guid(id.Replace("-", ""));
+        this.id = new Guid(id.Replace("-", ""));
         this.username = username;
         this.password = password;
         this.firstName = firstName;
