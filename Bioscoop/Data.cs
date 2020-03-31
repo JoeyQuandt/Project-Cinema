@@ -97,4 +97,18 @@ public static class Data
         }
     }
 
+    public static List<Reservation> LoadReservations()
+    {
+        // Load the movieData.json here and parse to Movie objects
+        using (StreamReader r = new StreamReader(@"../../../data/reservationData.json"))
+        {
+            string json = r.ReadToEnd();
+            List<Reservation> items = JsonConvert.DeserializeObject<List<Reservation>>(json);
+            return items;
+            /*foreach(Movie item in items){
+                Console.WriteLine(item.GetMovieDetails() + "\n\n");
+            }*/
+        }
+    }
+
 }

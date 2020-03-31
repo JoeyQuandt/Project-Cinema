@@ -1,27 +1,157 @@
-{
-  "reservationID": "a6f18397-2b83-480f-845f-6c9277de1976",
-  "user": "Ingelogde User",
-  "dateTime": "2020-03-30T13:13:46.3291781+02:00",
-  "ticketAmount": 6,
-  "ticket": {
-    "ticketId": "2e68e223-9c0f-4fdc-b586-779bfa02ac59",
-    "movie": {
-      "movieId": "2dc2759d-f106-436c-b716-2702c4739d2e",
-      "name": "The revenge of alexandro",
-      "description": "A movie about the villain alexandro who wreaks havoc on the small town of Rotterdamdorp.",
-      "actors": null,
-      "releaseDate": "0001-01-01T00:00:00",
-      "ageRestriction": 0,
-      "duration": 140
-    },
-    "dateTime": "2020-03-30T13:13:46.3291781+02:00",
-    "room": {
-      "roomId": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-      "name": "zaal 1",
-      "seats": 100,
-      "takenSeats": 0
-    },
-    "seatNumber": 1,
-    "type": "Adult"
+[
+  {
+    "id": "d7e75095-6b7d-447b-a1fd-0d9b1bfc9e2f",
+    "user": "Lennert",
+    "ticketlist": [
+      {
+        "id": "4194f3f2-2b3b-4a63-b1e3-e41ac20eb2a3",
+        "seatNumber": 8,
+        "type": "Adult"
+      },
+      {
+        "id": "051c222e-fd7b-4a49-a5b7-76e8cab435f6",
+        "seatNumber": 9,
+        "type": "Adult"
+      },
+      {
+        "id": "29bf4124-1475-4180-9822-2fe57a264a03",
+        "seatNumber": 10,
+        "type": "Child"
+      },
+      {
+        "id": "ba64182d-75e1-4fec-a5a2-faf72d555d75",
+        "seatNumber": 11,
+        "type": "Child"
+      },
+      {
+        "id": "e29028a0-f1a3-4638-a5c0-438773c2bea5",
+        "seatNumber": 12,
+        "type": "Child"
+      },
+      {
+        "id": "fa004d7d-b9e2-481f-8940-87cf6d46f7d6",
+        "seatNumber": 13,
+        "type": "Child"
+      }
+    ],
+    "MovieRoom": {
+      "id": "3bfd8998-be11-4273-94a9-b58231eb84b2",
+      "movie": {
+        "id": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
+        "name": "The Almighty",
+        "description": "A simple workingclass man suddenly becomes a literal god.",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 100
+      },
+      "room": {
+        "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
+        "name": "zaal 1",
+        "seats": 100,
+        "takenSeats": 14
+      },
+      "date": "2020-04-12T20:00:00"
+    }
+  },
+  {
+    "id": "36c1899e-db77-4c65-be64-941bb031859b",
+    "user": "Lennert",
+    "ticketlist": [
+      {
+        "id": "a6e40c44-c156-46a2-b8bd-2ddecd449402",
+        "seatNumber": 6,
+        "type": "Adult"
+      },
+      {
+        "id": "33cdebc8-ca63-4e24-b11c-c4451c77633e",
+        "seatNumber": 7,
+        "type": "Adult"
+      },
+      {
+        "id": "33b1a9a2-fde8-4a8d-9203-9afcc89b4451",
+        "seatNumber": 8,
+        "type": "Adult"
+      },
+      {
+        "id": "6eaf3057-5142-456f-8e8c-7449ab8eecb2",
+        "seatNumber": 9,
+        "type": "Adult"
+      },
+      {
+        "id": "4bb67de6-c2b8-4f41-ad0b-33a9c9159c46",
+        "seatNumber": 10,
+        "type": "Adult"
+      },
+      {
+        "id": "be8a8d17-8f3a-46b8-b4c1-88c80462e29a",
+        "seatNumber": 11,
+        "type": "Child"
+      },
+      {
+        "id": "89422dc0-a302-4355-ad54-6f6344247271",
+        "seatNumber": 12,
+        "type": "Child"
+      },
+      {
+        "id": "30366fd7-9d2b-4fa0-b81c-6f638eab04ba",
+        "seatNumber": 13,
+        "type": "Child"
+      },
+      {
+        "id": "7e5de623-a890-43cd-af08-51f7875ae4c1",
+        "seatNumber": 14,
+        "type": "Child"
+      },
+      {
+        "id": "75312a98-83e4-4946-ac13-986b673066d5",
+        "seatNumber": 15,
+        "type": "Child"
+      },
+      {
+        "id": "ce3ba92a-8945-4313-9622-2b1a6f2bb329",
+        "seatNumber": 16,
+        "type": "Child"
+      },
+      {
+        "id": "7df1b1db-c68e-46ae-b8dc-23734a0391f1",
+        "seatNumber": 17,
+        "type": "Child"
+      },
+      {
+        "id": "dfe53d6a-1a50-48f3-81da-ae4f61214e13",
+        "seatNumber": 18,
+        "type": "Child"
+      },
+      {
+        "id": "ae62af15-73ea-44bd-a2c4-ad560b7f1b9c",
+        "seatNumber": 19,
+        "type": "Child"
+      },
+      {
+        "id": "867d4692-c459-4f0e-9e16-075b93900689",
+        "seatNumber": 20,
+        "type": "Child"
+      }
+    ],
+    "MovieRoom": {
+      "id": "ee57fb22-d5a0-47e2-8662-72835c679c39",
+      "movie": {
+        "id": "2dc2759d-f106-436c-b716-2702c4739d2e",
+        "name": "The revenge of alexandro",
+        "description": "A movie about the villain alexandro who wreaks havoc on the small town of Rotterdamdorp.",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 140
+      },
+      "room": {
+        "id": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
+        "name": "zaal 3",
+        "seats": 150,
+        "takenSeats": 21
+      },
+      "date": "2020-04-10T14:00:00"
+    }
   }
-},
+]

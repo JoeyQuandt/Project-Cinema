@@ -77,11 +77,15 @@ public class Menu
         List<MovieTime> MovieTimesList = Data.LoadMovieTimes();
         MovieTimesList.Sort((listA, ListB) => DateTime.Compare(listA.date, ListB.date));
         List<MovieTime> SortedMovieTimes = new List<MovieTime>();
+        int Removed = 0;
         for (int x = 1; x < MovieTimesList.Count; x++)
         {
             if(DateTime.Compare(MovieTimesList[x].GetDate(), DateTime.Now) == 1)
             {
                 SortedMovieTimes.Add(MovieTimesList[x]);
+            } else
+            {
+                Removed++;
             }
         }
         // A for loop that shows all the movie titles that are in the database.
@@ -110,34 +114,47 @@ public class Menu
             switch (Console.ReadLine().ToLower())
             {
                 case "y":
-                    int TicketAmount = IntegerInput("Enter the amount of tickets you want", SortedMovieTimes[MovieNumber].GetRoom().GetAvailableSeats());
+                    int TicketAmount = IntegerInput("Enter the amount of tickets you want", SortedMovieTimes[MovieNumber-1].GetRoom().GetAvailableSeats());
                     int AdultTicketAmount = IntegerInput("How many adult tickets do you want?", TicketAmount);
                     int ChildTicketAmount = TicketAmount - AdultTicketAmount;
                     // For when more types of tickets will be added
                     // int childTicketAmount = Integer_input("How many child tickets do you want?", ticketAmount - adultTicketAmount);
 
-
+                    List<Ticket> TicketListReservation =  new List<Ticket>();
                     List<Ticket> TicketList = Data.LoadTickets();
-                    int SeatNumber = SortedMovieTimes[MovieNumber].GetRoom().GetTakenSeats();
+                    int SeatNumber = SortedMovieTimes[MovieNumber-1].GetRoom().GetTakenSeats();
                     for (int x = 0; x < AdultTicketAmount; x++)
                     {
                         TicketList.Add(new Ticket(SeatNumber, "Adult"));
+                        TicketListReservation.Add(new Ticket(SeatNumber, "Adult"));
                         SeatNumber += 1;
                     }
                     for (int x = 0; x < ChildTicketAmount; x++)
                     {
                         TicketList.Add(new Ticket(SeatNumber, "Child"));
+                        TicketListReservation.Add(new Ticket(SeatNumber, "Child"));
                         SeatNumber += 1;
                     }
 
-                    SortedMovieTimes[MovieNumber].GetRoom().FillSeats(TicketAmount);
 
 
-                    var SerializedList = JsonConvert.SerializeObject(TicketList, Formatting.Indented);
-                    File.WriteAllText(@"../../../data/json1.json", SerializedList);
+
+                    MovieTimesList[MovieNumber+Removed].GetRoom().FillSeats(TicketAmount);
+                    string SerializedMovieTimesList = JsonConvert.SerializeObject(MovieTimesList, Formatting.Indented);
+                    File.WriteAllText(@"../../../data/json1.json", SerializedMovieTimesList);
+                    Console.WriteLine("STORED!");
+
+                    string SerializedTicketList = JsonConvert.SerializeObject(TicketList, Formatting.Indented);
+                    File.WriteAllText(@"../../../data/ticketData.json", SerializedTicketList);
                     Console.WriteLine("STORED!");
 
 
+                    List<Reservation> ReservationList = Data.LoadReservations();
+                    Reservation Reservation = new Reservation("Lennert", TicketListReservation, MovieTimesList[MovieNumber + Removed]);
+                    ReservationList.Add(Reservation);
+                    string SerializedReservationList = JsonConvert.SerializeObject(ReservationList, Formatting.Indented);
+                    File.WriteAllText(@"../../../data/reservationData.json", SerializedReservationList);
+                    Console.WriteLine("STORED!");
 
                     return 0;
 
