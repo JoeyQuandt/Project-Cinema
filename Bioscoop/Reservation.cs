@@ -2,21 +2,25 @@
 
 public class Reservation
 {
-    private Guid reservationId;
-    private Ticket[] tickets;
-    private int ticketAmount;
+    public Guid reservationID;
+    public string user;
+    public DateTime dateTime;
+    public int ticketAmount;
+    public Ticket ticket;
 
-
-    public Reservation (Ticket[] tickets, int ticketAmount)
+    public Reservation (string user, DateTime dateTime, int ticketAmount, Ticket ticket)
     {
-        reservationId = System.Guid.NewGuid();
-        this.tickets = tickets;
+        // Get all new information
+        reservationID = System.Guid.NewGuid();
+        this.user = user;
+        this.dateTime = dateTime;
         this.ticketAmount = ticketAmount;
-        
+        this.ticket = ticket;
     }
 
-    public string getReservationDetails()
+    // Return details of the reservation
+    public string GetReservationDetails()
     {
-        return "Amount of tickets" +  this.ticketAmount;
+        return "Name: " + user + "\nTicket amount: " + ticketAmount;
     }
 }

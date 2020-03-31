@@ -1,6 +1,27 @@
-[
-  {
-    "id": "0f711127-edf6-4b85-8979-daf63be22da7",
-    "ticketamount": "5"
+{
+  "reservationID": "a6f18397-2b83-480f-845f-6c9277de1976",
+  "user": "Ingelogde User",
+  "dateTime": "2020-03-30T13:13:46.3291781+02:00",
+  "ticketAmount": 6,
+  "ticket": {
+    "ticketId": "2e68e223-9c0f-4fdc-b586-779bfa02ac59",
+    "movie": {
+      "movieId": "2dc2759d-f106-436c-b716-2702c4739d2e",
+      "name": "The revenge of alexandro",
+      "description": "A movie about the villain alexandro who wreaks havoc on the small town of Rotterdamdorp.",
+      "actors": null,
+      "releaseDate": "0001-01-01T00:00:00",
+      "ageRestriction": 0,
+      "duration": 140
+    },
+    "dateTime": "2020-03-30T13:13:46.3291781+02:00",
+    "room": {
+      "roomId": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
+      "name": "zaal 1",
+      "seats": 100,
+      "takenSeats": 0
+    },
+    "seatNumber": 1,
+    "type": "Adult"
   }
-]
+},
