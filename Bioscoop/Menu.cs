@@ -13,58 +13,31 @@ public class Menu
         Console.ReadLine();
     }
     //Error function
-    public void Error_code()
+    public void ErrorMessage()
     {
         Console.Clear();
         Console.WriteLine("Error, only use the numbers from the option menu");
         PressEnter();
     }
     //Movie Information
-    public void Movie_information()
+    public void ShowMovieDetails()
     {
         Console.Clear();
 
         foreach (Movie movie in Data.LoadMovies())
         {
-            
             Console.WriteLine(movie.GetMovieDetails()+"\n==============");
         }
-
         PressEnter();
     }
     //Ticket Information
-    public void Ticket_information()
+    public void ShowTicketDetails()
     {
         Console.Clear();
         Console.WriteLine("=====Ticket Information=====");
         Console.WriteLine("Here you can see all the information about prices\nFor Adults(18 years and older): $20\nFor Children(17 years and younger): $15");
         PressEnter();
     }
-
-
-    // Uses the objects in the JSON "movieData" and returns a list of them.
-    public List<Movie> Make_movielist()
-    {
-        var MovieList = new List<Movie>();
-        foreach (Movie movie in Data.LoadMovies())
-        {
-            MovieList.Add(movie);
-        }
-        return MovieList;
-    }
-
-    // Uses the objects in the JSON "roomData" and returns a list of them.
-    public List<Room> Make_roomlist()
-    {
-        var RoomList = new List<Room>();
-        foreach (Room room in Data.LoadRooms())
-        {
-            RoomList.Add(room);
-        }
-        return RoomList;
-    }
-
-
     // Uses the objects in the JSON "ticketData" and returns a list of them.
     public List<Ticket> Make_ticketlist()
     {
@@ -76,48 +49,59 @@ public class Menu
         return TicketList;
     }
 
-
     // A function made to be able to error handle inputs where you want an integer as result.
     // Parameters are for a message and a limit 
-    public int Integer_input(string message, int limit = 100)
+    public int IntegerInput(string Message, int Limit = 100)
     {
         while (true)
         {
-            Console.WriteLine(message);
-            var input = Console.ReadLine();
-            // This function tries to make the input as an integer and if it does you get "castedInput" if not it will run the else.
-            if (Int32.TryParse(input, out int castedInput))
+            Console.WriteLine(Message);
+            string input = Console.ReadLine();
+            // This function tries to make / parse the input to an integer, if it succeeds you get an integer called "ParsedInput".
+            // If it fails to parse the input to an integer it will run the else.
+            if (Int32.TryParse(input, out int ParsedInput))
             { 
-                if (castedInput < 1 || castedInput > limit)
+                if (ParsedInput < 1 || ParsedInput > Limit)
                 {
-                    Console.WriteLine("Enter a value between 1 and " + limit);
+                    Console.WriteLine($"Enter a value between 1 and {Limit}.");
                 }
                 else
                 {
-                    return castedInput;
+                    return ParsedInput;
                 }
             }
             else
             {
-                Console.WriteLine("Enter a different value");
+                Console.WriteLine("Please enter a different value.");
             }
         }
     }
 
 
     //List<Reservation>
-    public int Make_reservation()
+    public int MakeReservation()
     {
-        var RoomList = Make_roomlist();
-        var MovieList = Make_movielist();
-        // Shows all the movie titles
+        // 2 variables that get data from the database.
+        List<Room> RoomList = Data.LoadRooms();
+        List<Movie> MovieList = Data.LoadMovies();
 
-        for (int x = 1; x < Data.LoadMovies().Count + 1; x++)
+        // A for loop that shows all the movie titles that are in the database.
+        for (int x = 1; x < MovieList.Count + 1; x++)
         {
-            Console.WriteLine(x + ") " + Data.LoadMovies()[x - 1].GetMovieTitle());
+            Console.WriteLine(x + ") " + MovieList[x - 1].GetMovieTitle());
         }
 
-        int MovieNumber = Integer_input("Enter the number of the movie you want to reserve for.", MovieList.Count);
+        int MovieNumber = IntegerInput("Enter the number of the movie you want to reserve for.", MovieList.Count);
+        if (RoomList[(MovieNumber - 1)].IsFull())
+        {
+            Console.WriteLine("Sorry this movie has no more room left. \n Please press enter to return..");
+            Console.ReadLine();
+            PressEnter();
+        }
+        else
+        {
+            Console.WriteLine($"Confirm to place a reservation for {MovieList[MovieNumber - 1].GetMovieTitle()}\ny/n");
+        }
         Console.WriteLine("Confirm to place a reservation for " + MovieList[MovieNumber - 1].GetMovieTitle() + "\ny/n");
         switch (Console.ReadLine().ToLower())
         {
@@ -129,8 +113,8 @@ public class Menu
                 File.WriteAllText(@"../../../data/ticketData.json", test);
 
 
-                int ticketAmount = Integer_input("Enter the amount of tickets you want", RoomList[0].GetAvailableSeats());
-                int adultTicketAmount = Integer_input("How many adult tickets do you want?", ticketAmount);
+                int ticketAmount = IntegerInput("Enter the amount of tickets you want", RoomList[0].GetAvailableSeats());
+                int adultTicketAmount = IntegerInput("How many adult tickets do you want?", ticketAmount);
                 int childTicketAmount = ticketAmount - adultTicketAmount;
 
                 // For when more types of tickets will be added
@@ -139,11 +123,11 @@ public class Menu
                 return 0;
 
             case "n":
-                Make_reservation();
+                MakeReservation();
                 return 0;
 
             default:
-                Make_reservation();
+                MakeReservation();
                 return 0;
         }
 
@@ -238,10 +222,10 @@ public class Menu
         switch (Console.ReadLine())
         {
             case "1":
-                Movie_information();
+                ShowMovieDetails();
                 return true;
             case "2":
-                Ticket_information();
+                ShowTicketDetails();
                 return true;
             case "3":
                 Login_information();
@@ -249,10 +233,10 @@ public class Menu
             case "4":
                 return false;
             case "5":
-                Make_reservation();
+                MakeReservation();
                 return true;
             default:
-                Error_code();
+                ErrorMessage();
                 return true;
         }
 

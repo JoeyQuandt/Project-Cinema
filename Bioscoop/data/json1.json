@@ -1,0 +1,24 @@
+[
+  {
+    "id": "de67a426-72ae-11ea-bc55-0242ac130003",
+    "movie": {
+      "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
+      "name": "Cory in the house",
+      "description": "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.",
+      "actors": null,
+      "releaseDate": "0001-01-01T00:00:00",
+      "ageRestriction": 0,
+      "duration": 140
+    },
+    "dateTime": "2020-05-21T00:00:00",
+    "room": {
+      "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
+      "name": "zaal 1",
+      "seats": 100,
+      "takenSeats": 0
+    },
+    "dateTime": "13-03-2020 10:15"
+  },
+
+  }
+]

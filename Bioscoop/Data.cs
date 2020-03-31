@@ -83,5 +83,18 @@ public static class Data
         }
     }
 
+    public static List<MovieTimes> LoadScreening()
+    {
+        // Load the movieData.json here and parse to Movie objects
+        using (StreamReader r = new StreamReader(@"../../../data/json1.json"))
+        {
+            string json = r.ReadToEnd();
+            List<MovieTimes> items = JsonConvert.DeserializeObject<List<MovieTimes>>(json);
+            return items;
+            /*foreach(Movie item in items){
+                Console.WriteLine(item.GetMovieDetails() + "\n\n");
+            }*/
+        }
+    }
 
 }
