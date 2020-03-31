@@ -109,7 +109,7 @@ public class Menu
                 // var list = JsonConvert.DeserializeObject<List<Ticket>>(@"../../../data/ticketData.json");
                 // list.Add(new Ticket(MovieList[MovieNumber - 1], timeReservation, RoomList[0], 1, "Adult"));
                 // JsonConvert.SerializeObject(list, Formatting.Indented);
-
+                
                 int ticketAmount = integer_Input("Enter the amount of tickets you want");
                 int adultTicketAmount = integer_Input("How many adult tickets do you want?", ticketAmount);
                 int childTicketAmount = integer_Input("How many child tickets do you want?", ticketAmount - adultTicketAmount);
@@ -119,6 +119,7 @@ public class Menu
                 File.AppendAllText(@"../../../data/ticketData.json", storeticket + ",\n");
                 Console.WriteLine("Stored!");
 
+                // Write reservation to Json file
                 Reservation newReservation = new Reservation("Ingelogde User", timeReservation, ticketAmount, test);
                 string saveReservation = JsonConvert.SerializeObject(newReservation, Formatting.Indented);
                 File.AppendAllText(@"../../../data/reservationData.json", saveReservation + ",\n");

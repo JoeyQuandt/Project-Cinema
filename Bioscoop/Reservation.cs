@@ -10,6 +10,7 @@ public class Reservation
 
     public Reservation (string user, DateTime dateTime, int ticketAmount, Ticket ticket)
     {
+        // Get all new information
         reservationID = System.Guid.NewGuid();
         this.user = user;
         this.dateTime = dateTime;
@@ -17,6 +18,7 @@ public class Reservation
         this.ticket = ticket;
     }
 
+    // Return details of the reservation
     public string GetReservationDetails()
     {
         return "Name: " + user + "\nTicket amount: " + ticketAmount;
