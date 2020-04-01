@@ -19,7 +19,7 @@ public class Movie
         this.duration = duration;
         //this.actors = actors;
         //this.releaseDate = releaseDate;
-        //this.ageRestriction = ageRestriction;
+        this.ageRestriction = ageRestriction;
     }
 
     /// <summary>
@@ -33,6 +33,11 @@ public class Movie
     public string GetMovieTitle()
     {
         return this.name;
+    }
+
+    public string GetAgeRestritction()
+    {
+        return this.ageRestriction;
     }
 
     public string GetMovieDescription()

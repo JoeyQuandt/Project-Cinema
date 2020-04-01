@@ -3,104 +3,120 @@
         "id": "979b03f7-c133-47a4-8c7a-c1f0fd554528",
         "movieId": "2dc2759d-f106-436c-b716-2702c4739d2e",
         "roomId": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-        "dateTime": "13-03-2020 10:15"
+        "dateTime": "13-03-2020 10:15",
+        "releasedate": "10-03-2020",
 
     },
     {
         "id": "847f33d0-9d7a-43fa-997e-68a6982f7279",
         "movieId": "0c40126a-303b-41d5-b7b3-7c41901be756",
         "roomId": "27b005fd-f9ab-42f3-a9a6-f12c10d4ecb5",
-        "dateTime": "13-03-2020 13:45"
+        "dateTime": "13-03-2020 13:45",
+        "releasedate": "5-02-2020",
     },
     {
         "id": "9901f7fc-573a-44ca-8272-def1c9069a6d",
         "movieId": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
         "roomId": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
-        "dateTime": "13-03-2020 14:00"
+        "dateTime": "13-03-2020 14:00",
+        "releasedate": "10-02-2020"
 
     },
     {
         "id": "230c14cd-7981-4f73-b601-78e9262fbdfb",
         "movieId": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
         "roomId": "ec65ea51-a0c9-465a-af71-934c811b2894",
-        "dateTime": "13-03-2020 14:15"
+        "dateTime": "13-03-2020 14:15",
+        "releasedate": "20-02-2020"
 
     },
     {
         "id": "a2642413-95e7-4e38-ba37-5f1c79d396eb",
         "movieId": "415de207-2c1b-4bd0-9e65-7a15afa3fef2",
         "roomId": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-        "dateTime": "13-03-2020 17:15"
+        "dateTime": "13-03-2020 17:15",
+        "releasedate": "25-02-2020"
     },
     {
         "id": "9c5da546-dd9a-4321-8bc7-5aaceed6a483",
         "movieId": "0c40126a-303b-41d5-b7b3-7c41901be756",
         "roomId": "27b005fd-f9ab-42f3-a9a6-f12c10d4ecb5",
-        "dateTime": "13-03-2020 18:00"
+        "dateTime": "13-03-2020 18:00",
+        "releasedate": "30-02-2020"
        
     },
     {
         "id": "75d78214-72a7-4ca3-8be8-548539b863a6",
         "movieId": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
         "roomId": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
-        "dateTime": "13-03-2020 10:25"
+        "dateTime": "13-03-2020 10:25",
+        "releasedate": "31-02-2020"
 
     },
     {
         "id": "8fce5e1a-dd39-4273-8e3e-cf5977221179",
         "movieId": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
         "roomId": "ec65ea51-a0c9-465a-af71-934c811b2894",
-        "dateTime": "13-03-2020 10:30"
+        "dateTime": "13-03-2020 10:30",
+        "releasedate": "4-02-2020"
 
     },
     {
         "id": "52ce86d6-e60c-4745-9a6d-1298ea628c93",
         "movieId": "415de207-2c1b-4bd0-9e65-7a15afa3fef2",
         "roomId": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-        "dateTime": "13-03-2020 12:55"
+        "dateTime": "13-03-2020 12:55",
+        "releasedate": "15-02-2020"
     },
     {
         "id": "bd8085bd-1e9d-480e-bf0f-7fb35ca2710e",
         "movieId": "0c40126a-303b-41d5-b7b3-7c41901be756",
         "roomId": "27b005fd-f9ab-42f3-a9a6-f12c10d4ecb5",
-        "dateTime": "13-03-2020 12:35"
+        "dateTime": "13-03-2020 12:35",
+        "releasedate": "1-02-2020"
     },
     {
         "id": "611d9360-afed-4df8-aa51-b24937359021",
         "movieId": "2dc2759d-f106-436c-b716-2702c4739d2e",
         "roomId": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
-        "dateTime": "13-03-2020 12:10"
+        "dateTime": "13-03-2020 12:10",
+        "releasedate": "20-02-2020"
     },
     {
         "id": "c5756340-33b5-45f2-9802-1cf2f4726c7d",
         "movieId": "847f33d0-9d7a-43fa-997e-68a6982f7279",
         "roomId": "ec65ea51-a0c9-465a-af71-934c811b2894",
-        "dateTime": "13-03-2020 12:25"
+        "dateTime": "13-03-2020 12:25",
+        "releasedate": "1-03-2020"
     },
     {
         "id": "7654daff-97b6-49f7-a59c-1f6629ff5b74",
         "movieId": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
         "roomId": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-        "dateTime": "13-03-2020 14:50"
+        "dateTime": "13-03-2020 14:50",
+        "releasedate": "1-02-2020"
     },
     {
         "id": "6941c3ea-5988-4882-86e0-4a660e0ef77e",
         "movieId": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
         "roomId": "27b005fd-f9ab-42f3-a9a6-f12c10d4ecb5",
-        "dateTime": "13-03-2020 15:10"
+        "dateTime": "13-03-2020 15:10",
+        "releasedate": "27-02-2020"
     },
     {
         "id": "f64ce1ac-93ea-4147-b669-dd7df97c327a",
         "movieId": "415de207-2c1b-4bd0-9e65-7a15afa3fef2",
         "roomId": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
-        "dateTime": "13-03-2020 15:05"
+        "dateTime": "13-03-2020 15:05",
+        "releasedate": "28-02-2020"
 
     },
     {
         "id": "35817620-d129-4263-84f4-252babb164ae",
         "movieId": "0c40126a-303b-41d5-b7b3-7c41901be756",
         "roomId": "ec65ea51-a0c9-465a-af71-934c811b2894",
-        "dateTime": "13-03-2020 14:25"
+        "dateTime": "13-03-2020 14:25",
+        "releasedate": "20-02-2020"
 
 
     },
@@ -108,19 +124,22 @@
         "id": "1260dad2-4609-4ff9-9079-ff3f3f9d9238",
         "movieId": "2dc2759d-f106-436c-b716-2702c4739d2e",
         "roomId": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-        "dateTime": "13-03-2020 16:35"
+        "dateTime": "13-03-2020 16:35",
+        "releasedate": "2-02-2020"
     },
     {
         "id": "2623a28e-18b5-445d-9add-73718c266a27",
         "movieId": "847f33d0-9d7a-43fa-997e-68a6982f7279",
         "roomId": "27b005fd-f9ab-42f3-a9a6-f12c10d4ecb5",
-        "dateTime": "13-03-2020 17:05"
+        "dateTime": "13-03-2020 17:05",
+        "releasedate": "21-02-2020"
     },
     {
         "id": "a79687a3-8ed5-4948-800f-c7c949796a83",
         "movieId": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
         "roomId": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
-        "dateTime": "13-03-2020 17:00"
+        "dateTime": "13-03-2020 17:00",
+        "releasedate": "4-02-2020"
 
 
     },
@@ -128,79 +147,92 @@
         "id": "dc230dd4-23af-4e2c-a353-345104e42118",
         "movieId": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
         "roomId": "ec65ea51-a0c9-465a-af71-934c811b2894",
-        "dateTime": "13-03-2020 17:00"
+        "dateTime": "13-03-2020 17:00",
+        "releasedate": "15-02-2020"
     },
     {
         "id": "73192d76-00a0-4bed-9ad7-04c005a2d372",
         "movieId": "415de207-2c1b-4bd0-9e65-7a15afa3fef2",
         "roomId": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-        "dateTime": "13-03-2020 19:30"
+        "dateTime": "13-03-2020 19:30",
+        "releasedate": "7-02-2020"
     },
     {
         "id": "c2fbf080-5c5d-4b70-a1f5-2ec3fdcecc93",
         "movieId": "0c40126a-303b-41d5-b7b3-7c41901be756",
         "roomId": "27b005fd-f9ab-42f3-a9a6-f12c10d4ecb5",
-        "dateTime": "13-03-2020 19:05"
+        "dateTime": "13-03-2020 19:05",
+        "releasedate": "8-02-2020"
     },
     {
         "id": "13489ff5-028b-4cee-ad3a-35ddd48b61a5",
         "movieId": "2dc2759d-f106-436c-b716-2702c4739d2e",
         "roomId": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
-        "dateTime": "13-03-2020 18:45"
+        "dateTime": "13-03-2020 18:45",
+        "releasedate": "14-02-2020"
     },
     {
         "id": "f9d0667c-888a-4075-8345-0915beb28ade",
         "movieId": "847f33d0-9d7a-43fa-997e-68a6982f7279",
         "roomId": "ec65ea51-a0c9-465a-af71-934c811b2894",
-        "dateTime": "13-03-2020 18:55"
+        "dateTime": "13-03-2020 18:55",
+        "releasedate": "29-02-2020"
     },
     {
         "id": "e58ac76e-ff5a-4def-bae5-4ae2b396e1c2",
         "movieId": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
         "roomId": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-        "dateTime": "13-03-2020 18:55"
+        "dateTime": "13-03-2020 18:55",
+        "releasedate": "10-02-2020"
     },
     {
         "id": "bf34837b-f348-4af3-adad-b52dcb656408",
         "movieId": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
         "roomId": "27b005fd-f9ab-42f3-a9a6-f12c10d4ecb5",
-        "dateTime": "13-03-2020 21:00"
+        "dateTime": "13-03-2020 21:00",
+        "releasedate": "9-02-2020"
     },
     {
         "id": "95c7177d-d5cc-48a9-bfe3-aeb6e8a0a7b7",
         "movieId": "415de207-2c1b-4bd0-9e65-7a15afa3fef2",
         "roomId": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
-        "dateTime": "13-03-2020 21:30"
+        "dateTime": "13-03-2020 21:30",
+        "releasedate": "18-02-2020"
     },
     {
         "id": "64aaf3fa-57cc-43aa-ba70-34823693e99c",
         "movieId": "0c40126a-303b-41d5-b7b3-7c41901be756",
         "roomId": "ec65ea51-a0c9-465a-af71-934c811b2894",
-        "dateTime": "13-03-2020 21:10"
+        "dateTime": "13-03-2020 21:10",
+        "releasedate": "1-02-2020"
     },
     {
         "id": "32130623-a6af-4a79-891e-afe41acce84d",
         "movieId": "0c40126a-303b-41d5-b7b3-7c41901be756",
         "roomId": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-        "dateTime": "13-03-2020 21:10"
+        "dateTime": "13-03-2020 21:10",
+        "releasedate": "29-02-2020"
     },
     {
         "id": "9b7ad154-6b30-4b39-a8de-54b25da16bf2",
         "movieId": "2dc2759d-f106-436c-b716-2702c4739d2e",
         "roomId": "27b005fd-f9ab-42f3-a9a6-f12c10d4ecb5",
-        "dateTime": "13-03-2020 22:40"
+        "dateTime": "13-03-2020 22:40",
+        "releasedate": "31-02-2020"
     },
     {
         "id": "9815ddc0-0dc2-434b-a7eb-9d0909596465",
         "movieId": "847f33d0-9d7a-43fa-997e-68a6982f7279",
         "roomId": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
-        "dateTime": "13-03-2020 23:10"
+        "dateTime": "13-03-2020 23:10",
+        "releasedate": "32-02-2020"
     },
     {
         "id": "b5dcd6e2-08dd-40c6-9339-4a9be2ca11f5",
         "movieId": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
         "roomId": "ec65ea51-a0c9-465a-af71-934c811b2894",
-        "dateTime": "13-03-2020 23:55"
+        "dateTime": "13-03-2020 23:55",
+        "releasedate": "20-02-2020"
 
     },
 
