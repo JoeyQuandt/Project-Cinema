@@ -84,6 +84,186 @@ public static class Administrator
         
     }
 
+    // Function that lists all movies as possible menu options and asks which to change with a wizard to change it
+    private static void ChangeMovie()
+    {
+        // Load movies from JSON
+        List<Movie> movies = Data.LoadMovies();
+
+        // Initialize loop
+        bool loop = true;
+        while (loop)
+        {
+
+            Console.Clear();
+            Console.WriteLine("Choose a movie to change it or type 'x' to go back.\n");
+
+            // Loop over movies and output the movie title with a number in front of it
+            int index = 0;
+            foreach (Movie movie in movies)
+            {
+                Console.WriteLine(index.ToString() + ") " + movie.GetMovieTitle());
+                index++;
+            }
+
+            // Read user input and try to parse it.
+            string option = Console.ReadLine();
+            int x = 0;
+            if (Int32.TryParse(option, out x))
+            {
+                // Test if input is in bounds of List
+                if (x >= 0 && x < movies.Count)
+                {
+                    // In bounds, show data
+                    Console.Clear();
+                    Movie movie = movies[x];
+                    // Clear console
+                    Console.Clear();
+                    Console.WriteLine("Welcome to the 'Change a movie' wizard!");
+
+                    // Ask user for the movie information
+                    Console.WriteLine("Please insert the new name of the movie:");
+                    string title = Console.ReadLine();
+                    Console.WriteLine("Please insert the new description of the movie:");
+                    string description = Console.ReadLine();
+                    Console.WriteLine("And finally, insert the new duration in minutes of the movie:");
+
+                    // Parse number 
+                    // TODO: error if not a number and let the user try again
+                    int temp = 0;
+                    Int32.TryParse(Console.ReadLine(), out temp);
+                    int duration = temp;
+
+                    // Loop for a correct answer
+                    bool loop2 = true;
+                    while (loop2)
+                    {
+                        // Repeat the details and ask if its okay
+                        Console.Clear();
+                        Console.WriteLine("Movie details:");
+                        Console.WriteLine(title);
+                        Console.WriteLine(description);
+                        Console.WriteLine(duration.ToString());
+                        Console.WriteLine("\nChange this movie? (y/n)");
+
+                        string inp = Console.ReadLine().ToLower();
+                        if (inp == "y")
+                        {
+                            Console.Clear();
+                            loop2 = false;
+                            Console.WriteLine("Changed the movie to: " + title + "!");
+                            PressEnter();
+
+                        }
+                        else if (inp == "n")
+                        {
+                            Console.Clear();
+                            loop2 = false;
+                            Console.WriteLine("Didn't change the movie " + title + "!");
+                            Console.WriteLine("Returning to the admin menu");
+                            PressEnter();
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Please choose 'y' or 'n'");
+                            PressEnter();
+                        }
+                    }
+                    Console.WriteLine("");
+                }
+                else
+                {
+                    // Out of bounds, show error
+                    Console.WriteLine("Please choose a number between 0 and " + movies.Count.ToString() + ".");
+                }
+                PressEnter();
+            }
+
+            // If user input is not a number
+            else
+            {
+                // Check if it is 'x' and if it isn't show an error.
+                if (option.ToLower() != "x")
+                {
+                    ErrorCode();
+                    PressEnter();
+                }
+                else
+                {
+                    // Go back to the admin menu if the user input was 'x'
+                    loop = false;
+                }
+            }
+        }
+
+    }
+
+
+    // Function that lists all movies as possible menu options and asks which to remove
+    private static void RemoveMovie()
+    {
+        // Load movies from JSON
+        List<Movie> movies = Data.LoadMovies();
+
+        // Initialize loop
+        bool loop = true;
+        while (loop)
+        {
+
+            Console.Clear();
+            Console.WriteLine("Choose a movie to delete it or type 'x' to go back.\n");
+
+            // Loop over movies and output the movie title with a number in front of it
+            int index = 0;
+            foreach (Movie movie in movies)
+            {
+                Console.WriteLine(index.ToString() + ") " + movie.GetMovieTitle());
+                index++;
+            }
+
+            // Read user input and try to parse it.
+            string option = Console.ReadLine();
+            int x = 0;
+            if (Int32.TryParse(option, out x))
+            {
+                // Test if input is in bounds of List
+                if (x >= 0 && x < movies.Count)
+                {
+                    // In bounds, show data
+                    Console.Clear();
+                    Movie movie = movies[x];
+                    Console.WriteLine("Removed " + movie.GetMovieTitle() + ".");
+                    Console.WriteLine("");
+                }
+                else
+                {
+                    // Out of bounds, show error
+                    Console.WriteLine("Please choose a number between 0 and " + movies.Count.ToString() + ".");
+                }
+                PressEnter();
+            }
+
+            // If user input is not a number
+            else
+            {
+                // Check if it is 'x' and if it isn't show an error.
+                if (option.ToLower() != "x")
+                {
+                    ErrorCode();
+                    PressEnter();
+                }
+                else
+                {
+                    // Go back to the admin menu if the user input was 'x'
+                    loop = false;
+                }
+            }
+        }
+
+    }
+        
+
     private static void AddMovie()
     {
         // Clear console
@@ -164,10 +344,10 @@ public static class Administrator
                     AddMovie();
                     continue;
                 case "3":
-                    Console.WriteLine("Option 3");
+                    ChangeMovie();
                     continue;
                 case "4":
-                    Console.WriteLine("Option 4");
+                    RemoveMovie();
                     continue;
                 case "5":
                     Console.WriteLine("Option 5");
