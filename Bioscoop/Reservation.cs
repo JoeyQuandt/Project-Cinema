@@ -1,26 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
 
 public class Reservation
 {
-    public Guid reservationID;
+    public Guid id;
+    //public User user;
     public string user;
-    public DateTime dateTime;
-    public int ticketAmount;
-    public Ticket ticket;
+    public List<Ticket> ticketlist;
+    public MovieTime MovieRoom;
 
-    public Reservation (string user, DateTime dateTime, int ticketAmount, Ticket ticket)
+    public Reservation(string user, List<Ticket> ticketlist, MovieTime MovieRoom )
     {
         // Get all new information
-        reservationID = System.Guid.NewGuid();
+        id = Guid.NewGuid();
+        //this.user = user;
         this.user = user;
-        this.dateTime = dateTime;
-        this.ticketAmount = ticketAmount;
-        this.ticket = ticket;
+        this.ticketlist = ticketlist;
+        this.MovieRoom = MovieRoom;
     }
 
     // Return details of the reservation
     public string GetReservationDetails()
     {
-        return "Name: " + user + "\nTicket amount: " + ticketAmount;
+        return "Name: " + user + "\nTicket amount: ";
     }
 }

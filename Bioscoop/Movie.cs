@@ -2,7 +2,7 @@
 
 public class Movie
 {
-    public Guid movieId;
+    public Guid id;
     public string name; // Name of the movie
     public string description; // Description of the movie
     public int duration { get; set; }// In minutes
@@ -11,9 +11,9 @@ public class Movie
     public int ageRestriction; // Age restriction
 
     // Constructor
-    public Movie(string id, string name, string description, int duration, Actor[] actors, DateTime releaseDate, int ageRestriction = 99)
+    public Movie(string name, string description, int duration, Actor[] actors, DateTime releaseDate, int ageRestriction = 99)
     {
-        this.movieId = new Guid(id.Replace("-", ""));
+        id = Guid.NewGuid();
         this.name = name;
         this.description = description;
         this.duration = duration;
@@ -54,6 +54,11 @@ public class Movie
     public DateTime GetMovieReleaseDate()
     {
         return this.releaseDate;
+    }
+
+    public int GetAgeRestriction()
+    {
+        return this.ageRestriction;
     }
 
 }

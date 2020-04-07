@@ -14,7 +14,6 @@
         "name": "zaal 3",
         "seats": 150
     },
-    { "$ref": "#" },
     {
         "id": "ec65ea51-a0c9-465a-af71-934c811b2894",
         "name": "zaal 4",
