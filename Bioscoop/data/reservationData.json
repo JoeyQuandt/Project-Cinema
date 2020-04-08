@@ -198,5 +198,95 @@
       },
       "date": "2020-04-12T20:00:00"
     }
+  },
+  {
+    "id": "e3cd724f-ed8c-4a74-a7a7-5c46dd273425",
+    "user": "Lennert",
+    "ticketlist": [
+      {
+        "id": "1aa095dc-674b-4f8f-857d-f7e3f4cd95a3",
+        "seatNumber": 0,
+        "type": "Adult"
+      },
+      {
+        "id": "38b21e53-f939-4987-97c3-e971d285f38e",
+        "seatNumber": 1,
+        "type": "Adult"
+      },
+      {
+        "id": "daef6c1c-364e-442e-9ef7-a3f0145dc508",
+        "seatNumber": 2,
+        "type": "Child"
+      },
+      {
+        "id": "3c1c5e4a-a66c-4075-b04c-94dec3f3c82a",
+        "seatNumber": 3,
+        "type": "Child"
+      }
+    ],
+    "MovieRoom": {
+      "id": "d8fa3bf5-4ae8-47bb-a88d-cc2e43e4b874",
+      "movie": {
+        "id": "847f33d0-9d7a-43fa-997e-68a6982f7279",
+        "name": "Fast and Furious 15",
+        "description": "A movie about racing",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 120
+      },
+      "room": {
+        "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
+        "name": "zaal 1",
+        "seats": 100,
+        "takenSeats": 4
+      },
+      "date": "2020-04-11T20:00:00"
+    }
+  },
+  {
+    "id": "0db5e3b0-8481-430a-b841-004b78bbc169",
+    "user": "Lennert",
+    "ticketlist": [
+      {
+        "id": "24b2d025-db68-4875-8ef3-2614e1222707",
+        "seatNumber": 4,
+        "type": "Adult"
+      },
+      {
+        "id": "b3839ab8-e128-46a5-9092-c30e27bcfa98",
+        "seatNumber": 5,
+        "type": "Adult"
+      },
+      {
+        "id": "0f15b4ac-b568-41b2-b7ad-d368c816df03",
+        "seatNumber": 6,
+        "type": "Child"
+      },
+      {
+        "id": "89fb809b-260d-4f34-81b7-c809a85b3ed0",
+        "seatNumber": 7,
+        "type": "Child"
+      }
+    ],
+    "MovieRoom": {
+      "id": "d8fa3bf5-4ae8-47bb-a88d-cc2e43e4b874",
+      "movie": {
+        "id": "847f33d0-9d7a-43fa-997e-68a6982f7279",
+        "name": "Fast and Furious 15",
+        "description": "A movie about racing",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 120
+      },
+      "room": {
+        "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
+        "name": "zaal 1",
+        "seats": 100,
+        "takenSeats": 8
+      },
+      "date": "2020-04-11T20:00:00"
+    }
   }
 ]
