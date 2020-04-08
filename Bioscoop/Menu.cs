@@ -139,6 +139,30 @@ public class Menu
                         SeatNumber += 1;
                     }
 
+                    //Herress
+                    Console.WriteLine("\nThe free seats have a green display and the taken seats are red.\nPlease enter your seats as following: 45 or 223345.\n");
+                    Span<int> storage = stackalloc int[40];
+                    int zero = 11;
+                    foreach (ref int item in storage)
+                    {
+                        if (item == ChosenSeats)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                        }
+                        item = zero++;
+                        Console.Write($"[{item}]");
+                        if (item == 20 || item == 30 || item == 40 || item == 50)
+                        {
+                            Console.WriteLine("\n");
+                        }
+                        if (item == 15 || item == 25 || item == 35 || item == 45)
+                        {
+                            Console.Write("     ");
+                        }
+                    }
+                    int ChosenSeats = IntegerInput("Which seats do you want?");
+
+
                     // Adds Reservation to JSON file.
                     MovieTimesList[MovieNumber+Removed].GetRoom().FillSeats(TicketAmount);
                     string SerializedMovieTimesList = JsonConvert.SerializeObject(MovieTimesList, Formatting.Indented);
