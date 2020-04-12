@@ -117,9 +117,8 @@ public class Menu
             switch (Console.ReadLine().ToLower())
             {
                 case "y":
-                    int TicketAmount = IntegerInput("Enter the amount of tickets you want", SortedMovieTimes[MovieNumber-1].GetRoom().GetAvailableSeats());
-                    int AdultTicketAmount = IntegerInput("How many adult tickets do you want?", TicketAmount);
-                    int ChildTicketAmount = TicketAmount - AdultTicketAmount;
+                    int AdultTicketAmount = IntegerInput("How many adult tickets do you want?", SortedMovieTimes[MovieNumber - 1].GetRoom().GetAvailableSeats());
+                    int ChildTicketAmount = IntegerInput("How many child tickets do you want?", SortedMovieTimes[MovieNumber - 1].GetRoom().GetAvailableSeats() - AdultTicketAmount);
                     // For when more types of tickets will be added
                     // int childTicketAmount = Integer_input("How many child tickets do you want?", ticketAmount - adultTicketAmount);
 
@@ -140,22 +139,20 @@ public class Menu
                     }
 
                     // Adds Reservation to JSON file.
-                    MovieTimesList[MovieNumber+Removed].GetRoom().FillSeats(TicketAmount);
+                    MovieTimesList[MovieNumber+Removed].GetRoom().FillSeats(AdultTicketAmount + ChildTicketAmount);
                     string SerializedMovieTimesList = JsonConvert.SerializeObject(MovieTimesList, Formatting.Indented);
                     File.WriteAllText(@"../../../data/movieTimesData.json", SerializedMovieTimesList);
-                    Console.WriteLine("STORED!");
                     // Adds Tickets to JSON file
                     string SerializedTicketList = JsonConvert.SerializeObject(TicketList, Formatting.Indented);
                     File.WriteAllText(@"../../../data/ticketData.json", SerializedTicketList);
-                    Console.WriteLine("STORED!");
                     // Adds Reservation to JSON file.
                     List<Reservation> ReservationList = Data.LoadReservations();
                     Reservation Reservation = new Reservation("Lennert", TicketListReservation, MovieTimesList[MovieNumber + Removed]);
                     ReservationList.Add(Reservation);
                     string SerializedReservationList = JsonConvert.SerializeObject(ReservationList, Formatting.Indented);
                     File.WriteAllText(@"../../../data/reservationData.json", SerializedReservationList);
-                    Console.WriteLine("STORED!");
-
+                    Console.WriteLine($"The cost of {AdultTicketAmount} adult tickets : ${AdultTicketAmount * 20}\nThe cost of {ChildTicketAmount} child tickets : ${ChildTicketAmount * 15}\nTotal cost :  ${AdultTicketAmount*20 + ChildTicketAmount*15}");
+                    PressEnter();
                     return 0;
 
                 case "n":
