@@ -5,7 +5,9 @@ using System.Collections.Generic;
 using System.IO;
 
 public class Menu
-{   
+{
+    public static User authorizedUser = null;
+
     //Press enter to return to the main menu
     public void PressEnter()
     {
@@ -41,7 +43,7 @@ public class Menu
 
     // A function made to be able to error handle inputs where you want an integer as result.
     // Parameters are for a message and a limit 
-    public int IntegerInput(string Message, int Limit = 100)
+    public static int IntegerInput(string Message, int Limit = 100)
     {
         while (true)
         {
@@ -69,7 +71,7 @@ public class Menu
 
 
     //List<Reservation>
-    public int MakeReservation()
+    public static int MakeReservation()
     {
         // Makes Lists from the data in the JSON
         List<Room> RoomList = Data.LoadRooms();
@@ -150,7 +152,7 @@ public class Menu
                     Console.WriteLine("STORED!");
                     // Adds Reservation to JSON file.
                     List<Reservation> ReservationList = Data.LoadReservations();
-                    Reservation Reservation = new Reservation("Lennert", TicketListReservation, MovieTimesList[MovieNumber + Removed]);
+                    Reservation Reservation = new Reservation(authorizedUser.GetFirstName() + " " + authorizedUser.GetLastName(), TicketListReservation, MovieTimesList[MovieNumber + Removed]);
                     ReservationList.Add(Reservation);
                     string SerializedReservationList = JsonConvert.SerializeObject(ReservationList, Formatting.Indented);
                     File.WriteAllText(@"../../../data/reservationData.json", SerializedReservationList);
@@ -174,7 +176,6 @@ public class Menu
         public void Login_information()
         {
         // Prepare variables
-        User authorizedUser = null;
         bool loginSuccesfull = false;
         bool loginLoop = true;
 
@@ -212,10 +213,8 @@ public class Menu
                     loginLoop = false;
                 } else
                 {
-                    Console.WriteLine("Log in succesfull");
-                    Console.WriteLine("Welcome, " + authorizedUser.GetFirstName());
+                    Customer.CustomerMenu();
                     loginLoop = false;
-                    PressEnter();
                 }
                 
             }
@@ -250,9 +249,8 @@ public class Menu
         }
         Console.WriteLine("1) For movie availability");
         Console.WriteLine("2) For ticket information");
-        Console.WriteLine("3) For login  information");
+        Console.WriteLine("3) Log in");
         Console.WriteLine("4) Exit");
-        Console.WriteLine("5) Place reservation");
         
         Console.Write("\r\nSelect an option: ");
         //switch checking which number is pressed
@@ -269,9 +267,6 @@ public class Menu
                 return true;
             case "4":
                 return false;
-            case "5":
-                MakeReservation();
-                return true;
             default:
                 ErrorMessage();
                 return true;
