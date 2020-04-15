@@ -9,7 +9,7 @@ public class Menu
     public static User authorizedUser = null;
 
     //Press enter to return to the main menu
-    public void PressEnter()
+    public static void PressEnter()
     {
         Console.WriteLine("Press Enter to return to Main Menu");
         Console.ReadLine();
