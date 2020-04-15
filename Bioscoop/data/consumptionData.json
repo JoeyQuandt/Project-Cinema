@@ -1,0 +1,22 @@
+[
+  {
+    "id": "7a9be6f0-02c7-46bc-bf1e-2eed89490196",
+    "name": "Popcorn",
+    "description": "Crunchy popcorn",
+    "size": null,
+    "allergies": [
+      "peanuts",
+      "sweetcorn"
+    ]
+  },
+  {
+    "id": "8928de4c-2635-49bd-add2-ebad4561ff4a",
+    "name": "Popcorn",
+    "description": "Crunchy popcorn",
+    "size": null,
+    "allergies": [
+      "peanuts",
+      "sweetcorn"
+    ]
+  }
+]

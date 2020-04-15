@@ -111,4 +111,17 @@ public static class Data
         }
     }
 
+    public static List<Consumption> LoadConsumptions()
+    {
+        // Load the movieData.json here and parse to Movie objects
+        using (StreamReader r = new StreamReader(@"../../../data/consumptionData.json"))
+        {
+            string json = r.ReadToEnd();
+            List<Consumption> items = JsonConvert.DeserializeObject<List<Consumption>>(json);
+            return items;
+            /*foreach(Movie item in items){
+                Console.WriteLine(item.GetMovieDetails() + "\n\n");
+            }*/
+        }
+    }
 }

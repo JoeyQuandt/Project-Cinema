@@ -200,138 +200,613 @@
     }
   },
   {
-    "id": "e3cd724f-ed8c-4a74-a7a7-5c46dd273425",
+    "id": "45a43ff7-4cfb-4f1a-9b51-ab9802e21b45",
     "user": "Lennert",
     "ticketlist": [
       {
-        "id": "1aa095dc-674b-4f8f-857d-f7e3f4cd95a3",
+        "id": "657a48a5-f220-4860-a1c8-916d27f624c1",
         "seatNumber": 0,
         "type": "Adult"
       },
       {
-        "id": "38b21e53-f939-4987-97c3-e971d285f38e",
+        "id": "3bf7ad8c-84f8-4920-af9d-2f7b2014608b",
         "seatNumber": 1,
         "type": "Adult"
       },
       {
-        "id": "daef6c1c-364e-442e-9ef7-a3f0145dc508",
+        "id": "a49c00c9-4d57-4345-8861-7b4bc1df5792",
         "seatNumber": 2,
-        "type": "Child"
+        "type": "Adult"
       },
       {
-        "id": "3c1c5e4a-a66c-4075-b04c-94dec3f3c82a",
+        "id": "385a120c-0538-4180-b4e9-e4aca5ebb844",
         "seatNumber": 3,
-        "type": "Child"
-      }
-    ],
-    "MovieRoom": {
-      "id": "d8fa3bf5-4ae8-47bb-a88d-cc2e43e4b874",
-      "movie": {
-        "id": "847f33d0-9d7a-43fa-997e-68a6982f7279",
-        "name": "Fast and Furious 15",
-        "description": "A movie about racing",
-        "actors": null,
-        "releaseDate": "0001-01-01T00:00:00",
-        "ageRestriction": 0,
-        "duration": 120
+        "type": "Adult"
       },
-      "room": {
-        "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-        "name": "zaal 1",
-        "seats": 100,
-        "takenSeats": 4
-      },
-      "date": "2020-04-11T20:00:00"
-    }
-  },
-  {
-    "id": "0db5e3b0-8481-430a-b841-004b78bbc169",
-    "user": "Lennert",
-    "ticketlist": [
       {
-        "id": "24b2d025-db68-4875-8ef3-2614e1222707",
+        "id": "e09d1b81-cef0-4eed-990d-044a250ff234",
         "seatNumber": 4,
         "type": "Adult"
       },
       {
-        "id": "b3839ab8-e128-46a5-9092-c30e27bcfa98",
+        "id": "390b1768-c132-478c-a951-a41a8b2f25f9",
         "seatNumber": 5,
-        "type": "Adult"
+        "type": "Child"
       },
       {
-        "id": "0f15b4ac-b568-41b2-b7ad-d368c816df03",
+        "id": "e95c3303-1600-4a60-a846-7febfd233548",
         "seatNumber": 6,
         "type": "Child"
       },
       {
-        "id": "89fb809b-260d-4f34-81b7-c809a85b3ed0",
+        "id": "127a4b87-b8f8-4872-a2da-e7b6b14f6621",
         "seatNumber": 7,
         "type": "Child"
-      }
-    ],
-    "MovieRoom": {
-      "id": "d8fa3bf5-4ae8-47bb-a88d-cc2e43e4b874",
-      "movie": {
-        "id": "847f33d0-9d7a-43fa-997e-68a6982f7279",
-        "name": "Fast and Furious 15",
-        "description": "A movie about racing",
-        "actors": null,
-        "releaseDate": "0001-01-01T00:00:00",
-        "ageRestriction": 0,
-        "duration": 120
-      },
-      "room": {
-        "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-        "name": "zaal 1",
-        "seats": 100,
-        "takenSeats": 8
-      },
-      "date": "2020-04-11T20:00:00"
-    }
-  },
-  {
-    "id": "9fd6a383-03bb-4b70-a002-d5387214a805",
-    "user": "Lennert",
-    "ticketlist": [
-      {
-        "id": "3fe29fc9-9c11-46a6-9978-3994df65ed47",
-        "seatNumber": 0,
-        "type": "Adult"
       },
       {
-        "id": "d435bbf0-c80e-4253-a19a-26236eaccf36",
-        "seatNumber": 1,
-        "type": "Adult"
-      },
-      {
-        "id": "a9370655-aceb-4331-8f9e-6c51245ce501",
-        "seatNumber": 2,
+        "id": "2789892d-1947-4895-9c23-a74327524a2b",
+        "seatNumber": 8,
         "type": "Child"
       },
       {
-        "id": "086ba4f0-b35f-4fe6-8ca0-3c480bf480c9",
-        "seatNumber": 3,
+        "id": "d0b9097b-b2a2-4e24-87db-53d1ac23da91",
+        "seatNumber": 9,
         "type": "Child"
       }
     ],
     "MovieRoom": {
-      "id": "4b1be898-0d17-4a0a-8b8f-934f322598ed",
+      "id": "7039b6df-04b8-4548-8126-72f721a5f084",
       "movie": {
-        "id": "415de207-2c1b-4bd0-9e65-7a15afa3fef2",
-        "name": "A night in a musuem",
-        "description": "A couple of urban explorers check out a haunted musuem.",
+        "id": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
+        "name": "The Almighty",
+        "description": "A simple workingclass man suddenly becomes a literal god.",
         "actors": null,
         "releaseDate": "0001-01-01T00:00:00",
         "ageRestriction": 0,
         "duration": 100
       },
       "room": {
-        "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-        "name": "zaal 1",
-        "seats": 100,
-        "takenSeats": 4
+        "id": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
+        "name": "zaal 3",
+        "seats": 150,
+        "takenSeats": 10
       },
-      "date": "2020-05-11T17:00:00"
+      "date": "2020-04-05T20:00:00"
+    }
+  },
+  {
+    "id": "74ce2bc2-ef34-4284-aa73-2b7d4fbb1b9b",
+    "user": "Lennert",
+    "ticketlist": [
+      {
+        "id": "5815bbe2-e7d2-49c5-b1e1-ad921071a558",
+        "seatNumber": 21,
+        "type": "Adult"
+      },
+      {
+        "id": "715fbf25-858c-48e1-b69b-983a2fd4e19a",
+        "seatNumber": 22,
+        "type": "Adult"
+      },
+      {
+        "id": "2814329e-393a-42c4-bd35-37d937344708",
+        "seatNumber": 23,
+        "type": "Child"
+      },
+      {
+        "id": "adc0295f-3f01-424f-b12c-e927a932e6f7",
+        "seatNumber": 24,
+        "type": "Child"
+      },
+      {
+        "id": "22edc0fe-14d8-427d-bc7f-316a3cc80c07",
+        "seatNumber": 25,
+        "type": "Child"
+      }
+    ],
+    "MovieRoom": {
+      "id": "ee57fb22-d5a0-47e2-8662-72835c679c39",
+      "movie": {
+        "id": "2dc2759d-f106-436c-b716-2702c4739d2e",
+        "name": "The revenge of alexandro",
+        "description": "A movie about the villain alexandro who wreaks havoc on the small town of Rotterdamdorp.",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 140
+      },
+      "room": {
+        "id": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
+        "name": "zaal 3",
+        "seats": 150,
+        "takenSeats": 26
+      },
+      "date": "2020-04-10T14:00:00"
+    }
+  },
+  {
+    "id": "c32bec22-4dcc-40ae-8140-08798ce24341",
+    "user": "Lennert",
+    "ticketlist": [
+      {
+        "id": "cea7a3a3-2c64-4127-a8c7-ea7afa896eb7",
+        "seatNumber": 0,
+        "type": "Adult"
+      },
+      {
+        "id": "3170f10f-29fd-4741-9aed-9e90fcf02f3f",
+        "seatNumber": 1,
+        "type": "Adult"
+      },
+      {
+        "id": "c5060544-3af2-4beb-b6a6-2b97d697187e",
+        "seatNumber": 2,
+        "type": "Adult"
+      },
+      {
+        "id": "34c25770-385c-4893-ab29-1a8739c46197",
+        "seatNumber": 3,
+        "type": "Adult"
+      },
+      {
+        "id": "c9f15407-ba51-4355-bff4-037a06631aed",
+        "seatNumber": 4,
+        "type": "Adult"
+      },
+      {
+        "id": "ebf12481-990d-4d91-8f6e-e4e0203c5180",
+        "seatNumber": 5,
+        "type": "Adult"
+      },
+      {
+        "id": "dfeb3f03-ba55-4890-9199-cdcdd4f6769e",
+        "seatNumber": 6,
+        "type": "Adult"
+      },
+      {
+        "id": "15184732-a4d6-46f3-85ee-a76e16ae1251",
+        "seatNumber": 7,
+        "type": "Adult"
+      },
+      {
+        "id": "44560d2f-038f-4312-bc25-2cf4d312f609",
+        "seatNumber": 8,
+        "type": "Adult"
+      },
+      {
+        "id": "26441fab-4b1e-4b71-ad25-9a459774a8dc",
+        "seatNumber": 9,
+        "type": "Adult"
+      },
+      {
+        "id": "825a09af-2c9c-43ad-92d8-8d4983a2565b",
+        "seatNumber": 10,
+        "type": "Adult"
+      },
+      {
+        "id": "85653cdf-3814-43dc-963d-c5288f1540b2",
+        "seatNumber": 11,
+        "type": "Adult"
+      },
+      {
+        "id": "3fb02ff6-36fb-491c-a7d8-520b0af8819f",
+        "seatNumber": 12,
+        "type": "Adult"
+      },
+      {
+        "id": "dd0241a7-f5b1-4d26-bdce-52e4376a08c9",
+        "seatNumber": 13,
+        "type": "Adult"
+      },
+      {
+        "id": "0919a2f0-2fee-4c10-8130-1277f241cc2d",
+        "seatNumber": 14,
+        "type": "Adult"
+      },
+      {
+        "id": "6427142c-f8c0-4949-bbb6-ed6b111a66f8",
+        "seatNumber": 15,
+        "type": "Adult"
+      },
+      {
+        "id": "6e7b1e41-16fd-4c44-b290-74f84625c1ba",
+        "seatNumber": 16,
+        "type": "Adult"
+      },
+      {
+        "id": "24bb8737-3671-4997-a0b1-cc74974cb528",
+        "seatNumber": 17,
+        "type": "Adult"
+      },
+      {
+        "id": "a9edd6e5-3b6f-413e-ae12-a647096b4203",
+        "seatNumber": 18,
+        "type": "Adult"
+      },
+      {
+        "id": "202a8947-9060-493c-b941-ba1c82ac1a09",
+        "seatNumber": 19,
+        "type": "Adult"
+      },
+      {
+        "id": "bcff99b2-af40-4941-ba50-2a71ea963e1f",
+        "seatNumber": 20,
+        "type": "Adult"
+      },
+      {
+        "id": "3d859c23-fb68-49a4-ac54-50d237baa69b",
+        "seatNumber": 21,
+        "type": "Adult"
+      },
+      {
+        "id": "f8016357-5f47-4287-a5fe-f0a93f28cefe",
+        "seatNumber": 22,
+        "type": "Adult"
+      },
+      {
+        "id": "d5d8008d-a8d4-4812-8fd5-525fc7a2c07e",
+        "seatNumber": 23,
+        "type": "Adult"
+      },
+      {
+        "id": "c92b93f3-8d32-4aa1-a4d1-3dfd1d35207e",
+        "seatNumber": 24,
+        "type": "Adult"
+      },
+      {
+        "id": "78d5f117-9b37-4bf6-ab09-12e2666b77e1",
+        "seatNumber": 25,
+        "type": "Adult"
+      },
+      {
+        "id": "4dc354ef-6773-4083-a152-10e31207e583",
+        "seatNumber": 26,
+        "type": "Adult"
+      },
+      {
+        "id": "73c8c399-1950-46c3-ba70-ac96af9f4719",
+        "seatNumber": 27,
+        "type": "Adult"
+      },
+      {
+        "id": "a86c7386-5ae0-4e1e-8f45-b25a14038bd7",
+        "seatNumber": 28,
+        "type": "Adult"
+      },
+      {
+        "id": "2965ed4c-bd14-44c6-acaa-6d85137a4991",
+        "seatNumber": 29,
+        "type": "Adult"
+      },
+      {
+        "id": "bf798f99-13e3-4eaf-95fb-94a6acd45b4c",
+        "seatNumber": 30,
+        "type": "Adult"
+      },
+      {
+        "id": "bfaaf876-5494-4eb6-9251-a80bfb7ece19",
+        "seatNumber": 31,
+        "type": "Adult"
+      },
+      {
+        "id": "a57e038e-cbc2-4640-a71e-023ca95a2f9d",
+        "seatNumber": 32,
+        "type": "Adult"
+      },
+      {
+        "id": "85e0aad1-8584-4a0e-9465-de4cde942123",
+        "seatNumber": 33,
+        "type": "Adult"
+      },
+      {
+        "id": "2f8b3e2e-2b8a-4d3d-9831-1796d829404b",
+        "seatNumber": 34,
+        "type": "Adult"
+      },
+      {
+        "id": "3647d089-7e14-400e-af88-bed20503b25e",
+        "seatNumber": 35,
+        "type": "Adult"
+      },
+      {
+        "id": "da7c7afe-6e45-4d6f-af07-63c67ee52872",
+        "seatNumber": 36,
+        "type": "Adult"
+      },
+      {
+        "id": "04822cbe-33a9-4007-8862-e9df54a7c3f6",
+        "seatNumber": 37,
+        "type": "Adult"
+      },
+      {
+        "id": "9d1f9135-1d6b-45a5-8d32-8866f134bd91",
+        "seatNumber": 38,
+        "type": "Adult"
+      },
+      {
+        "id": "9aeaf5d9-fd08-4615-92d1-59fe11538534",
+        "seatNumber": 39,
+        "type": "Adult"
+      },
+      {
+        "id": "c16fa729-c4b1-4f89-9c6b-125777abe88e",
+        "seatNumber": 40,
+        "type": "Adult"
+      },
+      {
+        "id": "e3fc8672-384c-4d3a-b4c0-70ad22adc11e",
+        "seatNumber": 41,
+        "type": "Adult"
+      },
+      {
+        "id": "41f5b6a2-ad5f-4f5a-b79e-90844dbdb16e",
+        "seatNumber": 42,
+        "type": "Adult"
+      },
+      {
+        "id": "a66b281a-6304-4332-b9e0-f5cf602840db",
+        "seatNumber": 43,
+        "type": "Adult"
+      },
+      {
+        "id": "0539f9e5-4998-4d4b-8bc4-7719b027231c",
+        "seatNumber": 44,
+        "type": "Adult"
+      },
+      {
+        "id": "ee16f0bd-2e5a-4ee8-a66d-1402e236bbc6",
+        "seatNumber": 45,
+        "type": "Adult"
+      },
+      {
+        "id": "e1d23eda-af7d-4b92-bdf7-d19703f53dec",
+        "seatNumber": 46,
+        "type": "Adult"
+      },
+      {
+        "id": "1f65df32-8b8f-4974-a051-a520f624e7d4",
+        "seatNumber": 47,
+        "type": "Adult"
+      },
+      {
+        "id": "66664307-2edd-4ba2-9267-5c78c96ae75f",
+        "seatNumber": 48,
+        "type": "Adult"
+      },
+      {
+        "id": "9c803e2f-a381-454b-b479-1518e0f9ff2c",
+        "seatNumber": 49,
+        "type": "Adult"
+      },
+      {
+        "id": "491d0372-cbae-4e3f-8d73-c7b60453f443",
+        "seatNumber": 50,
+        "type": "Child"
+      },
+      {
+        "id": "b476c4ef-3f86-4cbf-862d-7862e979a6a3",
+        "seatNumber": 51,
+        "type": "Child"
+      },
+      {
+        "id": "9f2a033c-26c5-4b95-8407-a182e6ace91b",
+        "seatNumber": 52,
+        "type": "Child"
+      },
+      {
+        "id": "2b0ac87d-3085-4a29-942f-27cdd1983c30",
+        "seatNumber": 53,
+        "type": "Child"
+      },
+      {
+        "id": "149c8745-efd8-45af-a854-5b5407539b94",
+        "seatNumber": 54,
+        "type": "Child"
+      },
+      {
+        "id": "f4871862-c5d4-44ce-bc08-4005ef793db5",
+        "seatNumber": 55,
+        "type": "Child"
+      },
+      {
+        "id": "49e19fe7-6b1a-49e3-979e-bfc86b4d306c",
+        "seatNumber": 56,
+        "type": "Child"
+      },
+      {
+        "id": "b1c9a9d1-9a10-401c-b0d1-3e420d373635",
+        "seatNumber": 57,
+        "type": "Child"
+      },
+      {
+        "id": "ca60ad0b-01be-45be-a65a-361aa2499e1c",
+        "seatNumber": 58,
+        "type": "Child"
+      },
+      {
+        "id": "6579d244-9528-4286-99f1-c173ecde248b",
+        "seatNumber": 59,
+        "type": "Child"
+      }
+    ],
+    "MovieRoom": {
+      "id": "a0166cb1-e6e2-4f32-81de-9559af8d1a69",
+      "movie": {
+        "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
+        "name": "Cory in the house",
+        "description": "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 90
+      },
+      "room": {
+        "id": "27b005fd-f9ab-42f3-a9a6-f12c10d4ecb5",
+        "name": "zaal 2",
+        "seats": 75,
+        "takenSeats": 60
+      },
+      "date": "2020-04-12T17:00:00"
+    }
+  },
+  {
+    "id": "a77a36eb-6559-48b0-abd3-352777686a8d",
+    "user": "Lennert",
+    "ticketlist": [
+      {
+        "id": "c8be6590-5295-4299-9d8b-b9204abbb161",
+        "seatNumber": 0,
+        "type": "Adult"
+      },
+      {
+        "id": "c35b8392-7192-42a3-b928-343831a54c3c",
+        "seatNumber": 1,
+        "type": "Adult"
+      },
+      {
+        "id": "e0379d0c-0f74-43c4-8bbf-2cc88ed3635f",
+        "seatNumber": 2,
+        "type": "Adult"
+      },
+      {
+        "id": "2a7c7090-3ee7-443c-8a73-a5da8c7fe5b2",
+        "seatNumber": 3,
+        "type": "Child"
+      },
+      {
+        "id": "f08c0247-5833-4a9a-b1ac-eeed6f04dc4a",
+        "seatNumber": 4,
+        "type": "Child"
+      }
+    ],
+    "MovieRoom": {
+      "id": "9cf1a599-f3b5-4375-8c27-f2fce902b18d",
+      "movie": {
+        "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
+        "name": "Cory in the house",
+        "description": "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 90
+      },
+      "room": {
+        "id": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
+        "name": "zaal 3",
+        "seats": 150,
+        "takenSeats": 5
+      },
+      "date": "2020-04-30T18:00:00"
+    }
+  },
+  {
+    "id": "29edbce6-cf6e-42d7-bb82-35023322dc07",
+    "user": "Lennert",
+    "ticketlist": [
+      {
+        "id": "9345b47e-9f16-430c-9bf8-71dd16d79c84",
+        "seatNumber": 10,
+        "type": "Adult"
+      },
+      {
+        "id": "80f01c2f-11db-4a76-9017-40a2ad0f814d",
+        "seatNumber": 11,
+        "type": "Adult"
+      },
+      {
+        "id": "75db516f-d368-4228-821b-85e9c9fa9fc7",
+        "seatNumber": 12,
+        "type": "Child"
+      },
+      {
+        "id": "76cb3e51-7ac3-48e9-b9b6-52f47504b167",
+        "seatNumber": 13,
+        "type": "Child"
+      },
+      {
+        "id": "a71574d8-240b-4526-a058-31b29e25a4cf",
+        "seatNumber": 14,
+        "type": "Child"
+      },
+      {
+        "id": "5952fa2b-a666-41da-aea3-186abaf4a700",
+        "seatNumber": 15,
+        "type": "Child"
+      }
+    ],
+    "MovieRoom": {
+      "id": "7039b6df-04b8-4548-8126-72f721a5f084",
+      "movie": {
+        "id": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
+        "name": "The Almighty",
+        "description": "A simple workingclass man suddenly becomes a literal god.",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 100
+      },
+      "room": {
+        "id": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
+        "name": "zaal 3",
+        "seats": 150,
+        "takenSeats": 16
+      },
+      "date": "2020-05-05T20:00:00"
+    }
+  },
+  {
+    "id": "b02cc74d-d190-4545-927f-f2cc7eead90d",
+    "user": "Lennert",
+    "ticketlist": [
+      {
+        "id": "6ad92c85-ced5-4d14-b916-c822ea04e436",
+        "seatNumber": 2,
+        "type": "Adult"
+      },
+      {
+        "id": "a359dd8d-c63b-4ff6-b05f-8cb5ba099721",
+        "seatNumber": 3,
+        "type": "Adult"
+      },
+      {
+        "id": "cc50dc79-9ac0-48cd-a9d6-8db73d111800",
+        "seatNumber": 4,
+        "type": "Child"
+      },
+      {
+        "id": "be53a77c-ba01-4619-99ce-16a59ba4753e",
+        "seatNumber": 5,
+        "type": "Child"
+      },
+      {
+        "id": "7bd932ec-c5ea-4377-a119-5355b4e7c9cc",
+        "seatNumber": 6,
+        "type": "Child"
+      },
+      {
+        "id": "0adff1d4-dc14-4050-bef0-9d0bc07bc353",
+        "seatNumber": 7,
+        "type": "Child"
+      }
+    ],
+    "MovieRoom": {
+      "id": "b5056224-b7ed-4136-8741-88fb317e5809",
+      "movie": {
+        "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
+        "name": "Cory in the house",
+        "description": "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 90
+      },
+      "room": {
+        "id": "27b005fd-f9ab-42f3-a9a6-f12c10d4ecb5",
+        "name": "zaal 2",
+        "seats": 75,
+        "takenSeats": 8
+      },
+      "date": "2020-05-05T16:00:00"
     }
   }
 ]

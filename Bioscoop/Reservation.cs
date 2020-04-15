@@ -7,7 +7,8 @@ public class Reservation
     //public User user;
     public string user;
     public List<Ticket> ticketlist;
-    public MovieTime MovieRoom;
+    public MovieTime movieRoom;
+    public int ticketAmount;
 
     public Reservation(string user, List<Ticket> ticketlist, MovieTime MovieRoom )
     {
@@ -16,12 +17,16 @@ public class Reservation
         //this.user = user;
         this.user = user;
         this.ticketlist = ticketlist;
-        this.MovieRoom = MovieRoom;
+        this.movieRoom = MovieRoom;
     }
 
     // Return details of the reservation
     public string GetReservationDetails()
     {
-        return "Name: " + user + "\nTicket amount: ";
+        foreach (Ticket ticket in ticketlist) {
+            ticketAmount++;
+        }
+       
+        return "Name: " + user + "\nMovie: " + movieRoom.GetMovieTimeDetails() + "\nTicket amount: " + ticketAmount;
     }
 }
