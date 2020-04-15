@@ -145,10 +145,6 @@ public class Menu
                     int zero = 11;
                     foreach (ref int item in storage)
                     {
-                        //if (item == ChosenSeats)
-                        //{
-                            //Console.ForegroundColor = ConsoleColor.Red;
-                        //}
                         item = zero++;
                         Console.Write($"[{item}]");
                         if (item == 20 || item == 30 || item == 40 || item == 50)

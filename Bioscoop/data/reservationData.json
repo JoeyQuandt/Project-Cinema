@@ -288,5 +288,50 @@
       },
       "date": "2020-04-11T20:00:00"
     }
+  },
+  {
+    "id": "9fd6a383-03bb-4b70-a002-d5387214a805",
+    "user": "Lennert",
+    "ticketlist": [
+      {
+        "id": "3fe29fc9-9c11-46a6-9978-3994df65ed47",
+        "seatNumber": 0,
+        "type": "Adult"
+      },
+      {
+        "id": "d435bbf0-c80e-4253-a19a-26236eaccf36",
+        "seatNumber": 1,
+        "type": "Adult"
+      },
+      {
+        "id": "a9370655-aceb-4331-8f9e-6c51245ce501",
+        "seatNumber": 2,
+        "type": "Child"
+      },
+      {
+        "id": "086ba4f0-b35f-4fe6-8ca0-3c480bf480c9",
+        "seatNumber": 3,
+        "type": "Child"
+      }
+    ],
+    "MovieRoom": {
+      "id": "4b1be898-0d17-4a0a-8b8f-934f322598ed",
+      "movie": {
+        "id": "415de207-2c1b-4bd0-9e65-7a15afa3fef2",
+        "name": "A night in a musuem",
+        "description": "A couple of urban explorers check out a haunted musuem.",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 100
+      },
+      "room": {
+        "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
+        "name": "zaal 1",
+        "seats": 100,
+        "takenSeats": 4
+      },
+      "date": "2020-05-11T17:00:00"
+    }
   }
 ]
