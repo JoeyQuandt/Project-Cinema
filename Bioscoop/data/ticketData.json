@@ -153,5 +153,10 @@
     "id": "2eb8955e-c152-46d4-9a79-cf9536008900",
     "seatNumber": 17,
     "type": "Child"
+  },
+  {
+    "id": "a97d7e98-59b6-444f-b29b-5b384989fc6b",
+    "seatNumber": 21,
+    "type": "Adult"
   }
 ]
