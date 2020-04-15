@@ -139,7 +139,7 @@ public class Menu
                         SeatNumber += 1;
                     }
 
-                    //Herress
+                    //Choose which seat
                     Console.WriteLine("\nThe free seats have a green display and the taken seats are red.\nPlease enter your seats as following: 45 or 223345.\n");
                     Span<int> storage = stackalloc int[40];
                     int zero = 11;
