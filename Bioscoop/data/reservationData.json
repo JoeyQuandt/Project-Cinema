@@ -34,7 +34,7 @@
         "type": "Child"
       }
     ],
-    "MovieRoom": {
+    "movieRoom": {
       "id": "3bfd8998-be11-4273-94a9-b58231eb84b2",
       "movie": {
         "id": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
@@ -52,7 +52,8 @@
         "takenSeats": 14
       },
       "date": "2020-04-12T20:00:00"
-    }
+    },
+    "ticketAmount": 0
   },
   {
     "id": "36c1899e-db77-4c65-be64-941bb031859b",
@@ -134,7 +135,7 @@
         "type": "Child"
       }
     ],
-    "MovieRoom": {
+    "movieRoom": {
       "id": "ee57fb22-d5a0-47e2-8662-72835c679c39",
       "movie": {
         "id": "2dc2759d-f106-436c-b716-2702c4739d2e",
@@ -152,7 +153,8 @@
         "takenSeats": 21
       },
       "date": "2020-04-10T14:00:00"
-    }
+    },
+    "ticketAmount": 0
   },
   {
     "id": "6dc89d37-8489-4329-8eb3-d4ecc6f0f55c",
@@ -179,7 +181,7 @@
         "type": "Child"
       }
     ],
-    "MovieRoom": {
+    "movieRoom": {
       "id": "3bfd8998-be11-4273-94a9-b58231eb84b2",
       "movie": {
         "id": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
@@ -197,7 +199,8 @@
         "takenSeats": 18
       },
       "date": "2020-04-12T20:00:00"
-    }
+    },
+    "ticketAmount": 0
   },
   {
     "id": "45a43ff7-4cfb-4f1a-9b51-ab9802e21b45",
@@ -254,7 +257,7 @@
         "type": "Child"
       }
     ],
-    "MovieRoom": {
+    "movieRoom": {
       "id": "7039b6df-04b8-4548-8126-72f721a5f084",
       "movie": {
         "id": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
@@ -272,7 +275,8 @@
         "takenSeats": 10
       },
       "date": "2020-04-05T20:00:00"
-    }
+    },
+    "ticketAmount": 0
   },
   {
     "id": "74ce2bc2-ef34-4284-aa73-2b7d4fbb1b9b",
@@ -304,7 +308,7 @@
         "type": "Child"
       }
     ],
-    "MovieRoom": {
+    "movieRoom": {
       "id": "ee57fb22-d5a0-47e2-8662-72835c679c39",
       "movie": {
         "id": "2dc2759d-f106-436c-b716-2702c4739d2e",
@@ -322,7 +326,8 @@
         "takenSeats": 26
       },
       "date": "2020-04-10T14:00:00"
-    }
+    },
+    "ticketAmount": 0
   },
   {
     "id": "c32bec22-4dcc-40ae-8140-08798ce24341",
@@ -629,7 +634,7 @@
         "type": "Child"
       }
     ],
-    "MovieRoom": {
+    "movieRoom": {
       "id": "a0166cb1-e6e2-4f32-81de-9559af8d1a69",
       "movie": {
         "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
@@ -647,7 +652,8 @@
         "takenSeats": 60
       },
       "date": "2020-04-12T17:00:00"
-    }
+    },
+    "ticketAmount": 0
   },
   {
     "id": "a77a36eb-6559-48b0-abd3-352777686a8d",
@@ -679,7 +685,7 @@
         "type": "Child"
       }
     ],
-    "MovieRoom": {
+    "movieRoom": {
       "id": "9cf1a599-f3b5-4375-8c27-f2fce902b18d",
       "movie": {
         "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
@@ -697,7 +703,8 @@
         "takenSeats": 5
       },
       "date": "2020-04-30T18:00:00"
-    }
+    },
+    "ticketAmount": 0
   },
   {
     "id": "29edbce6-cf6e-42d7-bb82-35023322dc07",
@@ -734,7 +741,7 @@
         "type": "Child"
       }
     ],
-    "MovieRoom": {
+    "movieRoom": {
       "id": "7039b6df-04b8-4548-8126-72f721a5f084",
       "movie": {
         "id": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
@@ -752,7 +759,8 @@
         "takenSeats": 16
       },
       "date": "2020-05-05T20:00:00"
-    }
+    },
+    "ticketAmount": 0
   },
   {
     "id": "b02cc74d-d190-4545-927f-f2cc7eead90d",
@@ -789,7 +797,7 @@
         "type": "Child"
       }
     ],
-    "MovieRoom": {
+    "movieRoom": {
       "id": "b5056224-b7ed-4136-8741-88fb317e5809",
       "movie": {
         "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
@@ -807,6 +815,185 @@
         "takenSeats": 8
       },
       "date": "2020-05-05T16:00:00"
-    }
+    },
+    "ticketAmount": 0
+  },
+  {
+    "id": "cb1f0fba-60af-47d7-abc8-daf44d5ca54c",
+    "user": "Lennert Lastname",
+    "ticketlist": [
+      {
+        "id": "6e9f2d7f-2d71-4b37-bd2b-b90baf43ef45",
+        "seatNumber": 60,
+        "type": "Adult"
+      },
+      {
+        "id": "a0f88f1f-757f-4591-9edc-92e101cd3bd7",
+        "seatNumber": 61,
+        "type": "Adult"
+      },
+      {
+        "id": "902953a7-758c-4f73-8094-3cea14815f72",
+        "seatNumber": 62,
+        "type": "Adult"
+      },
+      {
+        "id": "1aebc432-bbc6-4bfb-9550-6d4fd9fd7f4e",
+        "seatNumber": 63,
+        "type": "Adult"
+      },
+      {
+        "id": "86894964-dac3-44c4-bf6c-c84fdc7f781a",
+        "seatNumber": 64,
+        "type": "Child"
+      },
+      {
+        "id": "16ef9528-5630-4de0-bbb6-16ae40290384",
+        "seatNumber": 65,
+        "type": "Child"
+      }
+    ],
+    "movieRoom": {
+      "id": "a0166cb1-e6e2-4f32-81de-9559af8d1a69",
+      "movie": {
+        "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
+        "name": "Cory in the house",
+        "description": "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 90
+      },
+      "room": {
+        "id": "27b005fd-f9ab-42f3-a9a6-f12c10d4ecb5",
+        "name": "zaal 2",
+        "seats": 75,
+        "takenSeats": 66
+      },
+      "date": "2020-05-12T17:00:00"
+    },
+    "ticketAmount": 0
+  },
+  {
+    "id": "4089bc18-de6b-49b3-9b25-069d810c1982",
+    "user": "Lennert Lastname",
+    "ticketlist": [
+      {
+        "id": "81f1c2c6-545d-4fa7-9908-2b9c06e416f5",
+        "seatNumber": 26,
+        "type": "Adult"
+      },
+      {
+        "id": "b3ce63df-8c11-45b2-8ea1-0ec802b745c0",
+        "seatNumber": 27,
+        "type": "Adult"
+      },
+      {
+        "id": "6879db2d-96b5-406c-99a9-c8b555504f26",
+        "seatNumber": 28,
+        "type": "Adult"
+      },
+      {
+        "id": "7b7691be-10ed-4bd1-b271-82d54b2cf1a5",
+        "seatNumber": 29,
+        "type": "Adult"
+      },
+      {
+        "id": "965b0360-d3ef-41d8-ad2e-c44d04ce3ee5",
+        "seatNumber": 30,
+        "type": "Adult"
+      },
+      {
+        "id": "194eb13d-bed9-4644-a510-3d1d7d49cc50",
+        "seatNumber": 31,
+        "type": "Child"
+      },
+      {
+        "id": "4a3387f9-5be4-4cd4-b37e-314e484e5768",
+        "seatNumber": 32,
+        "type": "Child"
+      },
+      {
+        "id": "24a3555f-fe88-48ba-887b-2daa9cffcded",
+        "seatNumber": 33,
+        "type": "Child"
+      }
+    ],
+    "movieRoom": {
+      "id": "ee57fb22-d5a0-47e2-8662-72835c679c39",
+      "movie": {
+        "id": "2dc2759d-f106-436c-b716-2702c4739d2e",
+        "name": "The revenge of alexandro",
+        "description": "A movie about the villain alexandro who wreaks havoc on the small town of Rotterdamdorp.",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 140
+      },
+      "room": {
+        "id": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
+        "name": "zaal 3",
+        "seats": 150,
+        "takenSeats": 34
+      },
+      "date": "2020-05-10T14:00:00"
+    },
+    "ticketAmount": 0
+  },
+  {
+    "id": "ac6a1c26-04a8-48ab-9ee5-d1888cecd2a5",
+    "user": "Lennert Lastname",
+    "ticketlist": [
+      {
+        "id": "ce0829df-6751-4da1-b1da-4a5ac82b4626",
+        "seatNumber": 11,
+        "type": "Adult"
+      },
+      {
+        "id": "665ed366-e198-4cc6-89e0-1e503c99ba38",
+        "seatNumber": 12,
+        "type": "Adult"
+      },
+      {
+        "id": "2f4b5845-00a0-4d8c-8a18-782d05d43a8d",
+        "seatNumber": 13,
+        "type": "Adult"
+      },
+      {
+        "id": "92e9a4ce-9b8e-4c13-88cc-f8a1f615f130",
+        "seatNumber": 14,
+        "type": "Adult"
+      },
+      {
+        "id": "e8873470-6cf8-4bba-a696-9bef7be7b7ba",
+        "seatNumber": 15,
+        "type": "Child"
+      },
+      {
+        "id": "82d4863a-506d-40fb-a79a-b727e6ee2747",
+        "seatNumber": 16,
+        "type": "Child"
+      }
+    ],
+    "movieRoom": {
+      "id": "d8fa3bf5-4ae8-47bb-a88d-cc2e43e4b874",
+      "movie": {
+        "id": "847f33d0-9d7a-43fa-997e-68a6982f7279",
+        "name": "Fast and Furious 15",
+        "description": "A movie about racing",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 120
+      },
+      "room": {
+        "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
+        "name": "zaal 1",
+        "seats": 100,
+        "takenSeats": 6
+      },
+      "date": "2020-05-11T20:00:00"
+    },
+    "ticketAmount": 0
   }
 ]
