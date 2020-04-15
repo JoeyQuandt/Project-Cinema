@@ -71,6 +71,12 @@ public class Menu
     //List<Reservation>
     public int MakeReservation()
     {
+        List<Consumption> ConsumptionList = Data.LoadConsumptions();
+        string[] allergies = new string[] { "peanuts", "sweetcorn" };
+        Consumption consumption = new Consumption("Popcorn", "Crunchy popcorn", "Medium", allergies);
+        ConsumptionList.Add(consumption);
+        string SerializedConsumptionList = JsonConvert.SerializeObject(ConsumptionList, Formatting.Indented);
+        File.WriteAllText(@"../../../data/consumptionData.json", SerializedConsumptionList);
         // Makes Lists from the data in the JSON
         List<Room> RoomList = Data.LoadRooms();
         List<Movie> MovieList = Data.LoadMovies();
@@ -269,6 +275,7 @@ public class Menu
             case "5":
                 MakeReservation();
                 return true;
+                
             default:
                 ErrorMessage();
                 return true;
