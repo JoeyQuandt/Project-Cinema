@@ -29,4 +29,9 @@ public class Reservation
        
         return "Name: " + user + "\nMovie: " + movieRoom.GetMovieTimeDetails() + "\nTicket amount: " + ticketAmount;
     }
+
+    public string GetReservationUser()
+    {
+        return user;
+    }
 }
