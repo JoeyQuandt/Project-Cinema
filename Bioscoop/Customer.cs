@@ -13,7 +13,7 @@ public static class Customer
 	// Function to give an error
 	private static void ErrorCode()
 	{
-		Console.Write("Error, only use the numbers from the options menu...\n");
+		Console.Write("Error, only use the given options...\n");
 	}
 
 	// Function to show reservations
@@ -97,6 +97,7 @@ public static class Customer
 	{
 		string currentUser = Menu.authorizedUser.GetFirstName() + " " + Menu.authorizedUser.GetLastName();
 		List<Reservation> reservations = Data.LoadReservations();
+		List<Reservation> customerReservations = new List<Reservation>();
 		bool isInRemoveMode = true;
 		while(isInRemoveMode)
 		{
@@ -110,6 +111,7 @@ public static class Customer
 				{
 					reservationCount++;
 					Console.WriteLine(reservationCount.ToString() + ") " + reservation.GetReservationDetails());
+					customerReservations.Add(reservation);
 				} 
 			}
 
@@ -122,14 +124,56 @@ public static class Customer
 				Console.WriteLine("\nEnter the number of the reservation to cancel it.\nType 'x' to go back");
 			}
 
-			if (Console.ReadLine().ToLower() != "x")
+			// TO DO: Zorg ervoor dat je niet 2x een input moet doen om terugkoppelling te krijgen van de console
+			string userInput = Console.ReadLine();
+			int x = 0;
+			if (Int32.TryParse(userInput, out x))
 			{
-				ErrorCode();
-				PressEnter();
+				if (x > 0 && x <= customerReservations.Count)
+				{
+					// Check is user really want to remove the reservation
+					Console.WriteLine("Are you sure? y/n");
+					switch(Console.ReadLine().ToLower())
+					{
+						// Remove reservation
+						case "y":
+							Reservation reservation = customerReservations[x - 1];
+							// TODO: Delete reservation in JSON
+							Console.WriteLine("You succesfully cancelled your reservation\n" + reservation.GetReservationDetails());
+							PressEnter();
+							continue;
+						// Don't remove reservation
+						case "n":
+							Console.WriteLine("You did not cancel the reservation");
+							PressEnter();
+							continue;
+						// Give an error
+						default:
+							ErrorCode();
+							PressEnter();
+							continue;
+					}
+				}
+				else 
+				{
+					if (reservationCount != 0)
+					{
+						Console.WriteLine("Enter a number from 1 to " + reservationCount);
+						PressEnter();
+					}
+				}
 			}
 			else
 			{
-				isInRemoveMode = false;
+				if (Console.ReadLine().ToLower() != "x")
+				{
+					ErrorCode();
+					PressEnter();
+				}
+				else
+				{
+					isInRemoveMode = false;
+				}
 			}
 		}
 
