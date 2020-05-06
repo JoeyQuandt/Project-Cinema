@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Cryptography.X509Certificates;
 
 public class Menu
 {
@@ -110,11 +111,23 @@ public class Menu
         }
             
     }
-     
+
+    public static void FillSeats() 
+    {
+        List<Seat> list = Data.LoadSeats();
+        for (int x = 0; x < 50; x++)
+        {
+            list.Add(new Seat(x, false));
+        }
+        var SerializedList = JsonConvert.SerializeObject(list, Formatting.Indented);
+        File.WriteAllText(@"../../../data/seatData.json", SerializedList);
+        Console.WriteLine("STORED!");
+    }
 
     //List<Reservation>
     public static int MakeReservation()
     {
+        FillSeats();
         List<Consumption> ConsumptionList = Data.LoadConsumptions();
         string[] allergies = new string[] { "peanuts", "sweetcorn" };
         Consumption consumption = new Consumption("Popcorn", "Crunchy popcorn", "Medium", allergies);
@@ -335,6 +348,9 @@ public class Menu
                 return true;
             case "4":
                 return false;
+            case "5":
+                FillSeats();
+                return true;
             default:
                 ErrorMessage();
                 return true;

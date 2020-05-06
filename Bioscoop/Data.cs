@@ -124,4 +124,17 @@ public static class Data
             }*/
         }
     }
+    public static List<Seat> LoadSeats()
+    {
+        // Load the movieData.json here and parse to Movie objects
+        using (StreamReader r = new StreamReader(@"../../../data/seatData.json"))
+        {
+            string json = r.ReadToEnd();
+            List<Seat> items = JsonConvert.DeserializeObject<List<Seat>>(json);
+            return items;
+            /*foreach(Movie item in items){
+                Console.WriteLine(item.GetMovieDetails() + "\n\n");
+            }*/
+        }
+    }
 }

@@ -995,5 +995,107 @@
       "date": "2020-05-11T20:00:00"
     },
     "ticketAmount": 0
+  },
+  {
+    "id": "540e37f4-448f-4e45-952a-84bc6873490c",
+    "user": "Lennert Lastname",
+    "ticketlist": [
+      {
+        "id": "1ca70235-e578-47de-9a52-751fff1930ec",
+        "seatNumber": 11,
+        "type": "Adult"
+      },
+      {
+        "id": "41e826d0-c883-4da2-a660-2247d62f7f5f",
+        "seatNumber": 12,
+        "type": "Adult"
+      },
+      {
+        "id": "6d94e742-28ec-48a8-9937-cc7492090668",
+        "seatNumber": 13,
+        "type": "Adult"
+      },
+      {
+        "id": "02079367-76c5-4718-990e-d7becd3a2c2f",
+        "seatNumber": 14,
+        "type": "Adult"
+      },
+      {
+        "id": "2df79165-771e-4c81-811e-4ada1cbe70f8",
+        "seatNumber": 15,
+        "type": "Child"
+      },
+      {
+        "id": "6cf1bc9d-b6a8-4826-b271-cd58530cb9f2",
+        "seatNumber": 16,
+        "type": "Child"
+      }
+    ],
+    "movieRoom": {
+      "id": "3bfd8998-be11-4273-94a9-b58231eb84b2",
+      "movie": {
+        "id": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
+        "name": "The Almighty",
+        "description": "A simple workingclass man suddenly becomes a literal god.",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 100
+      },
+      "room": {
+        "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
+        "name": "zaal 1",
+        "seats": 100,
+        "takenSeats": 25
+      },
+      "date": "2020-05-12T20:00:00"
+    },
+    "ticketAmount": 0
+  },
+  {
+    "id": "0b9c9554-45f4-4e0d-9def-4d97f4ce671f",
+    "user": "Lennert Lastname",
+    "ticketlist": [
+      {
+        "id": "df6855b7-ef6e-48b4-be40-900adaaca5b1",
+        "seatNumber": 11,
+        "type": "Adult"
+      },
+      {
+        "id": "7d9c16dd-7928-4348-87aa-3c786e53e5cf",
+        "seatNumber": 12,
+        "type": "Adult"
+      },
+      {
+        "id": "a5b3cf88-a3dd-4d86-afb8-d347b77c727c",
+        "seatNumber": 13,
+        "type": "Child"
+      },
+      {
+        "id": "76f6c824-1950-4c6f-8d9a-ed249d1e0fcb",
+        "seatNumber": 14,
+        "type": "Child"
+      }
+    ],
+    "movieRoom": {
+      "id": "ee57fb22-d5a0-47e2-8662-72835c679c39",
+      "movie": {
+        "id": "2dc2759d-f106-436c-b716-2702c4739d2e",
+        "name": "The revenge of alexandro",
+        "description": "A movie about the villain alexandro who wreaks havoc on the small town of Rotterdamdorp.",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 140
+      },
+      "room": {
+        "id": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
+        "name": "zaal 3",
+        "seats": 150,
+        "takenSeats": 38
+      },
+      "date": "2020-05-10T14:00:00"
+    },
+    "ticketAmount": 0
   }
 ]
