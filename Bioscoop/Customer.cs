@@ -55,11 +55,12 @@ public static class Customer
 	{
 		string currentUser = Menu.authorizedUser.GetFirstName() + " " + Menu.authorizedUser.GetLastName();
 		List<Reservation> reservations = Data.LoadReservations();
+		List<Reservation> customerReservations = new List<Reservation>();
 		bool isInEditMode = true;
 		while (isInEditMode)
 		{
 			Console.Clear();
-			Console.WriteLine("<< Change a reservation >>\n");
+			Console.WriteLine("<< Cancel a reservation >>\n");
 
 			int reservationCount = 0;
 			foreach (Reservation reservation in reservations)
@@ -68,6 +69,7 @@ public static class Customer
 				{
 					reservationCount++;
 					Console.WriteLine(reservationCount.ToString() + ") " + reservation.GetReservationDetails());
+					customerReservations.Add(reservation);
 				}
 			}
 
@@ -77,17 +79,66 @@ public static class Customer
 			}
 			else
 			{
-				Console.WriteLine("\nEnter the number of the reservation to cancel it.\nType 'x' to go back");
+				Console.WriteLine("\nEnter the number of the reservation to edit it.\nType 'x' to go back");
 			}
 
-			if (Console.ReadLine().ToLower() != "x")
+			// TO DO: Zorg ervoor dat je niet 2x een input moet doen om terugkoppelling te krijgen van de console
+			string userInput = Console.ReadLine();
+			int x = 0;
+			if (Int32.TryParse(userInput, out x))
 			{
-				ErrorCode();
-				PressEnter();
+				if (x > 0 && x <= customerReservations.Count)
+				{
+					Console.WriteLine("Enter your new adult ticket total");
+					int adultTickets = int.Parse(Console.ReadLine());
+					Console.WriteLine("Enter your new child ticket total");
+					int childTickets = int.Parse(Console.ReadLine());
+					int totalTickets = adultTickets + childTickets;
+
+					// Show the new reservation
+					Console.WriteLine("\nAre you sure? (y/n)");
+					switch (Console.ReadLine().ToLower())
+					{
+						// Edit reservation
+						case "y":
+							// TO DO: Write to json
+							Reservation reservation = customerReservations[x - 1];
+							Console.WriteLine("You've succesfully changed the reservation!");
+							Console.WriteLine("\n* New reservation: *\n" + reservation.GetReservationDetails());
+							PressEnter();
+							continue;
+						// Don't edit reservation
+						case "n":
+							Console.WriteLine("You didn't changed the reservation.");
+							PressEnter();
+							continue;
+						// Give an error
+						default:
+							ErrorCode();
+							PressEnter();
+							continue;
+					}
+				}
+				else
+				{
+					if (reservationCount != 0)
+					{
+						Console.WriteLine("Enter a number from 1 to " + reservationCount);
+						PressEnter();
+					}
+				}
 			}
 			else
 			{
-				isInEditMode = false;
+				if (Console.ReadLine().ToLower() != "x")
+				{
+					ErrorCode();
+					PressEnter();
+				}
+				else
+				{
+					isInEditMode = false;
+				}
 			}
 		}
 	}
