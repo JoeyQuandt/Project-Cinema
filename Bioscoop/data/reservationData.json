@@ -34,7 +34,7 @@
         "type": "Child"
       }
     ],
-    "MovieRoom": {
+    "movieRoom": {
       "id": "3bfd8998-be11-4273-94a9-b58231eb84b2",
       "movie": {
         "id": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
@@ -52,7 +52,8 @@
         "takenSeats": 14
       },
       "date": "2020-04-12T20:00:00"
-    }
+    },
+    "ticketAmount": 0
   },
   {
     "id": "36c1899e-db77-4c65-be64-941bb031859b",
@@ -134,7 +135,7 @@
         "type": "Child"
       }
     ],
-    "MovieRoom": {
+    "movieRoom": {
       "id": "ee57fb22-d5a0-47e2-8662-72835c679c39",
       "movie": {
         "id": "2dc2759d-f106-436c-b716-2702c4739d2e",
@@ -152,7 +153,8 @@
         "takenSeats": 21
       },
       "date": "2020-04-10T14:00:00"
-    }
+    },
+    "ticketAmount": 0
   },
   {
     "id": "6dc89d37-8489-4329-8eb3-d4ecc6f0f55c",
@@ -179,7 +181,7 @@
         "type": "Child"
       }
     ],
-    "MovieRoom": {
+    "movieRoom": {
       "id": "3bfd8998-be11-4273-94a9-b58231eb84b2",
       "movie": {
         "id": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
@@ -197,7 +199,8 @@
         "takenSeats": 18
       },
       "date": "2020-04-12T20:00:00"
-    }
+    },
+    "ticketAmount": 0
   },
   {
     "id": "45a43ff7-4cfb-4f1a-9b51-ab9802e21b45",
@@ -254,7 +257,7 @@
         "type": "Child"
       }
     ],
-    "MovieRoom": {
+    "movieRoom": {
       "id": "7039b6df-04b8-4548-8126-72f721a5f084",
       "movie": {
         "id": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
@@ -272,7 +275,8 @@
         "takenSeats": 10
       },
       "date": "2020-04-05T20:00:00"
-    }
+    },
+    "ticketAmount": 0
   },
   {
     "id": "74ce2bc2-ef34-4284-aa73-2b7d4fbb1b9b",
@@ -304,7 +308,7 @@
         "type": "Child"
       }
     ],
-    "MovieRoom": {
+    "movieRoom": {
       "id": "ee57fb22-d5a0-47e2-8662-72835c679c39",
       "movie": {
         "id": "2dc2759d-f106-436c-b716-2702c4739d2e",
@@ -322,7 +326,8 @@
         "takenSeats": 26
       },
       "date": "2020-04-10T14:00:00"
-    }
+    },
+    "ticketAmount": 0
   },
   {
     "id": "c32bec22-4dcc-40ae-8140-08798ce24341",
@@ -629,7 +634,7 @@
         "type": "Child"
       }
     ],
-    "MovieRoom": {
+    "movieRoom": {
       "id": "a0166cb1-e6e2-4f32-81de-9559af8d1a69",
       "movie": {
         "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
@@ -647,7 +652,8 @@
         "takenSeats": 60
       },
       "date": "2020-04-12T17:00:00"
-    }
+    },
+    "ticketAmount": 0
   },
   {
     "id": "a77a36eb-6559-48b0-abd3-352777686a8d",
@@ -679,7 +685,7 @@
         "type": "Child"
       }
     ],
-    "MovieRoom": {
+    "movieRoom": {
       "id": "9cf1a599-f3b5-4375-8c27-f2fce902b18d",
       "movie": {
         "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
@@ -697,7 +703,8 @@
         "takenSeats": 5
       },
       "date": "2020-04-30T18:00:00"
-    }
+    },
+    "ticketAmount": 0
   },
   {
     "id": "29edbce6-cf6e-42d7-bb82-35023322dc07",
@@ -734,7 +741,7 @@
         "type": "Child"
       }
     ],
-    "MovieRoom": {
+    "movieRoom": {
       "id": "7039b6df-04b8-4548-8126-72f721a5f084",
       "movie": {
         "id": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
@@ -752,7 +759,8 @@
         "takenSeats": 16
       },
       "date": "2020-05-05T20:00:00"
-    }
+    },
+    "ticketAmount": 0
   },
   {
     "id": "b02cc74d-d190-4545-927f-f2cc7eead90d",
@@ -789,7 +797,7 @@
         "type": "Child"
       }
     ],
-    "MovieRoom": {
+    "movieRoom": {
       "id": "b5056224-b7ed-4136-8741-88fb317e5809",
       "movie": {
         "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
@@ -807,6 +815,94 @@
         "takenSeats": 8
       },
       "date": "2020-05-05T16:00:00"
-    }
+    },
+    "ticketAmount": 0
+  },
+  {
+    "id": "846817fe-c8a7-49b5-b375-ce8834c7faa3",
+    "user": "Lennert Lastname",
+    "ticketlist": [
+      {
+        "id": "a690eab0-a7c5-4bf1-a8a0-678bbd189ceb",
+        "seatNumber": 26,
+        "type": "Adult"
+      },
+      {
+        "id": "b35033a6-43f2-46f0-bfcb-38155b09bcff",
+        "seatNumber": 27,
+        "type": "Adult"
+      },
+      {
+        "id": "e3a3d627-1871-471e-b246-c3651e15f4b1",
+        "seatNumber": 28,
+        "type": "Child"
+      }
+    ],
+    "movieRoom": {
+      "id": "ee57fb22-d5a0-47e2-8662-72835c679c39",
+      "movie": {
+        "id": "2dc2759d-f106-436c-b716-2702c4739d2e",
+        "name": "The revenge of alexandro",
+        "description": "A movie about the villain alexandro who wreaks havoc on the small town of Rotterdamdorp.",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 140
+      },
+      "room": {
+        "id": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
+        "name": "zaal 3",
+        "seats": 150,
+        "takenSeats": 29
+      },
+      "date": "2020-05-10T14:00:00"
+    },
+    "ticketAmount": 0
+  },
+  {
+    "id": "a834cc8e-d382-4ede-a3c8-300e92d6e263",
+    "user": "Lennert Lastname",
+    "ticketlist": [
+      {
+        "id": "a39dcd5d-fbc4-4a71-8c48-08c6ab1e6c15",
+        "seatNumber": 19,
+        "type": "Adult"
+      },
+      {
+        "id": "c75d1b4c-4266-4971-91a3-92136cc76cbc",
+        "seatNumber": 20,
+        "type": "Adult"
+      },
+      {
+        "id": "908989b7-8956-49d6-bfd3-4eb6b318fdbb",
+        "seatNumber": 21,
+        "type": "Adult"
+      },
+      {
+        "id": "d78769c6-857a-4173-92df-67e09920c964",
+        "seatNumber": 22,
+        "type": "Child"
+      }
+    ],
+    "movieRoom": {
+      "id": "3bfd8998-be11-4273-94a9-b58231eb84b2",
+      "movie": {
+        "id": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
+        "name": "The Almighty",
+        "description": "A simple workingclass man suddenly becomes a literal god.",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 100
+      },
+      "room": {
+        "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
+        "name": "zaal 1",
+        "seats": 100,
+        "takenSeats": 23
+      },
+      "date": "2020-05-12T20:00:00"
+    },
+    "ticketAmount": 0
   }
 ]
