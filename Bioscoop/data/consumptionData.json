@@ -18,5 +18,35 @@
       "peanuts",
       "sweetcorn"
     ]
+  },
+  {
+    "id": "308f21a2-fb14-484d-914d-5561f25a4fad",
+    "name": "Popcorn",
+    "description": "Crunchy popcorn",
+    "size": null,
+    "allergies": [
+      "peanuts",
+      "sweetcorn"
+    ]
+  },
+  {
+    "id": "704ee362-c0cd-4bb2-8fce-a4049a8d1865",
+    "name": "Popcorn",
+    "description": "Crunchy popcorn",
+    "size": null,
+    "allergies": [
+      "peanuts",
+      "sweetcorn"
+    ]
+  },
+  {
+    "id": "7baba696-45c7-4010-b296-6675fccd4b65",
+    "name": "Popcorn",
+    "description": "Crunchy popcorn",
+    "size": null,
+    "allergies": [
+      "peanuts",
+      "sweetcorn"
+    ]
   }
 ]

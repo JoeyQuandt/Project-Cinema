@@ -149,6 +149,7 @@ public static class Administrator
                         Console.WriteLine("\nChange this movie? (y/n)");
 
                         string inp = Console.ReadLine().ToLower();
+                        // If admin wants to change movie
                         if (inp == "y")
                         {
                             Console.Clear();
