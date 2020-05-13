@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 
 public static class Administrator
 {
@@ -152,7 +154,20 @@ public static class Administrator
                             Console.Clear();
                             loop2 = false;
                             Console.WriteLine("Changed the movie to: " + title + "!");
-                            PressEnter();
+
+                            // Update JSON by adding the changed movie
+                            List<Movie> list = Data.LoadMovies();
+                            list.Add(new Movie(title, description, duration, null, DateTime.Now));
+                            var SerializedList = JsonConvert.SerializeObject(list, Formatting.Indented);
+                            File.WriteAllText(@"../../../data/movieData.json", SerializedList);
+
+                            // Update json by removing the old movie at index 'x'
+                            List<Movie> list2 = Data.LoadMovies();
+                            list.RemoveAt(x);
+                            var SerializedList2 = JsonConvert.SerializeObject(list, Formatting.Indented);
+                            File.WriteAllText(@"../../../data/movieData.json", SerializedList2);
+
+                            movies = Data.LoadMovies();
 
                         }
                         else if (inp == "n")
@@ -233,8 +248,17 @@ public static class Administrator
                     // In bounds, show data
                     Console.Clear();
                     Movie movie = movies[x];
+
+                    // Update json by removing the movie at index 'x'
+                    List<Movie> list = Data.LoadMovies();
+                    list.RemoveAt(x);
+                    var SerializedList = JsonConvert.SerializeObject(list, Formatting.Indented);
+                    File.WriteAllText(@"../../../data/movieData.json", SerializedList);
+
                     Console.WriteLine("Removed " + movie.GetMovieTitle() + ".");
                     Console.WriteLine("");
+                    // reload movie list
+                    movies = Data.LoadMovies();
                 }
                 else
                 {
@@ -300,6 +324,13 @@ public static class Administrator
             {
                 Console.Clear();
                 loop = false;
+
+                // Update JSON
+                List<Movie> list = Data.LoadMovies();
+                list.Add(new Movie(title, description, duration, null, DateTime.Now));
+                var SerializedList = JsonConvert.SerializeObject(list, Formatting.Indented);
+                File.WriteAllText(@"../../../data/movieData.json", SerializedList);
+
                 Console.WriteLine("Added the movie " + title + "!");
                 PressEnter();
 
