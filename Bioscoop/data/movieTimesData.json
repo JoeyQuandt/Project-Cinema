@@ -1,24 +1,5 @@
 [
   {
-    "id": "7f329b56-2008-4a2f-a3a9-44afea0867b2",
-    "movie": {
-      "id": "415de207-2c1b-4bd0-9e65-7a15afa3fef2",
-      "name": "A night in a musuem",
-      "description": "A couple of urban explorers check out a haunted musuem.",
-      "actors": null,
-      "releaseDate": "0001-01-01T00:00:00",
-      "ageRestriction": 0,
-      "duration": 100
-    },
-    "room": {
-      "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-      "name": "zaal 1",
-      "seats": 100,
-      "takenSeats": 0
-    },
-    "date": "2020-04-26T15:00:00"
-  },
-  {
     "id": "9cf1a599-f3b5-4375-8c27-f2fce902b18d",
     "movie": {
       "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
@@ -188,5 +169,24 @@
       "takenSeats": 23
     },
     "date": "2020-05-12T20:00:00"
+  },
+  {
+    "id": "7f329b56-2008-4a2f-a3a9-44afea0867b2",
+    "movie": {
+      "id": "415de207-2c1b-4bd0-9e65-7a15afa3fef2",
+      "name": "A night in a musuem",
+      "description": "A couple of urban explorers check out a haunted musuem.",
+      "actors": null,
+      "releaseDate": "0001-01-01T00:00:00",
+      "ageRestriction": 0,
+      "duration": 100
+    },
+    "room": {
+      "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
+      "name": "zaal 1",
+      "seats": 100,
+      "takenSeats": 2
+    },
+    "date": "2020-06-26T15:00:00"
   }
 ]

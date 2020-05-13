@@ -52,8 +52,7 @@
         "takenSeats": 14
       },
       "date": "2020-04-12T20:00:00"
-    },
-    "ticketAmount": 0
+    }
   },
   {
     "id": "36c1899e-db77-4c65-be64-941bb031859b",
@@ -153,8 +152,7 @@
         "takenSeats": 21
       },
       "date": "2020-04-10T14:00:00"
-    },
-    "ticketAmount": 0
+    }
   },
   {
     "id": "6dc89d37-8489-4329-8eb3-d4ecc6f0f55c",
@@ -199,8 +197,7 @@
         "takenSeats": 18
       },
       "date": "2020-04-12T20:00:00"
-    },
-    "ticketAmount": 0
+    }
   },
   {
     "id": "45a43ff7-4cfb-4f1a-9b51-ab9802e21b45",
@@ -275,8 +272,7 @@
         "takenSeats": 10
       },
       "date": "2020-04-05T20:00:00"
-    },
-    "ticketAmount": 0
+    }
   },
   {
     "id": "74ce2bc2-ef34-4284-aa73-2b7d4fbb1b9b",
@@ -326,8 +322,7 @@
         "takenSeats": 26
       },
       "date": "2020-04-10T14:00:00"
-    },
-    "ticketAmount": 0
+    }
   },
   {
     "id": "c32bec22-4dcc-40ae-8140-08798ce24341",
@@ -652,8 +647,7 @@
         "takenSeats": 60
       },
       "date": "2020-04-12T17:00:00"
-    },
-    "ticketAmount": 0
+    }
   },
   {
     "id": "a77a36eb-6559-48b0-abd3-352777686a8d",
@@ -703,8 +697,7 @@
         "takenSeats": 5
       },
       "date": "2020-04-30T18:00:00"
-    },
-    "ticketAmount": 0
+    }
   },
   {
     "id": "29edbce6-cf6e-42d7-bb82-35023322dc07",
@@ -759,8 +752,7 @@
         "takenSeats": 16
       },
       "date": "2020-05-05T20:00:00"
-    },
-    "ticketAmount": 0
+    }
   },
   {
     "id": "b02cc74d-d190-4545-927f-f2cc7eead90d",
@@ -815,8 +807,7 @@
         "takenSeats": 8
       },
       "date": "2020-05-05T16:00:00"
-    },
-    "ticketAmount": 0
+    }
   },
   {
     "id": "846817fe-c8a7-49b5-b375-ce8834c7faa3",
@@ -856,8 +847,7 @@
         "takenSeats": 29
       },
       "date": "2020-05-10T14:00:00"
-    },
-    "ticketAmount": 0
+    }
   },
   {
     "id": "a834cc8e-d382-4ede-a3c8-300e92d6e263",
@@ -902,7 +892,41 @@
         "takenSeats": 23
       },
       "date": "2020-05-12T20:00:00"
-    },
-    "ticketAmount": 0
+    }
+  },
+  {
+    "id": "253d6c86-d00f-4f47-8ca4-7c663417aaf3",
+    "user": "Lennert Lastname",
+    "ticketlist": [
+      {
+        "id": "51fdca51-3bf7-4b28-a639-9c5099340576",
+        "seatNumber": 0,
+        "type": "Adult"
+      },
+      {
+        "id": "7d2aa6c8-b9cd-4be6-8ee3-c622351abd80",
+        "seatNumber": 1,
+        "type": "Child"
+      }
+    ],
+    "movieRoom": {
+      "id": "7f329b56-2008-4a2f-a3a9-44afea0867b2",
+      "movie": {
+        "id": "415de207-2c1b-4bd0-9e65-7a15afa3fef2",
+        "name": "A night in a musuem",
+        "description": "A couple of urban explorers check out a haunted musuem.",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 100
+      },
+      "room": {
+        "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
+        "name": "zaal 1",
+        "seats": 100,
+        "takenSeats": 2
+      },
+      "date": "2020-06-26T15:00:00"
+    }
   }
 ]
