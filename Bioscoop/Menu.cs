@@ -150,9 +150,11 @@ public class Menu
                     MovieTimesList[MovieNumber+Removed].GetRoom().FillSeats(AdultTicketAmount + ChildTicketAmount);
                     string SerializedMovieTimesList = JsonConvert.SerializeObject(MovieTimesList, Formatting.Indented);
                     File.WriteAllText(@"../../../data/movieTimesData.json", SerializedMovieTimesList);
+
                     // Adds Tickets to JSON file
                     string SerializedTicketList = JsonConvert.SerializeObject(TicketList, Formatting.Indented);
                     File.WriteAllText(@"../../../data/ticketData.json", SerializedTicketList);
+
                     // Adds Reservation to JSON file.
                     List<Reservation> ReservationList = Data.LoadReservations();
                     Reservation Reservation = new Reservation(authorizedUser.GetFirstName() + " " + authorizedUser.GetLastName(), TicketListReservation, MovieTimesList[MovieNumber + Removed]);
