@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 
 public static class Customer
 { 
@@ -23,6 +25,7 @@ public static class Customer
 		int reservationCount = 0;
 		Console.Clear();
 		Console.WriteLine("<< Your reservations >>\n");
+		// Get all reservations from JSON
 		foreach (Reservation reservation in Data.LoadReservations())
 		{
 			if (reservation.GetReservationUser() == currentUser)
@@ -32,6 +35,7 @@ public static class Customer
 			}
 		}
 
+		// Check and show how much reservations a customer has
 		if (reservationCount == 0)
 		{
 			Console.WriteLine("No reservations found\n");
@@ -56,24 +60,32 @@ public static class Customer
 		string currentUser = Menu.authorizedUser.GetFirstName() + " " + Menu.authorizedUser.GetLastName();
 		List<Reservation> reservations = Data.LoadReservations();
 		List<Reservation> customerReservations = new List<Reservation>();
+		List<int> currentReservationNumbers = new List<int>();
 		bool isInEditMode = true;
 		while (isInEditMode)
 		{
 			Console.Clear();
-			Console.WriteLine("<< Cancel a reservation >>\n");
+			Console.WriteLine("<< Change a reservation >>\n");
 
-			int reservationCount = 0;
+			int totalReservationCount = 0;
+			int userReservationCount = 0;
+			// Get all reservations from JSON
 			foreach (Reservation reservation in reservations)
 			{
+				totalReservationCount++;
+				// Only show reservations of the current user
 				if (reservation.GetReservationUser() == currentUser)
 				{
-					reservationCount++;
-					Console.WriteLine(reservationCount.ToString() + ") " + reservation.GetReservationDetails());
-					customerReservations.Add(reservation);
+					// Only show reservations whereby the movie has to start 
+					if (reservation.movieRoom.GetDate() > DateTime.Now)
+					{
+						userReservationCount++;
+						currentReservationNumbers.Add(totalReservationCount);
+						Console.WriteLine("-- Reservation number " + totalReservationCount.ToString() + " -- \n" + reservation.GetReservationDetails() + "\n");
+					}
 				}
 			}
-
-			if (reservationCount == 0)
+			if (userReservationCount == 0)
 			{
 				Console.WriteLine("\nNo reservations found\nType 'x' to go back");
 			}
@@ -82,48 +94,63 @@ public static class Customer
 				Console.WriteLine("\nEnter the number of the reservation to edit it.\nType 'x' to go back");
 			}
 
-			// TO DO: Zorg ervoor dat je niet 2x een input moet doen om terugkoppelling te krijgen van de console
 			string userInput = Console.ReadLine();
 			int x = 0;
 			if (Int32.TryParse(userInput, out x))
 			{
-				if (x > 0 && x <= customerReservations.Count)
+				// Check if user gives an valid input
+				if (x > 0 && currentReservationNumbers.Contains(x))
 				{
-					Console.WriteLine("Enter your new adult ticket total");
-					int adultTickets = int.Parse(Console.ReadLine());
-					Console.WriteLine("Enter your new child ticket total");
-					int childTickets = int.Parse(Console.ReadLine());
-					int totalTickets = adultTickets + childTickets;
+					Reservation reservation = reservations[x-1];
+					DateTime currentDateTime = DateTime.Now;
+					DateTime reservationDateTime = reservation.movieRoom.GetDate();
 
-					// Show the new reservation
-					Console.WriteLine("\nAre you sure? (y/n)");
-					switch (Console.ReadLine().ToLower())
+					// Check if it's not within 24 hours before start movie
+					if (!(reservationDateTime <= currentDateTime.AddHours(24) && reservationDateTime >= currentDateTime.AddHours(-24)))
 					{
-						// Edit reservation
-						case "y":
-							// TO DO: Write to json
-							Reservation reservation = customerReservations[x - 1];
-							Console.WriteLine("You've succesfully changed the reservation!");
-							Console.WriteLine("\n* New reservation: *\n" + reservation.GetReservationDetails());
-							PressEnter();
-							continue;
-						// Don't edit reservation
-						case "n":
-							Console.WriteLine("You didn't changed the reservation.");
-							PressEnter();
-							continue;
-						// Give an error
-						default:
-							ErrorCode();
-							PressEnter();
-							continue;
+						// Check if user really want to change the reservation
+						Console.WriteLine("Are you sure? (y/n)");
+						switch (Console.ReadLine().ToLower())
+						{
+							// Edit reservation
+							case "y":
+								// Remove old reservation
+								reservations.RemoveAt(x - 1);
+								var json2 = JsonConvert.SerializeObject(reservations, Formatting.Indented);
+								File.WriteAllText(@"../../../data/reservationData.json", json2);
+								// Make new reservation
+								MakeReservation();
+								// Reload reservationlist
+								reservations = Data.LoadReservations();
+								Console.WriteLine("You've succesfully changed the reservation!");
+								PressEnter();
+								continue;
+							// Don't edit reservation
+							case "n":
+								Console.WriteLine("You didn't changed the reservation.");
+								PressEnter();
+								continue;
+							// Give an error
+							default:
+								ErrorCode();
+								PressEnter();
+								continue;
+						}
+					} 
+					else
+					{
+						// Error, the movie is within 24 hours
+						Console.WriteLine("Sorry, you can't change your reservation anymore");
+						PressEnter();
 					}
 				}
 				else
 				{
-					if (reservationCount != 0)
+					// Error, give an valid reservation number
+					if (userReservationCount != 0)
 					{
-						Console.WriteLine("Enter a number from 1 to " + reservationCount);
+						Console.WriteLine("Choose a number:");
+						currentReservationNumbers.ForEach(item => Console.WriteLine(item));
 						PressEnter();
 					}
 				}
@@ -148,25 +175,32 @@ public static class Customer
 	{
 		string currentUser = Menu.authorizedUser.GetFirstName() + " " + Menu.authorizedUser.GetLastName();
 		List<Reservation> reservations = Data.LoadReservations();
-		List<Reservation> customerReservations = new List<Reservation>();
+		List<int> currentReservationNumbers = new List<int>();
 		bool isInRemoveMode = true;
 		while(isInRemoveMode)
 		{
 			Console.Clear();
 			Console.WriteLine("<< Cancel a reservation >>\n");
 
-			int reservationCount = 0;
+			int totalReservationCount = 0;
+			int userReservationCount = 0;
+			// Get all reservations from JSON
 			foreach(Reservation reservation in reservations)
 			{
+				totalReservationCount++;
+				// Only show reservations of the current user
 				if (reservation.GetReservationUser() == currentUser)
 				{
-					reservationCount++;
-					Console.WriteLine(reservationCount.ToString() + ") " + reservation.GetReservationDetails());
-					customerReservations.Add(reservation);
-				} 
+					// Only show reservations whereby the movie has to start
+					if (reservation.movieRoom.GetDate() > DateTime.Now)
+					{
+						userReservationCount++;
+						currentReservationNumbers.Add(totalReservationCount);
+						Console.WriteLine("-- Reservation number " + totalReservationCount.ToString() + " -- \n" + reservation.GetReservationDetails() + "\n");
+					}
+				}
 			}
-
-			if (reservationCount == 0)
+			if (userReservationCount == 0)
 			{
 				Console.WriteLine("\nNo reservations found\nType 'x' to go back");
 			}
@@ -174,42 +208,65 @@ public static class Customer
 			{
 				Console.WriteLine("\nEnter the number of the reservation to cancel it.\nType 'x' to go back");
 			}
-
-			// TO DO: Zorg ervoor dat je niet 2x een input moet doen om terugkoppelling te krijgen van de console
 			string userInput = Console.ReadLine();
 			int x = 0;
 			if (Int32.TryParse(userInput, out x))
 			{
-				if (x > 0 && x <= customerReservations.Count)
+				// Check if user gives an valid input 
+				if (x > 0 && currentReservationNumbers.Contains(x))
 				{
-					// Check is user really want to remove the reservation
-					Console.WriteLine("Are you sure? y/n");
-					switch(Console.ReadLine().ToLower())
+					Reservation reservation = reservations[x - 1];
+					DateTime currentDateTime = DateTime.Now;
+					DateTime reservationDateTime = reservation.movieRoom.GetDate();
+
+					// Check if it's not within 24 hours before start movie
+					if (!(reservationDateTime <= currentDateTime.AddHours(24) && reservationDateTime >= currentDateTime.AddHours(-24)))
 					{
-						// Remove reservation
-						case "y":
-							Reservation reservation = customerReservations[x - 1];
-							// TODO: Delete reservation in JSON
-							Console.WriteLine("You succesfully cancelled your reservation\n" + reservation.GetReservationDetails());
-							PressEnter();
-							continue;
-						// Don't remove reservation
-						case "n":
-							Console.WriteLine("You did not cancel the reservation");
-							PressEnter();
-							continue;
-						// Give an error
-						default:
-							ErrorCode();
-							PressEnter();
-							continue;
+						// Check if user really want to remove the reservation
+						Console.WriteLine("Are you sure? y/n");
+						switch (Console.ReadLine().ToLower())
+						{
+							// Remove reservation
+							case "y":
+								List<Reservation> reservationList = Data.LoadReservations();
+								// Remove reservation in JSON
+								reservationList.RemoveAt(x - 1);
+								var json = JsonConvert.SerializeObject(reservationList, Formatting.Indented);
+								File.WriteAllText(@"../../../data/reservationData.json", json);
+
+								// Reload reservation list
+								reservations = Data.LoadReservations();
+
+								Console.WriteLine("You succesfully cancelled your reservation");
+								PressEnter();
+								continue;
+							// Don't remove reservation
+							case "n":
+								Console.WriteLine("You did not cancel the reservation");
+								PressEnter();
+								continue;
+							// Give an error
+							default:
+								ErrorCode();
+								PressEnter();
+								continue;
+						}
 					}
+					// Error, the movie is within 24 hours
+					else
+					{
+						Console.WriteLine("Sorry, you can't change your reservation anymore");
+						PressEnter();
+					}	
 				}
+				// Error, give an valid reservation number
 				else 
 				{
-					if (reservationCount != 0)
+					if (userReservationCount != 0)
 					{
-						Console.WriteLine("Enter a number from 1 to " + reservationCount);
+						Console.WriteLine("Choose a number:");
+						// Print reservation number options
+						currentReservationNumbers.ForEach(item => Console.WriteLine(item));
 						PressEnter();
 					}
 				}
