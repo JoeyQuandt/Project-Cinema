@@ -1,19 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 
 public class Room
 {
     public Guid id;
     public string name;
-    public Seat[] seats;
+    public List <Seat> seats;
     public int takenSeats = 0;
     public int seatAmount;
 
     // Constructor
-    public Room(string name, int seatAmount)
+    public Room(string name, int seatAmount, List <Seat> seats)
 	{
         id = Guid.NewGuid();
         this.name = name;
         this.seatAmount = seatAmount;
+        this.seats = seats; 
     }
 
     // Check if room is full
@@ -43,7 +45,7 @@ public class Room
     }
 
     //Get amount of seats
-    public Seat[] GetSeat()
+    public List <Seat> GetSeat()
     {
         return this.seats;
     }

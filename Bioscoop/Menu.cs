@@ -70,7 +70,7 @@ public class Menu
         }
     }
 
-    public static int[] GetSeats(int TicketAmount)
+    public static int[] GetSeats(int TicketAmount, MovieTime selectedmovie)
     {
         while (true)
         {
@@ -85,7 +85,7 @@ public class Menu
                     if (Int32.TryParse(result[i], out int ParsedInput))
                     {
                         // moet nog checken of de seat vrij is of niet. \|/
-                        if (ParsedInput < 1)
+                        if (ParsedInput < 1 || selectedmovie.GetRoom().GetSeat()[ParsedInput].getTaken())
                         {
                             Console.WriteLine($"Enter a valid value please.");
                         }
@@ -115,13 +115,43 @@ public class Menu
     public static void FillSeats() 
     {
         List<Seat> list = Data.LoadSeats();
-        for (int x = 0; x < 50; x++)
+        for (int x = 1; x < 101; x++)
         {
             list.Add(new Seat(x, false));
         }
         var SerializedList = JsonConvert.SerializeObject(list, Formatting.Indented);
         File.WriteAllText(@"../../../data/seatData.json", SerializedList);
         Console.WriteLine("STORED!");
+    }
+
+    public static void MakeRoom()
+    {
+        var Seatlist = Data.LoadSeats();
+        Room Room1 = new Room("zaal2", 100, Seatlist);
+        Room Room2 = new Room("zaal3", 100, Seatlist);
+        List<Room> RoomList = Data.LoadRooms();
+        RoomList.Add(Room1);
+        string SerializedRoomList = JsonConvert.SerializeObject(RoomList, Formatting.Indented);
+        File.WriteAllText(@"../../../data/roomData.json", SerializedRoomList);
+    }
+
+    public static void MakeMovieTime()
+    {
+        List<Room> RoomList = Data.LoadRooms();
+        List<Movie> MovieList = Data.LoadMovies();
+        Random rnd = new Random();
+        int month = rnd.Next(5, 13);
+        int day = rnd.Next(1, 28);
+        int hour = rnd.Next(0, 23);
+        int randomRoom = rnd.Next(0, RoomList.Count - 1);
+        int randomMovie = rnd.Next(0, MovieList.Count - 1);
+        //
+        DateTime timeReservation = new DateTime(2020, month, day, hour, 0, 0);
+        List<MovieTime> list = Data.LoadMovieTimes();
+        list.Add(new MovieTime(MovieList[randomMovie], RoomList[randomRoom], timeReservation));
+        var SerializedList = JsonConvert.SerializeObject(list, Formatting.Indented);
+        File.WriteAllText(@"../../../data/movieTimesData.json", SerializedList);
+
     }
 
     //List<Reservation>
@@ -186,6 +216,7 @@ public class Menu
                     // int childTicketAmount = Integer_input("How many child tickets do you want?", ticketAmount - adultTicketAmount);
 
                     //Choose which seat
+
                     Console.WriteLine("\nThe free seats have a green display and the taken seats are red.\nPlease enter your seats as following: 11 22 33 45 . (seat+space)\n");
                     Span<int> storage = stackalloc int[40];
                     int zero = 11;
@@ -202,10 +233,7 @@ public class Menu
                             Console.Write("     ");
                         }
                     }
-                    Console.WriteLine("Which seats would you like?");
-                    string ChosenSeats = Console.ReadLine();
-                    string[] result = ChosenSeats.Split(' ');
-                    int[] chosenSeatNumbers = GetSeats(AdultTicketAmount+ChildTicketAmount);
+                    int[] chosenSeatNumbers = GetSeats(AdultTicketAmount+ChildTicketAmount, SortedMovieTimes[MovieNumber-1]);
 
 
                     List<Ticket> TicketListReservation = new List<Ticket>();
@@ -349,7 +377,7 @@ public class Menu
             case "4":
                 return false;
             case "5":
-                FillSeats();
+                MakeMovieTime();
                 return true;
             default:
                 ErrorMessage();
