@@ -8,7 +8,6 @@ public class Reservation
     public string user;
     public List<Ticket> ticketlist;
     public MovieTime movieRoom;
-    public int ticketAmount;
 
     public Reservation(string user, List<Ticket> ticketlist, MovieTime MovieRoom )
     {
@@ -23,10 +22,16 @@ public class Reservation
     // Return details of the reservation
     public string GetReservationDetails()
     {
+        int ticketAmount = 0;
         foreach (Ticket ticket in ticketlist) {
             ticketAmount++;
         }
        
         return "Name: " + user + "\nMovie: " + movieRoom.GetMovieTimeDetails() + "\nTicket amount: " + ticketAmount;
+    }
+
+    public string GetReservationUser()
+    {
+        return user;
     }
 }

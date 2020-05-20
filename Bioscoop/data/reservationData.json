@@ -52,8 +52,7 @@
         "takenSeats": 14
       },
       "date": "2020-04-12T20:00:00"
-    },
-    "ticketAmount": 0
+    }
   },
   {
     "id": "36c1899e-db77-4c65-be64-941bb031859b",
@@ -153,8 +152,7 @@
         "takenSeats": 21
       },
       "date": "2020-04-10T14:00:00"
-    },
-    "ticketAmount": 0
+    }
   },
   {
     "id": "6dc89d37-8489-4329-8eb3-d4ecc6f0f55c",
@@ -199,8 +197,7 @@
         "takenSeats": 18
       },
       "date": "2020-04-12T20:00:00"
-    },
-    "ticketAmount": 0
+    }
   },
   {
     "id": "45a43ff7-4cfb-4f1a-9b51-ab9802e21b45",
@@ -275,8 +272,7 @@
         "takenSeats": 10
       },
       "date": "2020-04-05T20:00:00"
-    },
-    "ticketAmount": 0
+    }
   },
   {
     "id": "74ce2bc2-ef34-4284-aa73-2b7d4fbb1b9b",
@@ -326,8 +322,7 @@
         "takenSeats": 26
       },
       "date": "2020-04-10T14:00:00"
-    },
-    "ticketAmount": 0
+    }
   },
   {
     "id": "c32bec22-4dcc-40ae-8140-08798ce24341",
@@ -652,8 +647,7 @@
         "takenSeats": 60
       },
       "date": "2020-04-12T17:00:00"
-    },
-    "ticketAmount": 0
+    }
   },
   {
     "id": "a77a36eb-6559-48b0-abd3-352777686a8d",
@@ -703,8 +697,7 @@
         "takenSeats": 5
       },
       "date": "2020-04-30T18:00:00"
-    },
-    "ticketAmount": 0
+    }
   },
   {
     "id": "29edbce6-cf6e-42d7-bb82-35023322dc07",
@@ -759,8 +752,7 @@
         "takenSeats": 16
       },
       "date": "2020-05-05T20:00:00"
-    },
-    "ticketAmount": 0
+    }
   },
   {
     "id": "b02cc74d-d190-4545-927f-f2cc7eead90d",
@@ -815,62 +807,75 @@
         "takenSeats": 8
       },
       "date": "2020-05-05T16:00:00"
-    },
-    "ticketAmount": 0
+    }
   },
   {
-    "id": "4f56d31d-3e61-4b1b-8a10-18368df88b8c",
+    "id": "846817fe-c8a7-49b5-b375-ce8834c7faa3",
     "user": "Lennert Lastname",
     "ticketlist": [
       {
-        "id": "e3196e32-1760-4896-ab10-3121ab965cd0",
-        "seatNumber": 60,
+        "id": "a690eab0-a7c5-4bf1-a8a0-678bbd189ceb",
+        "seatNumber": 26,
         "type": "Adult"
       },
       {
-        "id": "c5bb9e9e-5918-47d1-9b3f-203649580781",
-        "seatNumber": 61,
+        "id": "b35033a6-43f2-46f0-bfcb-38155b09bcff",
+        "seatNumber": 27,
         "type": "Adult"
       },
       {
-        "id": "294c1482-d249-4ab0-9ea4-3b02c66ddee5",
-        "seatNumber": 62,
+        "id": "e3a3d627-1871-471e-b246-c3651e15f4b1",
+        "seatNumber": 28,
         "type": "Child"
       }
     ],
     "movieRoom": {
-      "id": "a0166cb1-e6e2-4f32-81de-9559af8d1a69",
+      "id": "ee57fb22-d5a0-47e2-8662-72835c679c39",
       "movie": {
-        "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
-        "name": "Cory in the house",
-        "description": "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.",
+        "id": "2dc2759d-f106-436c-b716-2702c4739d2e",
+        "name": "The revenge of alexandro",
+        "description": "A movie about the villain alexandro who wreaks havoc on the small town of Rotterdamdorp.",
         "actors": null,
         "releaseDate": "0001-01-01T00:00:00",
         "ageRestriction": 0,
-        "duration": 90
+        "duration": 140
       },
       "room": {
-        "id": "27b005fd-f9ab-42f3-a9a6-f12c10d4ecb5",
-        "name": "zaal 2",
-        "seats": 75,
-        "takenSeats": 63
+        "id": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
+        "name": "zaal 3",
+        "seats": 150,
+        "takenSeats": 29
       },
-      "date": "2020-05-12T17:00:00"
-    },
-    "ticketAmount": 0
+      "date": "2020-05-10T14:00:00"
+    }
   },
   {
-    "id": "9b5f449f-1612-41e5-882b-8eaabfa1618c",
+    "id": "a834cc8e-d382-4ede-a3c8-300e92d6e263",
     "user": "Lennert Lastname",
     "ticketlist": [
       {
-        "id": "de7d90dd-0c29-4292-874b-d0764d01b9b3",
-        "seatNumber": 16,
+        "id": "a39dcd5d-fbc4-4a71-8c48-08c6ab1e6c15",
+        "seatNumber": 19,
         "type": "Adult"
+      },
+      {
+        "id": "c75d1b4c-4266-4971-91a3-92136cc76cbc",
+        "seatNumber": 20,
+        "type": "Adult"
+      },
+      {
+        "id": "908989b7-8956-49d6-bfd3-4eb6b318fdbb",
+        "seatNumber": 21,
+        "type": "Adult"
+      },
+      {
+        "id": "d78769c6-857a-4173-92df-67e09920c964",
+        "seatNumber": 22,
+        "type": "Child"
       }
     ],
     "movieRoom": {
-      "id": "7039b6df-04b8-4548-8126-72f721a5f084",
+      "id": "3bfd8998-be11-4273-94a9-b58231eb84b2",
       "movie": {
         "id": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
         "name": "The Almighty",
@@ -881,13 +886,62 @@
         "duration": 100
       },
       "room": {
+        "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
+        "name": "zaal 1",
+        "seats": 100,
+        "takenSeats": 23
+      },
+      "date": "2020-05-12T20:00:00"
+    }
+  },
+  {
+    "id": "af2cd51a-1bb8-40a8-99e0-9b6e1d2ef20e",
+    "user": "Lennert Lastname",
+    "ticketlist": [
+      {
+        "id": "f0ee74d2-d824-4e1d-8cc6-475875a29f90",
+        "seatNumber": 5,
+        "type": "Adult"
+      },
+      {
+        "id": "e1e8e68d-f1d9-4b42-931f-f667dde06423",
+        "seatNumber": 6,
+        "type": "Adult"
+      },
+      {
+        "id": "05745c61-f633-4567-8e84-cfd09b7d0498",
+        "seatNumber": 7,
+        "type": "Adult"
+      },
+      {
+        "id": "fe52db47-9f84-4c0f-8202-ff8d7554aab9",
+        "seatNumber": 8,
+        "type": "Child"
+      },
+      {
+        "id": "835c18da-c6c0-461c-a00c-8473d14277fa",
+        "seatNumber": 9,
+        "type": "Child"
+      }
+    ],
+    "movieRoom": {
+      "id": "9cf1a599-f3b5-4375-8c27-f2fce902b18d",
+      "movie": {
+        "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
+        "name": "Cory in the house",
+        "description": "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 90
+      },
+      "room": {
         "id": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
         "name": "zaal 3",
         "seats": 150,
-        "takenSeats": 17
+        "takenSeats": 10
       },
-      "date": "2020-06-05T20:00:00"
-    },
-    "ticketAmount": 0
+      "date": "2020-05-30T18:00:00"
+    }
   }
 ]
