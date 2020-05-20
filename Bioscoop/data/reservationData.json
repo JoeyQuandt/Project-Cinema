@@ -895,38 +895,53 @@
     }
   },
   {
-    "id": "253d6c86-d00f-4f47-8ca4-7c663417aaf3",
+    "id": "af2cd51a-1bb8-40a8-99e0-9b6e1d2ef20e",
     "user": "Lennert Lastname",
     "ticketlist": [
       {
-        "id": "51fdca51-3bf7-4b28-a639-9c5099340576",
-        "seatNumber": 0,
+        "id": "f0ee74d2-d824-4e1d-8cc6-475875a29f90",
+        "seatNumber": 5,
         "type": "Adult"
       },
       {
-        "id": "7d2aa6c8-b9cd-4be6-8ee3-c622351abd80",
-        "seatNumber": 1,
+        "id": "e1e8e68d-f1d9-4b42-931f-f667dde06423",
+        "seatNumber": 6,
+        "type": "Adult"
+      },
+      {
+        "id": "05745c61-f633-4567-8e84-cfd09b7d0498",
+        "seatNumber": 7,
+        "type": "Adult"
+      },
+      {
+        "id": "fe52db47-9f84-4c0f-8202-ff8d7554aab9",
+        "seatNumber": 8,
+        "type": "Child"
+      },
+      {
+        "id": "835c18da-c6c0-461c-a00c-8473d14277fa",
+        "seatNumber": 9,
         "type": "Child"
       }
     ],
     "movieRoom": {
-      "id": "7f329b56-2008-4a2f-a3a9-44afea0867b2",
+      "id": "9cf1a599-f3b5-4375-8c27-f2fce902b18d",
       "movie": {
-        "id": "415de207-2c1b-4bd0-9e65-7a15afa3fef2",
-        "name": "A night in a musuem",
-        "description": "A couple of urban explorers check out a haunted musuem.",
+        "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
+        "name": "Cory in the house",
+        "description": "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.",
         "actors": null,
         "releaseDate": "0001-01-01T00:00:00",
         "ageRestriction": 0,
-        "duration": 100
+        "duration": 90
       },
       "room": {
-        "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
-        "name": "zaal 1",
-        "seats": 100,
-        "takenSeats": 2
+        "id": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
+        "name": "zaal 3",
+        "seats": 150,
+        "takenSeats": 10
       },
-      "date": "2020-06-26T15:00:00"
+      "date": "2020-05-30T18:00:00"
     }
   }
 ]
