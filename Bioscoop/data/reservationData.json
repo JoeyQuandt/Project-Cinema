@@ -858,5 +858,36 @@
       "date": "2020-05-12T17:00:00"
     },
     "ticketAmount": 0
+  },
+  {
+    "id": "9b5f449f-1612-41e5-882b-8eaabfa1618c",
+    "user": "Lennert Lastname",
+    "ticketlist": [
+      {
+        "id": "de7d90dd-0c29-4292-874b-d0764d01b9b3",
+        "seatNumber": 16,
+        "type": "Adult"
+      }
+    ],
+    "movieRoom": {
+      "id": "7039b6df-04b8-4548-8126-72f721a5f084",
+      "movie": {
+        "id": "2a1cf66f-76ce-4661-8995-82d239c14a9c",
+        "name": "The Almighty",
+        "description": "A simple workingclass man suddenly becomes a literal god.",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 100
+      },
+      "room": {
+        "id": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
+        "name": "zaal 3",
+        "seats": 150,
+        "takenSeats": 17
+      },
+      "date": "2020-06-05T20:00:00"
+    },
+    "ticketAmount": 0
   }
 ]
