@@ -14,7 +14,7 @@
       "id": "c97b7136-ab83-487b-ad71-80d8fd7814a2",
       "name": "zaal 1",
       "seats": 100,
-      "takenSeats": 0
+      "takenSeats": 100
     },
     "date": "2020-05-26T15:00:00"
   },
@@ -52,7 +52,7 @@
       "id": "27b005fd-f9ab-42f3-a9a6-f12c10d4ecb5",
       "name": "zaal 2",
       "seats": 75,
-      "takenSeats": 8
+      "takenSeats": 9
     },
     "date": "2020-06-05T16:00:00"
   },
@@ -109,7 +109,7 @@
       "id": "5c768d93-a2de-415b-909d-6d5fc74a6af7",
       "name": "zaal 3",
       "seats": 150,
-      "takenSeats": 29
+      "takenSeats": 30
     },
     "date": "2020-06-10T14:00:00"
   },

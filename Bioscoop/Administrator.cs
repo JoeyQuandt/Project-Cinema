@@ -353,35 +353,48 @@ public static class Administrator
 
     }
 
-    public static void Menu()
+    public static void AdminMenu()
     {
+
         bool loop = true;
         while (loop)
         {
             Console.Clear();
             // Present the menu options
-            Console.WriteLine("Welcome to the admin part");
-            Console.WriteLine("1) View all movies");
-            Console.WriteLine("2) Add a movie");
-            Console.WriteLine("3) Edit a movie");
-            Console.WriteLine("4) Remove a movie");
-            Console.WriteLine("x) Exit the admin part and go back to the main menu");
+            Console.WriteLine("Welcome to the admin dashboard");
+            Console.WriteLine("1) Show movie times and availability");
+            Console.WriteLine("2) Show list of current available movies");
+            Console.WriteLine("3) Show ticket information");
+            Console.WriteLine("4) View all movies");
+            Console.WriteLine("5) Add a movie");
+            Console.WriteLine("6) Edit a movie");
+            Console.WriteLine("7) Remove a movie");
+            Console.WriteLine("8) Exit the admin part and go back to the main menu");
             // Prompt the user to choose
             switch (Console.ReadLine())
             {
                 case "1":
-                    ListMoviesAsOptions();
+                    Menu.ShowMovieDetails();
                     continue;
                 case "2":
-                    AddMovie();
+                    Menu.ShowAvailableMovies();
                     continue;
                 case "3":
-                    ChangeMovie();
+                    Menu.ShowTicketDetails();
                     continue;
                 case "4":
+                    ListMoviesAsOptions();
+                    continue;
+                case "5":
+                    AddMovie();
+                    continue;
+                case "6":
+                    ChangeMovie();
+                    continue;
+                case "7":
                     RemoveMovie();
                     continue;
-                case "x":
+                case "8":
                     Console.WriteLine("Option 5");
                     loop = false;
                     continue;

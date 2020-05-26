@@ -22,18 +22,38 @@ public class Menu
         PressEnter();
     }
     //Movie Information
-    public void ShowMovieDetails()
+    public static void ShowMovieDetails()
     {
         Console.Clear();
+        Console.WriteLine("This is the schedule of the movies. The movies that are colored in red are either full or unavailable.\n");
+        foreach (MovieTime movie in Data.LoadMovieTimes())
+        {
+            if (movie.GetRoom().IsFull())
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(movie.GetMovieTimeDetails() + "\n==============");
+            } else
+            {
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine(movie.GetMovieTimeDetails() + "\n==============");
+            }
 
+        }
+        PressEnter();
+    }
+    public static void ShowAvailableMovies()
+    {
+        Console.Clear();
+        Console.WriteLine("These are the movies that are currently available.\n");
         foreach (Movie movie in Data.LoadMovies())
         {
-            Console.WriteLine(movie.GetMovieDetails()+"\n==============");
+            
+            Console.WriteLine(movie.GetMovieDetails() + "\n==============");
         }
         PressEnter();
     }
     //Ticket Information
-    public void ShowTicketDetails()
+    public static void ShowTicketDetails()
     {
         Console.Clear();
         Console.WriteLine("=====Ticket Information=====");
@@ -214,7 +234,7 @@ public class Menu
                 Console.Clear();
                 if (authorizedUser.GetRole() == "admin")
                 {
-                    Administrator.Menu();
+                    Administrator.AdminMenu();
                     loginLoop = false;
                 } else
                 {
@@ -247,15 +267,17 @@ public class Menu
         bool loginSuccesfull = false;
         //menu options
         Console.Clear();
-        Console.WriteLine("=====Welcome to Jack Cinema.=====");
+        Console.WriteLine("=====Welcome to Jack Cinema.=====\nHere you can see information of movies and see the prices for the tickets.\nLogin to place a reservation.\n");
+
         if (loginSuccesfull)
         {
             Console.WriteLine("Welcome, " + authorizedUser.GetFirstName());
         }
-        Console.WriteLine("1) For movie availability");
-        Console.WriteLine("2) For ticket information");
-        Console.WriteLine("3) Log in");
-        Console.WriteLine("4) Exit");
+        Console.WriteLine("1) Show movie times and availability");
+        Console.WriteLine("2) Show list of current available movies");
+        Console.WriteLine("3) Show ticket information");
+        Console.WriteLine("4) Log in");
+        Console.WriteLine("5) Exit");
         
         Console.Write("\r\nSelect an option: ");
         //switch checking which number is pressed
@@ -265,12 +287,15 @@ public class Menu
                 ShowMovieDetails();
                 return true;
             case "2":
-                ShowTicketDetails();
+                ShowAvailableMovies();
                 return true;
             case "3":
-                Login_information();
+                ShowTicketDetails();
                 return true;
             case "4":
+                Login_information();
+                return true;
+            case "5":
                 return false;
             default:
                 ErrorMessage();

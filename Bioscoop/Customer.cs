@@ -5,7 +5,7 @@ using System.IO;
 
 public static class Customer
 { 
-	// Function to ask the user to press enter to continue
+	// Function to ask the user to press enter to continuef
 	public static void PressEnter()
 	{
 		Console.WriteLine("Press Enter to continue");
@@ -297,27 +297,39 @@ public static class Customer
 			Console.Clear();
 			// Show options for the customer
 			Console.WriteLine("Welcome " + currentUser + "!" );
-			Console.WriteLine("1) View all reservations");
-			Console.WriteLine("2) Make a reservation");
-			Console.WriteLine("3) Change a reservation");
-			Console.WriteLine("4) Cancel a reservation");
-			Console.WriteLine("5) Log out");
+			Console.WriteLine("1) Show movie times and availability");
+			Console.WriteLine("2) Show list of current available movies");
+			Console.WriteLine("3) Show ticket information");
+			Console.WriteLine("4) View all your reservations");
+			Console.WriteLine("5) Make a reservation");
+			Console.WriteLine("6) Change a reservation");
+			Console.WriteLine("7) Cancel a reservation");
+			Console.WriteLine("8) Log out");
 
 			switch (Console.ReadLine())
 			{
 				case "1":
-					ShowReservations();
+					Menu.ShowMovieDetails();
 					continue;
 				case "2":
-					MakeReservation();
+					Menu.ShowAvailableMovies();
 					continue;
 				case "3":
-					EditReservation();
+					Menu.ShowTicketDetails();
 					continue;
 				case "4":
-					RemoveReservation();
+					ShowReservations();
 					continue;
 				case "5":
+					MakeReservation();
+					continue;
+				case "6":
+					EditReservation();
+					continue;
+				case "7":
+					RemoveReservation();
+					continue;
+				case "8":
 					isInMenu = false;
 					continue;
 				default:
