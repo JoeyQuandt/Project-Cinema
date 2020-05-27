@@ -273,12 +273,13 @@ public class Menu
         {
             Console.WriteLine("Welcome, " + authorizedUser.GetFirstName());
         }
-        Console.WriteLine("1) For movie availability");
-        Console.WriteLine("2) For ticket information");
-        Console.WriteLine("3) Log in");
-        Console.WriteLine("4) Register");
-        Console.WriteLine("5) Exit");
-        
+        Console.WriteLine("1) Show movie times and availability");
+        Console.WriteLine("2) Show list of current available movies");
+        Console.WriteLine("3) Show ticket information");
+        Console.WriteLine("4) Log in");
+        Console.WriteLine("5) Register account");
+        Console.WriteLine("6) Exit");
+
         Console.Write("\r\nSelect an option: ");
         //switch checking which number is pressed
         switch (Console.ReadLine())
@@ -293,9 +294,12 @@ public class Menu
                 ShowTicketDetails();
                 return true;
             case "4":
-                Register_information();
+                Login_information();
                 return true;
             case "5":
+                Register_information();
+                return true;
+            case "6":
                 return false;
             default:
                 ErrorMessage();
