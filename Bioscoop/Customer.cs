@@ -157,7 +157,7 @@ public static class Customer
 			}
 			else
 			{
-				if (Console.ReadLine().ToLower() != "x")
+				if (userInput.ToLower() != "x")
 				{
 					ErrorCode();
 					PressEnter();
@@ -273,7 +273,7 @@ public static class Customer
 			}
 			else
 			{
-				if (Console.ReadLine().ToLower() != "x")
+				if (userInput.ToLower() != "x")
 				{
 					ErrorCode();
 					PressEnter();
