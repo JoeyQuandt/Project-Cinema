@@ -2,12 +2,13 @@
 
 public class User
 {
-    private Guid id;
-    private string username;
-    private string password; // Because who needs hashing
-    private string firstName;
-    private string lastName;
-    private string role;
+    public Guid id;
+    public string username;
+    public string password; // Because who needs hashing
+    public string firstName;
+    public string lastName;
+    public string description;
+    public string role;
 
 	public User(string username, string password, string firstName, string lastName, string role)
 	{
@@ -16,6 +17,7 @@ public class User
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.description = "";
         this.role = role;
 	}
 
@@ -37,5 +39,10 @@ public class User
     public string GetRole()
     {
         return this.role;
+    }
+
+    public string GetUsername()
+    {
+        return this.username;
     }
 }

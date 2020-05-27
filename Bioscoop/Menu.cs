@@ -273,10 +273,10 @@ public class Menu
         {
             Console.WriteLine("Welcome, " + authorizedUser.GetFirstName());
         }
-        Console.WriteLine("1) Show movie times and availability");
-        Console.WriteLine("2) Show list of current available movies");
-        Console.WriteLine("3) Show ticket information");
-        Console.WriteLine("4) Log in");
+        Console.WriteLine("1) For movie availability");
+        Console.WriteLine("2) For ticket information");
+        Console.WriteLine("3) Log in");
+        Console.WriteLine("4) Register");
         Console.WriteLine("5) Exit");
         
         Console.Write("\r\nSelect an option: ");
@@ -293,7 +293,7 @@ public class Menu
                 ShowTicketDetails();
                 return true;
             case "4":
-                Login_information();
+                Register_information();
                 return true;
             case "5":
                 return false;
@@ -302,5 +302,67 @@ public class Menu
                 return true;
         }
 
+    }
+
+    private void Register_information()
+    {
+        // TODO: Change this to registering
+        // Prepare variables
+        bool registerFailed = false;
+        bool registerLoop = true;
+
+        // Loop while user wants to try to enter a user account
+        while (registerLoop)
+        {
+            // Reset failed variable
+            registerFailed = false;
+
+            // Let the user enter credentials 
+            Console.Clear();
+            Console.WriteLine("=====Register=====\n");
+            Console.WriteLine("Username: ");
+            string un = Console.ReadLine();
+            Console.WriteLine("Password: ");
+            string pw = Console.ReadLine();
+            Console.WriteLine("First Name: ");
+            string fn = Console.ReadLine();
+            Console.WriteLine("Last Name: ");
+            string ln = Console.ReadLine();
+
+            // Loop over all the users from the JSON and check if one has the given credentials
+            foreach (User user in Data.LoadUsers())
+            {
+                if (user.GetUsername() == un)
+                {
+                    registerFailed = true;
+                }
+
+            }
+
+            // If registering failed, show error
+            if (registerFailed)
+            {
+                Console.WriteLine("Someone has that username");
+                Console.WriteLine("Press enter to try again");
+                Console.ReadLine();
+
+            }
+            else
+            {
+                // Success
+                Console.Clear();
+                Console.WriteLine("Successfully registered!");
+                Console.WriteLine($"Welcome {fn}!");
+                Console.WriteLine();
+                PressEnter();
+                registerLoop = false;
+
+                // Add user to JSON
+                List<User> list = Data.LoadUsers();
+                list.Add(new User(un, pw, fn, ln, "user"));
+                var SerializedList = JsonConvert.SerializeObject(list, Formatting.Indented);
+                File.WriteAllText(@"../../../data/userData.json", SerializedList); 
+            }
+        }
     }
 }
