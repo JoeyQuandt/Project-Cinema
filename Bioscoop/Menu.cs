@@ -31,7 +31,7 @@ public class Menu
             if (movie.GetRoom().IsFull())
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(movie.GetMovieTimeDetails() + "\n==============");
+                Console.WriteLine(movie.GetMovieTimeDetails() + " (VOL)" + "\n==============");
             } else
             {
                 Console.ForegroundColor = ConsoleColor.Gray;
