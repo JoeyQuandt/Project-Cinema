@@ -300,11 +300,12 @@ public static class Customer
 			Console.WriteLine("1) Show movie times and availability");
 			Console.WriteLine("2) Show list of current available movies");
 			Console.WriteLine("3) Show ticket information");
-			Console.WriteLine("4) View all your reservations");
-			Console.WriteLine("5) Make a reservation");
-			Console.WriteLine("6) Change a reservation");
-			Console.WriteLine("7) Cancel a reservation");
-			Console.WriteLine("8) Log out");
+			Console.WriteLine("4) Search for a movie");
+			Console.WriteLine("5) View all your reservations");
+			Console.WriteLine("6) Make a reservation");
+			Console.WriteLine("7) Change a reservation");
+			Console.WriteLine("8) Cancel a reservation");
+			Console.WriteLine("9) Log out");
 
 			switch (Console.ReadLine())
 			{
@@ -318,18 +319,21 @@ public static class Customer
 					Menu.ShowTicketDetails();
 					continue;
 				case "4":
-					ShowReservations();
+					Menu.SearchMovies();
 					continue;
 				case "5":
-					MakeReservation();
+					ShowReservations();
 					continue;
 				case "6":
-					EditReservation();
+					MakeReservation();
 					continue;
 				case "7":
-					RemoveReservation();
+					EditReservation();
 					continue;
 				case "8":
+					RemoveReservation();
+					continue;
+				case "9":
 					isInMenu = false;
 					continue;
 				default:

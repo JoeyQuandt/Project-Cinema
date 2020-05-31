@@ -61,6 +61,29 @@ public class Menu
         PressEnter();
     }
 
+    //Search movie
+    public static void SearchMovies()
+    {
+        Console.Clear();
+        Console.WriteLine("=====Search movie=====");
+        string searchInput = Console.ReadLine();
+        int counter = 0;
+        foreach (Movie movie in Data.LoadMovies())
+        {
+            if (movie.name.ToLower().Contains(searchInput.ToLower()))
+            {
+                Console.WriteLine(movie.GetMovieDetails() + "\n");
+                counter++;
+            }
+
+        }
+        if (counter == 0)
+        {
+            Console.WriteLine("No movies found!");
+        }
+        PressEnter();
+    }
+
     // A function made to be able to error handle inputs where you want an integer as result.
     // Parameters are for a message and a limit 
     public static int IntegerInput(string Message, int Limit = 100, int LowLimit = 1)
@@ -297,9 +320,10 @@ public class Menu
         Console.WriteLine("1) Show movie times and availability");
         Console.WriteLine("2) Show list of current available movies");
         Console.WriteLine("3) Show ticket information");
-        Console.WriteLine("4) Log in");
-        Console.WriteLine("5) Register account");
-        Console.WriteLine("6) Exit");
+        Console.WriteLine("4) Search for a movie");
+        Console.WriteLine("5) Log in");
+        Console.WriteLine("6) Register account");
+        Console.WriteLine("7) Exit");
 
         Console.Write("\r\nSelect an option: ");
         //switch checking which number is pressed
@@ -315,12 +339,15 @@ public class Menu
                 ShowTicketDetails();
                 return true;
             case "4":
-                Login_information();
+                SearchMovies();
                 return true;
             case "5":
-                Register_information();
+                Login_information();
                 return true;
             case "6":
+                Register_information();
+                return true;
+            case "7":
                 return false;
             default:
                 ErrorMessage();
