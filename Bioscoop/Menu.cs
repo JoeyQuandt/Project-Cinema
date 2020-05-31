@@ -67,17 +67,17 @@ public class Menu
         Console.Clear();
         Console.WriteLine("=====Search movie=====");
         string searchInput = Console.ReadLine();
-        int counter = 0;
+        bool contains = false;
         foreach (Movie movie in Data.LoadMovies())
         {
             if (movie.name.ToLower().Contains(searchInput.ToLower()))
             {
                 Console.WriteLine(movie.GetMovieDetails() + "\n");
-                counter++;
+                contains = true;
             }
 
         }
-        if (counter == 0)
+        if (!contains)
         {
             Console.WriteLine("No movies found!");
         }
