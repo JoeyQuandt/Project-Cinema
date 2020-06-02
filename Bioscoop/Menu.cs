@@ -111,17 +111,36 @@ public class Menu
             }
         }
     }
+    public static void ShowConsumptionDetails()
+    {
+        
+        var consumptionList = Data.LoadConsumptions();
 
+        for (int i = 0; i < consumptionList.Count; i++)
+        {
+                Console.WriteLine(consumptionList[i].GetDetails());
+        }
+        PressEnter();
+        MakeConsumption();
+    }
+
+    public static void MakeConsumption()
+    {
+        var consumptionList = Data.LoadConsumptions();
+
+        for (int i = 0; i < consumptionList.Count; i++)
+        {
+            Console.WriteLine(i+1 + ") "+ consumptionList[i].GetName());
+        }
+        int numberchoice = IntegerInput("Enter the consumption you want to add to your order", consumptionList.Count);
+        Consumption consumptionchoice = consumptionList[numberchoice - 1];
+        Console.WriteLine("You made the choice of" + consumptionchoice.GetName());
+
+    }
 
     //List<Reservation>
     public static int MakeReservation()
     {
-        List<Consumption> ConsumptionList = Data.LoadConsumptions();
-        string[] allergies = new string[] { "peanuts", "sweetcorn" };
-        Consumption consumption = new Consumption("Popcorn", "Crunchy popcorn", "Medium", allergies);
-        ConsumptionList.Add(consumption);
-        string SerializedConsumptionList = JsonConvert.SerializeObject(ConsumptionList, Formatting.Indented);
-        File.WriteAllText(@"../../../data/consumptionData.json", SerializedConsumptionList);
         // Makes Lists from the data in the JSON
         List<Room> RoomList = Data.LoadRooms();
         List<Movie> MovieList = Data.LoadMovies();
@@ -320,10 +339,11 @@ public class Menu
         Console.WriteLine("1) Show movie times and availability");
         Console.WriteLine("2) Show list of current available movies");
         Console.WriteLine("3) Show ticket information");
-        Console.WriteLine("4) Search for a movie");
-        Console.WriteLine("5) Log in");
-        Console.WriteLine("6) Register account");
-        Console.WriteLine("7) Exit");
+        Console.WriteLine("4) Show consumption information");
+        Console.WriteLine("5) Search for a movie");
+        Console.WriteLine("6) Log in");
+        Console.WriteLine("7) Register account");
+        Console.WriteLine("8) Exit");
 
         Console.Write("\r\nSelect an option: ");
         //switch checking which number is pressed
@@ -339,15 +359,18 @@ public class Menu
                 ShowTicketDetails();
                 return true;
             case "4":
-                SearchMovies();
+                ShowConsumptionDetails();
                 return true;
             case "5":
-                Login_information();
+                SearchMovies();
                 return true;
             case "6":
-                Register_information();
+                Login_information();
                 return true;
             case "7":
+                Register_information();
+                return true;
+            case "8":
                 return false;
             default:
                 ErrorMessage();

@@ -3,110 +3,29 @@
     "id": "7a9be6f0-02c7-46bc-bf1e-2eed89490196",
     "name": "Popcorn",
     "description": "Crunchy popcorn",
-    "size": null,
+    "size": "Medium",
     "allergies": [
       "peanuts",
       "sweetcorn"
     ]
   },
   {
-    "id": "8928de4c-2635-49bd-add2-ebad4561ff4a",
-    "name": "Popcorn",
-    "description": "Crunchy popcorn",
-    "size": null,
+    "id": "7a9be6f0-02c7-46bc-bf1e-2eed89490196",
+    "name": "N&N's",
+    "description": "Delicious chocolate",
+    "size": "Medium",
     "allergies": [
-      "peanuts",
-      "sweetcorn"
+      "Chocolate",
+      "Peanuts"
     ]
   },
   {
-    "id": "308f21a2-fb14-484d-914d-5561f25a4fad",
-    "name": "Popcorn",
-    "description": "Crunchy popcorn",
-    "size": null,
+    "id": "7a9be6f0-02c7-46bc-bf1e-2eed89490196",
+    "name": "Cola Coca",
+    "description": "A refreshing soda",
+    "size": "Small",
     "allergies": [
-      "peanuts",
-      "sweetcorn"
-    ]
-  },
-  {
-    "id": "704ee362-c0cd-4bb2-8fce-a4049a8d1865",
-    "name": "Popcorn",
-    "description": "Crunchy popcorn",
-    "size": null,
-    "allergies": [
-      "peanuts",
-      "sweetcorn"
-    ]
-  },
-  {
-    "id": "7baba696-45c7-4010-b296-6675fccd4b65",
-    "name": "Popcorn",
-    "description": "Crunchy popcorn",
-    "size": null,
-    "allergies": [
-      "peanuts",
-      "sweetcorn"
-    ]
-  },
-  {
-    "id": "062a8090-945e-421e-b326-7b29087f5273",
-    "name": "Popcorn",
-    "description": "Crunchy popcorn",
-    "size": null,
-    "allergies": [
-      "peanuts",
-      "sweetcorn"
-    ]
-  },
-  {
-    "id": "e034f7cd-5ce6-4996-8287-a416422d0ecf",
-    "name": "Popcorn",
-    "description": "Crunchy popcorn",
-    "size": null,
-    "allergies": [
-      "peanuts",
-      "sweetcorn"
-    ]
-  },
-  {
-    "id": "4cb1063f-199e-42d7-810d-b7bac4933381",
-    "name": "Popcorn",
-    "description": "Crunchy popcorn",
-    "size": null,
-    "allergies": [
-      "peanuts",
-      "sweetcorn"
-    ]
-  },
-  {
-    "id": "e4d84d51-098f-4749-8ed3-44bb86cceecc",
-    "name": "Popcorn",
-    "description": "Crunchy popcorn",
-    "size": null,
-    "allergies": [
-      "peanuts",
-      "sweetcorn"
-    ]
-  },
-  {
-    "id": "716a0e5e-958f-4ea4-9d32-b394cf6ee35c",
-    "name": "Popcorn",
-    "description": "Crunchy popcorn",
-    "size": null,
-    "allergies": [
-      "peanuts",
-      "sweetcorn"
-    ]
-  },
-  {
-    "id": "b68cdda1-08ba-4fc1-aff8-b0fba1e0e484",
-    "name": "Popcorn",
-    "description": "Crunchy popcorn",
-    "size": null,
-    "allergies": [
-      "peanuts",
-      "sweetcorn"
+      "Glutes"
     ]
   }
 ]

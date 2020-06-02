@@ -15,4 +15,17 @@ public class Consumption
         this.allergies = allergies;
 
     }
+    public string GetDetails()
+    {
+        string allergies = "";
+        for (int j = 0; j < this.allergies.Length; j++)
+        {
+            allergies += j + 1 + ": " + this.allergies[j] + "\n";
+        }
+        return ($"Consumption: {this.name}\nDescription: {this.description}\nAllergy list:\n{allergies}");
+    }
+    public string GetName()
+    {
+        return ($"Consumption: {this.name}");
+    }
 }
