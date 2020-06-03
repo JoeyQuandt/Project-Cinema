@@ -141,6 +141,13 @@ public class Menu
     //List<Reservation>
     public static int MakeReservation()
     {
+        Console.Clear();
+        ColorChanger.BackgroundColor(ConsoleColor.White);
+        ColorChanger.TextColor(ConsoleColor.Black);
+        Console.WriteLine("=====New Reservation=====");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.White);
+
         // Makes Lists from the data in the JSON
         List<Room> RoomList = Data.LoadRooms();
         List<Movie> MovieList = Data.LoadMovies();
@@ -166,11 +173,11 @@ public class Menu
         {
             if (SortedMovieTimes[x -1].GetRoom().IsFull() == true)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
+                ColorChanger.TextColor(ConsoleColor.Red);
                 Console.WriteLine(x + ") " + SortedMovieTimes[x -1].GetMovieTimeDetails());
-                Console.ForegroundColor = ConsoleColor.Gray;
             } else
             {
+                ColorChanger.TextColor(ConsoleColor.White);
                 Console.WriteLine(x + ") " + SortedMovieTimes[x -1].GetMovieTimeDetails());
             }
         }
@@ -178,7 +185,11 @@ public class Menu
 
         if (SortedMovieTimes[MovieNumber-1].GetRoom().IsFull())
         {
+            ColorChanger.TextColor(ConsoleColor.Red);
             Console.WriteLine("Sorry, this movie has no more room left. Please select a different movie.");
+            ColorChanger.TextColor(ConsoleColor.White);
+            Customer.PressEnter();
+            Console.Clear();
             MakeReservation();
         }
         else
@@ -223,12 +234,37 @@ public class Menu
                     ReservationList.Add(Reservation);
                     string SerializedReservationList = JsonConvert.SerializeObject(ReservationList, Formatting.Indented);
                     File.WriteAllText(@"../../../data/reservationData.json", SerializedReservationList);
-                    Console.WriteLine($"The cost of {AdultTicketAmount} adult tickets : ${AdultTicketAmount * 20}\nThe cost of {ChildTicketAmount} child tickets : ${ChildTicketAmount * 15}\nTotal cost :  ${AdultTicketAmount*20 + ChildTicketAmount*15}");
+
+                    ColorChanger.TextColor(ConsoleColor.Green);
+                    Console.WriteLine("You've succesfully made a reservation, see you soon!");
+                    ColorChanger.TextColor(ConsoleColor.White);
+                    Console.WriteLine($"The cost of {AdultTicketAmount} adult tickets : ${AdultTicketAmount * 20}\nThe cost of {ChildTicketAmount} child tickets : ${ChildTicketAmount * 15}\nTotal cost : ${AdultTicketAmount*20 + ChildTicketAmount*15}");
                     PressEnter();
                     return 0;
 
                 case "n":
-                    MakeReservation();
+                    while (true)
+                    {
+                        Console.WriteLine("Do you want to make another reservation? (y/n)");
+                        string input = Console.ReadLine();
+                        if (input.ToLower() == "y")
+                        {
+                            MakeReservation();
+                            break;
+                        }
+                        else if (input.ToLower() == "n")
+                        {
+                            Customer.CustomerMenu();
+                            break;
+                        }
+                        else
+                        {
+                            ColorChanger.TextColor(ConsoleColor.Red);
+                            Console.WriteLine("Enter one of the options!");
+                            ColorChanger.TextColor(ConsoleColor.White);
+                            continue;
+                        }
+                    }
                     return 0;
 
                 default:
