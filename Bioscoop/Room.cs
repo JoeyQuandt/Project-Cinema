@@ -5,21 +5,23 @@ public class Room
 {
     public Guid id;
     public string name;
-    public int seats;
+    public List<Seat> seats;
     public int takenSeats = 0;
+    public int seatAmount;
 
     // Constructor
-    public Room(string name, int seats)
-	{
+    public Room(string name, int seatAmount, List<Seat> seats)
+    {
         id = Guid.NewGuid();
         this.name = name;
+        this.seatAmount = seatAmount;
         this.seats = seats;
     }
 
     // Check if room is full
     public bool IsFull()
     {
-        return takenSeats >= seats;
+        return takenSeats >= seatAmount;
     }
 
     // Function to fill seats
@@ -31,7 +33,7 @@ public class Room
     // Get amount of available seats
     public int GetAvailableSeats()
     {
-        return this.seats - this.takenSeats;
+        return this.seatAmount - this.takenSeats;
     }
     public string GetRoomName()
     {
@@ -41,8 +43,11 @@ public class Room
     {
         return this.takenSeats;
     }
+
+    //Get amount of seats
     public List<Seat> GetSeat()
     {
         return this.seats;
     }
+
 }
