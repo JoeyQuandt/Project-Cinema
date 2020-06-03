@@ -83,7 +83,59 @@ public class Menu
         }
         PressEnter();
     }
+    public static int[] GetSeats(int TicketAmount, MovieTime selectedmovie)
+    {
+        while (true)
+        {
+            Console.WriteLine("Which seats would you like?");
+            string input = Console.ReadLine();
+            string[] result = input.Split(' ');
+            if (result.Length == TicketAmount)
+            {
+                int[] numberlist = new int[result.Length];
+                for (int i = 0; i < result.Length; i++)
+                {
+                    if (Int32.TryParse(result[i], out int ParsedInput))
+                    {
+                        // moet nog checken of de seat vrij is of niet. \|/
+                        if (ParsedInput < 1 || selectedmovie.GetRoom().GetSeat()[ParsedInput].getTaken())
+                        {
+                            Console.WriteLine($"Enter a valid value please.");
+                        }
+                        else
+                        {
+                            numberlist[i] = ParsedInput;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter a different value.");
+                    }
+                }
+                if (Object.ReferenceEquals(numberlist[0].GetType(), 10.GetType()))
+                {
+                    return numberlist;
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Please enter {TicketAmount} different numbers.. ");
+            }
+        }
 
+    }
+
+    public static void FillSeats()
+    {
+        List<Seat> list = Data.LoadSeats();
+        for (int x = 1; x < 101; x++)
+        {
+            list.Add(new Seat(x, false));
+        }
+        var SerializedList = JsonConvert.SerializeObject(list, Formatting.Indented);
+        File.WriteAllText(@"../../../data/seatData.json", SerializedList);
+        Console.WriteLine("STORED!");
+    }
     // A function made to be able to error handle inputs where you want an integer as result.
     // Parameters are for a message and a limit 
     public static int IntegerInput(string Message, int Limit = 100, int LowLimit = 1)
