@@ -44,7 +44,7 @@ public class Menu
 
     // A function made to be able to error handle inputs where you want an integer as result.
     // Parameters are for a message and a limit 
-    public static int IntegerInput(string Message, int Limit = 100)
+    public static int IntegerInput(string Message, int Limit = 100, int LowLimit = 1)
     {
         while (true)
         {
@@ -54,9 +54,9 @@ public class Menu
             // If it fails to parse the input to an integer it will run the else.
             if (Int32.TryParse(input, out int ParsedInput))
             { 
-                if (ParsedInput < 1 || ParsedInput > Limit)
+                if (ParsedInput < LowLimit || ParsedInput > Limit)
                 {
-                    Console.WriteLine($"Enter a value between 1 and {Limit}.");
+                    Console.WriteLine($"Enter a value between {LowLimit} and {Limit}.");
                 }
                 else
                 {
@@ -211,7 +211,7 @@ public class Menu
             {
                 case "y":
                     int AdultTicketAmount = IntegerInput("How many adult tickets do you want?", SortedMovieTimes[MovieNumber - 1].GetRoom().GetAvailableSeats());
-                    int ChildTicketAmount = IntegerInput("How many child tickets do you want?", SortedMovieTimes[MovieNumber - 1].GetRoom().GetAvailableSeats() - AdultTicketAmount);
+                    int ChildTicketAmount = IntegerInput("How many child tickets do you want?", SortedMovieTimes[MovieNumber - 1].GetRoom().GetAvailableSeats() - AdultTicketAmount, 0);
                     // For when more types of tickets will be added
                     // int childTicketAmount = Integer_input("How many child tickets do you want?", ticketAmount - adultTicketAmount);
 
@@ -256,9 +256,11 @@ public class Menu
                     MovieTimesList[MovieNumber+Removed].GetRoom().FillSeats(AdultTicketAmount + ChildTicketAmount);
                     string SerializedMovieTimesList = JsonConvert.SerializeObject(MovieTimesList, Formatting.Indented);
                     File.WriteAllText(@"../../../data/movieTimesData.json", SerializedMovieTimesList);
+
                     // Adds Tickets to JSON file
                     string SerializedTicketList = JsonConvert.SerializeObject(TicketList, Formatting.Indented);
                     File.WriteAllText(@"../../../data/ticketData.json", SerializedTicketList);
+
                     // Adds Reservation to JSON file.
                     List<Reservation> ReservationList = Data.LoadReservations();
                     Reservation Reservation = new Reservation(authorizedUser.GetFirstName() + " " + authorizedUser.GetLastName(), TicketListReservation, MovieTimesList[MovieNumber + Removed]);

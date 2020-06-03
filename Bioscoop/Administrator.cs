@@ -364,7 +364,7 @@ public static class Administrator
             Console.WriteLine("2) Add a movie");
             Console.WriteLine("3) Edit a movie");
             Console.WriteLine("4) Remove a movie");
-            Console.WriteLine("5) Exit the admin part and go back to the main menu");
+            Console.WriteLine("x) Exit the admin part and go back to the main menu");
             // Prompt the user to choose
             switch (Console.ReadLine())
             {
@@ -380,7 +380,7 @@ public static class Administrator
                 case "4":
                     RemoveMovie();
                     continue;
-                case "5":
+                case "x":
                     Console.WriteLine("Option 5");
                     loop = false;
                     continue;
