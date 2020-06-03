@@ -213,8 +213,29 @@ public class Menu
             Console.WriteLine("Username: ");
             string un = Console.ReadLine();
             Console.WriteLine("Password: ");
-            string pw = Console.ReadLine();
-
+            string pw = "";
+            // Hide password input
+            while (true)
+            {
+                ConsoleKeyInfo key = Console.ReadKey(true);
+                if (key.Key != ConsoleKey.Backspace && key.Key != ConsoleKey.Enter)
+                {
+                    pw += key.KeyChar;
+                    Console.Write("*");
+                }
+                else
+                {
+                    if (key.Key == ConsoleKey.Backspace && pw.Length > 0)
+                    {
+                        pw = pw.Substring(0, (pw.Length - 1));
+                        Console.Write("\b \b");
+                    }
+                    else if (key.Key == ConsoleKey.Enter)
+                    {
+                        break;
+                    }
+                }
+            } 
 
             // Loop over all the users from the JSON and check if one has the given credentials
             foreach (User user in Data.LoadUsers())
@@ -273,12 +294,13 @@ public class Menu
         {
             Console.WriteLine("Welcome, " + authorizedUser.GetFirstName());
         }
-        Console.WriteLine("1) For movie availability");
-        Console.WriteLine("2) For ticket information");
-        Console.WriteLine("3) Log in");
-        Console.WriteLine("4) Register");
-        Console.WriteLine("5) Exit");
-        
+        Console.WriteLine("1) Show movie times and availability");
+        Console.WriteLine("2) Show list of current available movies");
+        Console.WriteLine("3) Show ticket information");
+        Console.WriteLine("4) Log in");
+        Console.WriteLine("5) Register account");
+        Console.WriteLine("6) Exit");
+
         Console.Write("\r\nSelect an option: ");
         //switch checking which number is pressed
         switch (Console.ReadLine())
@@ -293,9 +315,12 @@ public class Menu
                 ShowTicketDetails();
                 return true;
             case "4":
-                Register_information();
+                Login_information();
                 return true;
             case "5":
+                Register_information();
+                return true;
+            case "6":
                 return false;
             default:
                 ErrorMessage();
@@ -323,7 +348,29 @@ public class Menu
             Console.WriteLine("Username: ");
             string un = Console.ReadLine();
             Console.WriteLine("Password: ");
-            string pw = Console.ReadLine();
+            string pw = "";
+            // Hide password input
+            while (true)
+            {
+                ConsoleKeyInfo key = Console.ReadKey(true);
+                if (key.Key != ConsoleKey.Backspace && key.Key != ConsoleKey.Enter)
+                {
+                    pw += key.KeyChar;
+                    Console.Write("*");
+                }
+                else
+                {
+                    if (key.Key == ConsoleKey.Backspace && pw.Length > 0)
+                    {
+                        pw = pw.Substring(0, (pw.Length - 1));
+                        Console.Write("\b \b");
+                    }
+                    else if (key.Key == ConsoleKey.Enter)
+                    {
+                        break;
+                    }
+                }
+            }
             Console.WriteLine("First Name: ");
             string fn = Console.ReadLine();
             Console.WriteLine("Last Name: ");
