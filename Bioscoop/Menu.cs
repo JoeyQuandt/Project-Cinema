@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 
 public class Menu
 {
@@ -337,7 +338,9 @@ public class Menu
                 if (key.Key != ConsoleKey.Backspace && key.Key != ConsoleKey.Enter)
                 {
                     pw += key.KeyChar;
-                    Console.Write("*");
+                    Console.Write(key.KeyChar);
+                    Thread.Sleep(200);
+                    Console.Write("\b*");
                 }
                 else
                 {
@@ -500,7 +503,9 @@ public class Menu
                 if (key.Key != ConsoleKey.Backspace && key.Key != ConsoleKey.Enter)
                 {
                     pw += key.KeyChar;
-                    Console.Write("*");
+                    Console.Write(key.KeyChar);
+                    Thread.Sleep(200);
+                    Console.Write("\b*");
                 }
                 else
                 {
@@ -515,7 +520,7 @@ public class Menu
                     }
                 }
             }
-            Console.WriteLine("First Name: ");
+            Console.WriteLine("\nFirst Name: ");
             string fn = Console.ReadLine();
             Console.WriteLine("Last Name: ");
             string ln = Console.ReadLine();
