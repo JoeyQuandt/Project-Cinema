@@ -973,5 +973,40 @@
       },
       "date": "2020-06-10T14:00:00"
     }
+  },
+  {
+    "id": "35f8a1a1-82ad-4379-a33b-797f7c79b95f",
+    "user": "Lennert Lastname",
+    "ticketlist": [
+      {
+        "id": "89832447-1502-4f04-89d7-482d646ff8d0",
+        "seatNumber": 9,
+        "type": "Adult"
+      },
+      {
+        "id": "651b5b3d-c47f-47ef-a239-95a92b45bb26",
+        "seatNumber": 10,
+        "type": "Adult"
+      }
+    ],
+    "movieRoom": {
+      "id": "b5056224-b7ed-4136-8741-88fb317e5809",
+      "movie": {
+        "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
+        "name": "Cory in the house",
+        "description": "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.",
+        "actors": null,
+        "releaseDate": "0001-01-01T00:00:00",
+        "ageRestriction": 0,
+        "duration": 90
+      },
+      "room": {
+        "id": "27b005fd-f9ab-42f3-a9a6-f12c10d4ecb5",
+        "name": "zaal 2",
+        "seats": 75,
+        "takenSeats": 11
+      },
+      "date": "2020-06-05T16:00:00"
+    }
   }
 ]

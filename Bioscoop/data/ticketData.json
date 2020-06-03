@@ -693,5 +693,15 @@
     "id": "6a72f6b3-4e89-4f45-975f-29f25c283110",
     "seatNumber": 29,
     "type": "Adult"
+  },
+  {
+    "id": "46ecfe2e-1695-49a4-9709-fcac764d5cad",
+    "seatNumber": 9,
+    "type": "Adult"
+  },
+  {
+    "id": "34182eea-116d-4dcd-b0ca-96c35affaf62",
+    "seatNumber": 10,
+    "type": "Adult"
   }
 ]
