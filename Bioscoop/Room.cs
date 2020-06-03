@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 public class Room
 {
@@ -39,5 +40,9 @@ public class Room
     public int GetTakenSeats()
     {
         return this.takenSeats;
+    }
+    public List<Seat> GetSeat()
+    {
+        return this.seats;
     }
 }
