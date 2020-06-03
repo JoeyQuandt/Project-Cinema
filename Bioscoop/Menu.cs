@@ -31,7 +31,7 @@ public class Menu
             if (movie.GetRoom().IsFull())
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(movie.GetMovieTimeDetails() + "\n==============");
+                Console.WriteLine(movie.GetMovieTimeDetails() + " (VOL)" + "\n==============");
             } else
             {
                 Console.ForegroundColor = ConsoleColor.Gray;
@@ -287,7 +287,11 @@ public class Menu
         {
             // Let the user enter credentials 
             Console.Clear();
+            ColorChanger.BackgroundColor(ConsoleColor.White);
+            ColorChanger.TextColor(ConsoleColor.Black);
             Console.WriteLine("=====Login=====\n");
+            ColorChanger.BackgroundColor(ConsoleColor.Black);
+            ColorChanger.TextColor(ConsoleColor.White);
             Console.WriteLine("Username: ");
             string un = Console.ReadLine();
             Console.WriteLine("Password: ");
@@ -346,7 +350,11 @@ public class Menu
             {
                 // Wrong credentials. Prompt the user to try again or leave.
                 Console.Clear();
+                ColorChanger.BackgroundColor(ConsoleColor.White);
+                ColorChanger.TextColor(ConsoleColor.Red);
                 Console.WriteLine("Wrong username or password");
+                ColorChanger.BackgroundColor(ConsoleColor.Black);
+                ColorChanger.TextColor(ConsoleColor.White);
                 Console.WriteLine("1. Try again");
                 Console.WriteLine("2. Go back");
                 string option = Console.ReadLine();
@@ -366,12 +374,24 @@ public class Menu
         bool loginSuccesfull = false;
         //menu options
         Console.Clear();
-        Console.WriteLine("=====Welcome to Jack Cinema.=====\nHere you can see information of movies and see the prices for the tickets.\nLogin to place a reservation.\n");
+        ColorChanger.BackgroundColor(ConsoleColor.White);
+        ColorChanger.TextColor(ConsoleColor.Black);
+        Console.WriteLine("=====Welcome to Jack Cinema.=====");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.Gray);
+        Console.WriteLine("\nHere you can see information of movies and see the prices for the tickets.\nLogin to place a reservation.\n");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.White);
 
         if (loginSuccesfull)
         {
-            Console.WriteLine("Welcome, " + authorizedUser.GetFirstName());
+            ColorChanger.BackgroundColor(ConsoleColor.White);
+            ColorChanger.TextColor(ConsoleColor.Black);
+            Console.WriteLine("Welcome, " + authorizedUser.GetFirstName() + "\n");
+            ColorChanger.BackgroundColor(ConsoleColor.Black);
+            ColorChanger.TextColor(ConsoleColor.White);
         }
+
         Console.WriteLine("1) Show movie times and availability");
         Console.WriteLine("2) Show list of current available movies");
         Console.WriteLine("3) Show ticket information");
@@ -430,7 +450,11 @@ public class Menu
 
             // Let the user enter credentials 
             Console.Clear();
+            ColorChanger.BackgroundColor(ConsoleColor.White);
+            ColorChanger.TextColor(ConsoleColor.Black);
             Console.WriteLine("=====Register=====\n");
+            ColorChanger.BackgroundColor(ConsoleColor.Black);
+            ColorChanger.TextColor(ConsoleColor.White);
             Console.WriteLine("Username: ");
             string un = Console.ReadLine();
             Console.WriteLine("Password: ");
@@ -475,7 +499,11 @@ public class Menu
             // If registering failed, show error
             if (registerFailed)
             {
+                ColorChanger.BackgroundColor(ConsoleColor.White);
+                ColorChanger.TextColor(ConsoleColor.Red);
                 Console.WriteLine("Someone has that username");
+                ColorChanger.BackgroundColor(ConsoleColor.Black);
+                ColorChanger.TextColor(ConsoleColor.White);
                 Console.WriteLine("Press enter to try again");
                 Console.ReadLine();
 
@@ -484,7 +512,11 @@ public class Menu
             {
                 // Success
                 Console.Clear();
+                ColorChanger.BackgroundColor(ConsoleColor.Black);
+                ColorChanger.TextColor(ConsoleColor.Green);
                 Console.WriteLine("Successfully registered!");
+                ColorChanger.BackgroundColor(ConsoleColor.Black);
+                ColorChanger.TextColor(ConsoleColor.White);
                 Console.WriteLine($"Welcome {fn}!");
                 Console.WriteLine();
                 PressEnter();
