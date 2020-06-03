@@ -25,16 +25,22 @@ public class Menu
     public static void ShowMovieDetails()
     {
         Console.Clear();
+        ColorChanger.BackgroundColor(ConsoleColor.White);
+        ColorChanger.TextColor(ConsoleColor.Black);
+        Console.WriteLine("=====Movie Schedule=====");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.Gray);
         Console.WriteLine("This is the schedule of the movies. The movies that are colored in red are either full or unavailable.\n");
+        ColorChanger.TextColor(ConsoleColor.White);
         foreach (MovieTime movie in Data.LoadMovieTimes())
         {
             if (movie.GetRoom().IsFull())
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(movie.GetMovieTimeDetails() + " (VOL)" + "\n==============");
+                ColorChanger.TextColor(ConsoleColor.Red);
+                Console.WriteLine(movie.GetMovieTimeDetails() + " (FULL)" + "\n==============");
             } else
             {
-                Console.ForegroundColor = ConsoleColor.Gray;
+                ColorChanger.TextColor(ConsoleColor.White);
                 Console.WriteLine(movie.GetMovieTimeDetails() + "\n==============");
             }
 
@@ -44,7 +50,13 @@ public class Menu
     public static void ShowAvailableMovies()
     {
         Console.Clear();
+        ColorChanger.BackgroundColor(ConsoleColor.White);
+        ColorChanger.TextColor(ConsoleColor.Black);
+        Console.WriteLine("=====Available Movies=====");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.Gray);
         Console.WriteLine("These are the movies that are currently available.\n");
+        ColorChanger.TextColor(ConsoleColor.White);
         foreach (Movie movie in Data.LoadMovies())
         {
             
@@ -56,8 +68,14 @@ public class Menu
     public static void ShowTicketDetails()
     {
         Console.Clear();
+        ColorChanger.BackgroundColor(ConsoleColor.White);
+        ColorChanger.TextColor(ConsoleColor.Black);
         Console.WriteLine("=====Ticket Information=====");
-        Console.WriteLine("Here you can see all the information about prices\nFor Adults(18 years and older): $20\nFor Children(17 years and younger): $15");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.Gray);
+        Console.WriteLine("Here you can see all the information about prices.\n");
+        ColorChanger.TextColor(ConsoleColor.White);
+        Console.WriteLine("- Adults (18 years and older): $20\n- Children (17 years and younger): $15\n");
         PressEnter();
     }
 
@@ -65,21 +83,37 @@ public class Menu
     public static void SearchMovies()
     {
         Console.Clear();
+        ColorChanger.BackgroundColor(ConsoleColor.White);
+        ColorChanger.TextColor(ConsoleColor.Black);
         Console.WriteLine("=====Search movie=====");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.White);
         string searchInput = Console.ReadLine();
         bool contains = false;
-        foreach (Movie movie in Data.LoadMovies())
-        {
-            if (movie.name.ToLower().Contains(searchInput.ToLower()))
-            {
-                Console.WriteLine(movie.GetMovieDetails() + "\n");
-                contains = true;
-            }
 
-        }
-        if (!contains)
+        if (searchInput != "")
         {
+            foreach (Movie movie in Data.LoadMovies())
+            {
+                if (movie.name.ToLower().Contains(searchInput.ToLower()))
+                {
+                    Console.WriteLine(movie.GetMovieDetails() + "\n");
+                    contains = true;
+                }
+
+            }
+            if (!contains)
+            {
+                ColorChanger.TextColor(ConsoleColor.Red);
+                Console.WriteLine("No movies found!");
+                ColorChanger.TextColor(ConsoleColor.White);
+            }
+        } 
+        else
+        {
+            ColorChanger.TextColor(ConsoleColor.Red);
             Console.WriteLine("No movies found!");
+            ColorChanger.TextColor(ConsoleColor.White);
         }
         PressEnter();
     }
