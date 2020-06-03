@@ -202,22 +202,6 @@ public class Menu
                     int ChildTicketAmount = IntegerInput("How many child tickets do you want?", SortedMovieTimes[MovieNumber - 1].GetRoom().GetAvailableSeats() - AdultTicketAmount, 0);
                     // For when more types of tickets will be added
                     // int childTicketAmount = Integer_input("How many child tickets do you want?", ticketAmount - adultTicketAmount);
-
-                    List<Ticket> TicketListReservation =  new List<Ticket>();
-                    List<Ticket> TicketList = Data.LoadTickets();
-                    int SeatNumber = SortedMovieTimes[MovieNumber-1].GetRoom().GetTakenSeats();
-                    for (int x = 0; x < AdultTicketAmount; x++)
-                    {
-                        TicketList.Add(new Ticket(SeatNumber, "Adult"));
-                        TicketListReservation.Add(new Ticket(SeatNumber, "Adult"));
-                        SeatNumber += 1;
-                    }
-                    for (int x = 0; x < ChildTicketAmount; x++)
-                    {
-                        TicketList.Add(new Ticket(SeatNumber, "Child"));
-                        TicketListReservation.Add(new Ticket(SeatNumber, "Child"));
-                        SeatNumber += 1;
-                    }
                     Console.WriteLine("\nThe free seats have a green display and the taken seats are red.\nPlease enter your seats as following: 11 22 33 45 . (seat+space)\n");
                     Span<int> storage = stackalloc int[40];
                     int zero = 11;
@@ -235,6 +219,22 @@ public class Menu
                         }
                     }
                     int[] chosenSeatNumbers = GetSeats(AdultTicketAmount + ChildTicketAmount, SortedMovieTimes[MovieNumber - 1]);
+                    List<Ticket> TicketListReservation =  new List<Ticket>();
+                    List<Ticket> TicketList = Data.LoadTickets();
+                    int SeatNumber = SortedMovieTimes[MovieNumber-1].GetRoom().GetTakenSeats();
+                    for (int x = 0; x < AdultTicketAmount; x++)
+                    {
+                        TicketList.Add(new Ticket(SeatNumber, "Adult"));
+                        TicketListReservation.Add(new Ticket(SeatNumber, "Adult"));
+                        SeatNumber += 1;
+                    }
+                    for (int x = 0; x < ChildTicketAmount; x++)
+                    {
+                        TicketList.Add(new Ticket(SeatNumber, "Child"));
+                        TicketListReservation.Add(new Ticket(SeatNumber, "Child"));
+                        SeatNumber += 1;
+                    }
+
                     // Adds Reservation to JSON file.
                     MovieTimesList[MovieNumber+Removed].GetRoom().FillSeats(AdultTicketAmount + ChildTicketAmount);
                     string SerializedMovieTimesList = JsonConvert.SerializeObject(MovieTimesList, Formatting.Indented);
