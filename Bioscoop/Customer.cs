@@ -3,17 +3,19 @@ using System.Collections.Generic;
 
 public static class Customer
 { 
-	// Function to ask the user to press enter to continue
+	// Function to ask the user to press enter to continuef
 	public static void PressEnter()
 	{
 		Console.WriteLine("Press Enter to continue");
 		Console.ReadLine();
 	}
-
+	
 	// Function to give an error
 	private static void ErrorCode()
 	{
+		ColorChanger.TextColor(ConsoleColor.Red);
 		Console.Write("Error, only use the given options...\n");
+		ColorChanger.TextColor(ConsoleColor.White);
 	}
 
 	// Function to show reservations
@@ -22,7 +24,12 @@ public static class Customer
 		string currentUser = Menu.authorizedUser.GetFirstName() + " " + Menu.authorizedUser.GetLastName();
 		int reservationCount = 0;
 		Console.Clear();
-		Console.WriteLine("<< Your reservations >>\n");
+		ColorChanger.BackgroundColor(ConsoleColor.White);
+		ColorChanger.TextColor(ConsoleColor.Black);
+		Console.WriteLine("=====Your reservations=====\n");
+		ColorChanger.BackgroundColor(ConsoleColor.Black);
+		ColorChanger.TextColor(ConsoleColor.White);
+		// Get all reservations from JSON
 		foreach (Reservation reservation in Data.LoadReservations())
 		{
 			if (reservation.GetReservationUser() == currentUser)
@@ -34,7 +41,9 @@ public static class Customer
 
 		if (reservationCount == 0)
 		{
+			ColorChanger.TextColor(ConsoleColor.Red);
 			Console.WriteLine("No reservations found\n");
+			ColorChanger.TextColor(ConsoleColor.White);
 		} 
 		else
 		{
@@ -60,7 +69,11 @@ public static class Customer
 		while (isInEditMode)
 		{
 			Console.Clear();
-			Console.WriteLine("<< Cancel a reservation >>\n");
+			ColorChanger.BackgroundColor(ConsoleColor.White);
+			ColorChanger.TextColor(ConsoleColor.Black);
+			Console.WriteLine("=====Change a reservation=====\n");
+			ColorChanger.BackgroundColor(ConsoleColor.Black);
+			ColorChanger.TextColor(ConsoleColor.White);
 
 			int reservationCount = 0;
 			foreach (Reservation reservation in reservations)
@@ -75,7 +88,10 @@ public static class Customer
 
 			if (reservationCount == 0)
 			{
-				Console.WriteLine("\nNo reservations found\nType 'x' to go back");
+				ColorChanger.TextColor(ConsoleColor.Red);
+				Console.WriteLine("\nNo reservations found");
+				ColorChanger.TextColor(ConsoleColor.White);
+				Console.WriteLine("Type 'x' to go back");
 			}
 			else
 			{
@@ -95,28 +111,49 @@ public static class Customer
 					int childTickets = int.Parse(Console.ReadLine());
 					int totalTickets = adultTickets + childTickets;
 
-					// Show the new reservation
-					Console.WriteLine("\nAre you sure? (y/n)");
-					switch (Console.ReadLine().ToLower())
+					// Check if it's not within 24 hours before start movie
+					if (!(reservationDateTime <= currentDateTime.AddHours(24) && reservationDateTime >= currentDateTime.AddHours(-24)))
 					{
-						// Edit reservation
-						case "y":
-							// TO DO: Write to json
-							Reservation reservation = customerReservations[x - 1];
-							Console.WriteLine("You've succesfully changed the reservation!");
-							Console.WriteLine("\n* New reservation: *\n" + reservation.GetReservationDetails());
-							PressEnter();
-							continue;
-						// Don't edit reservation
-						case "n":
-							Console.WriteLine("You didn't changed the reservation.");
-							PressEnter();
-							continue;
-						// Give an error
-						default:
-							ErrorCode();
-							PressEnter();
-							continue;
+						// Check if user really want to change the reservation
+						Console.WriteLine("Are you sure? (y/n)");
+						switch (Console.ReadLine().ToLower())
+						{
+							// Edit reservation
+							case "y":
+								// Remove old reservation
+								reservations.RemoveAt(x - 1);
+								var json2 = JsonConvert.SerializeObject(reservations, Formatting.Indented);
+								File.WriteAllText(@"../../../data/reservationData.json", json2);
+								// Make new reservation
+								MakeReservation();
+								// Reload reservationlist
+								reservations = Data.LoadReservations();
+								ColorChanger.TextColor(ConsoleColor.Green);
+								Console.WriteLine("You've succesfully changed the reservation!");
+								ColorChanger.TextColor(ConsoleColor.White);
+								PressEnter();
+								continue;
+							// Don't edit reservation
+							case "n":
+								ColorChanger.TextColor(ConsoleColor.Red);
+								Console.WriteLine("You didn't changed the reservation.");
+								ColorChanger.TextColor(ConsoleColor.White);
+								PressEnter();
+								continue;
+							// Give an error
+							default:
+								ErrorCode();
+								PressEnter();
+								continue;
+						}
+					} 
+					else
+					{
+						// Error, the movie is within 24 hours
+						ColorChanger.TextColor(ConsoleColor.Red);
+						Console.WriteLine("Sorry, you can't change your reservation anymore");
+						ColorChanger.TextColor(ConsoleColor.White);
+						PressEnter();
 					}
 				}
 				else
@@ -130,7 +167,7 @@ public static class Customer
 			}
 			else
 			{
-				if (Console.ReadLine().ToLower() != "x")
+				if (userInput.ToLower() != "x")
 				{
 					ErrorCode();
 					PressEnter();
@@ -153,7 +190,11 @@ public static class Customer
 		while(isInRemoveMode)
 		{
 			Console.Clear();
-			Console.WriteLine("<< Cancel a reservation >>\n");
+			ColorChanger.BackgroundColor(ConsoleColor.White);
+			ColorChanger.TextColor(ConsoleColor.Black);
+			Console.WriteLine("=====Cancel a reservation=====\n");
+			ColorChanger.BackgroundColor(ConsoleColor.Black);
+			ColorChanger.TextColor(ConsoleColor.White);
 
 			int reservationCount = 0;
 			foreach(Reservation reservation in reservations)
@@ -168,10 +209,13 @@ public static class Customer
 
 			if (reservationCount == 0)
 			{
-				Console.WriteLine("\nNo reservations found\nType 'x' to go back");
+				ColorChanger.TextColor(ConsoleColor.Red);
+				Console.WriteLine("\nNo reservations found");
+				ColorChanger.TextColor(ConsoleColor.White);
+				Console.WriteLine("Type 'x' to go back");
 			}
 			else
-			{
+			{ 
 				Console.WriteLine("\nEnter the number of the reservation to cancel it.\nType 'x' to go back");
 			}
 
@@ -186,24 +230,48 @@ public static class Customer
 					Console.WriteLine("Are you sure? y/n");
 					switch(Console.ReadLine().ToLower())
 					{
-						// Remove reservation
-						case "y":
-							Reservation reservation = customerReservations[x - 1];
-							// TODO: Delete reservation in JSON
-							Console.WriteLine("You succesfully cancelled your reservation\n" + reservation.GetReservationDetails());
-							PressEnter();
-							continue;
-						// Don't remove reservation
-						case "n":
-							Console.WriteLine("You did not cancel the reservation");
-							PressEnter();
-							continue;
-						// Give an error
-						default:
-							ErrorCode();
-							PressEnter();
-							continue;
+						// Check if user really want to remove the reservation
+						Console.WriteLine("Are you sure? y/n");
+						switch (Console.ReadLine().ToLower())
+						{
+							// Remove reservation
+							case "y":
+								List<Reservation> reservationList = Data.LoadReservations();
+								// Remove reservation in JSON
+								reservationList.RemoveAt(x - 1);
+								var json = JsonConvert.SerializeObject(reservationList, Formatting.Indented);
+								File.WriteAllText(@"../../../data/reservationData.json", json);
+
+								// Reload reservation list
+								reservations = Data.LoadReservations();
+
+								ColorChanger.TextColor(ConsoleColor.Green);
+								Console.WriteLine("You succesfully cancelled your reservation");
+								ColorChanger.TextColor(ConsoleColor.White);
+								PressEnter();
+								continue;
+							// Don't remove reservation
+							case "n":
+								ColorChanger.TextColor(ConsoleColor.Red);
+								Console.WriteLine("You did not cancel the reservation");
+								ColorChanger.TextColor(ConsoleColor.White);
+								PressEnter();
+								continue;
+							// Give an error
+							default:
+								ErrorCode();
+								PressEnter();
+								continue;
+						}
 					}
+					// Error, the movie is within 24 hours
+					else
+					{
+						ColorChanger.TextColor(ConsoleColor.Red);
+						Console.WriteLine("Sorry, you can't change your reservation anymore");
+						ColorChanger.TextColor(ConsoleColor.White);
+						PressEnter();
+					}	
 				}
 				else 
 				{
@@ -216,7 +284,7 @@ public static class Customer
 			}
 			else
 			{
-				if (Console.ReadLine().ToLower() != "x")
+				if (userInput.ToLower() != "x")
 				{
 					ErrorCode();
 					PressEnter();
@@ -239,28 +307,48 @@ public static class Customer
 		{
 			Console.Clear();
 			// Show options for the customer
-			Console.WriteLine("Welcome " + currentUser + "!" );
-			Console.WriteLine("1) View all reservations");
-			Console.WriteLine("2) Make a reservation");
-			Console.WriteLine("3) Change a reservation");
-			Console.WriteLine("4) Cancel a reservation");
-			Console.WriteLine("5) Log out");
+			ColorChanger.BackgroundColor(ConsoleColor.White);
+			ColorChanger.TextColor(ConsoleColor.Black);
+			Console.WriteLine("=====Welcome " + currentUser + "!=====" );
+			ColorChanger.BackgroundColor(ConsoleColor.Black);
+			ColorChanger.TextColor(ConsoleColor.White);
+			Console.WriteLine("1) Show movie times and availability");
+			Console.WriteLine("2) Show list of current available movies");
+			Console.WriteLine("3) Show ticket information");
+			Console.WriteLine("4) Search for a movie");
+			Console.WriteLine("5) View all your reservations");
+			Console.WriteLine("6) Make a reservation");
+			Console.WriteLine("7) Change a reservation");
+			Console.WriteLine("8) Cancel a reservation");
+			Console.WriteLine("9) Log out");
 
 			switch (Console.ReadLine())
 			{
 				case "1":
-					ShowReservations();
+					Menu.ShowMovieDetails();
 					continue;
 				case "2":
-					MakeReservation();
+					Menu.ShowAvailableMovies();
 					continue;
 				case "3":
-					EditReservation();
+					Menu.ShowTicketDetails();
 					continue;
 				case "4":
-					RemoveReservation();
+					Menu.SearchMovies();
 					continue;
 				case "5":
+					ShowReservations();
+					continue;
+				case "6":
+					MakeReservation();
+					continue;
+				case "7":
+					EditReservation();
+					continue;
+				case "8":
+					RemoveReservation();
+					continue;
+				case "9":
 					isInMenu = false;
 					continue;
 				default:

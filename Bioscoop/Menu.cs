@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Security.Cryptography.X509Certificates;
+using System.Threading;
 
 public class Menu
 {
@@ -23,22 +23,99 @@ public class Menu
         PressEnter();
     }
     //Movie Information
-    public void ShowMovieDetails()
+    public static void ShowMovieDetails()
     {
         Console.Clear();
+        ColorChanger.BackgroundColor(ConsoleColor.White);
+        ColorChanger.TextColor(ConsoleColor.Black);
+        Console.WriteLine("=====Movie Schedule=====");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.Gray);
+        Console.WriteLine("This is the schedule of the movies. The movies that are colored in red are either full or unavailable.\n");
+        ColorChanger.TextColor(ConsoleColor.White);
+        foreach (MovieTime movie in Data.LoadMovieTimes())
+        {
+            if (movie.GetRoom().IsFull())
+            {
+                ColorChanger.TextColor(ConsoleColor.Red);
+                Console.WriteLine(movie.GetMovieTimeDetails() + " (FULL)" + "\n==============");
+            } else
+            {
+                ColorChanger.TextColor(ConsoleColor.White);
+                Console.WriteLine(movie.GetMovieTimeDetails() + "\n==============");
+            }
 
+        }
+        PressEnter();
+    }
+    public static void ShowAvailableMovies()
+    {
+        Console.Clear();
+        ColorChanger.BackgroundColor(ConsoleColor.White);
+        ColorChanger.TextColor(ConsoleColor.Black);
+        Console.WriteLine("=====Available Movies=====");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.Gray);
+        Console.WriteLine("These are the movies that are currently available.\n");
+        ColorChanger.TextColor(ConsoleColor.White);
         foreach (Movie movie in Data.LoadMovies())
         {
-            Console.WriteLine(movie.GetMovieDetails()+"\n==============");
+            
+            Console.WriteLine(movie.GetMovieDetails() + "\n==============");
         }
         PressEnter();
     }
     //Ticket Information
-    public void ShowTicketDetails()
+    public static void ShowTicketDetails()
     {
         Console.Clear();
+        ColorChanger.BackgroundColor(ConsoleColor.White);
+        ColorChanger.TextColor(ConsoleColor.Black);
         Console.WriteLine("=====Ticket Information=====");
-        Console.WriteLine("Here you can see all the information about prices\nFor Adults(18 years and older): $20\nFor Children(17 years and younger): $15");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.Gray);
+        Console.WriteLine("Here you can see all the information about prices.\n");
+        ColorChanger.TextColor(ConsoleColor.White);
+        Console.WriteLine("- Adults (18 years and older): $20\n- Children (17 years and younger): $15\n");
+        PressEnter();
+    }
+
+    //Search movie
+    public static void SearchMovies()
+    {
+        Console.Clear();
+        ColorChanger.BackgroundColor(ConsoleColor.White);
+        ColorChanger.TextColor(ConsoleColor.Black);
+        Console.WriteLine("=====Search movie=====");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.White);
+        string searchInput = Console.ReadLine();
+        bool contains = false;
+
+        if (searchInput != "")
+        {
+            foreach (Movie movie in Data.LoadMovies())
+            {
+                if (movie.name.ToLower().Contains(searchInput.ToLower()))
+                {
+                    Console.WriteLine(movie.GetMovieDetails() + "\n");
+                    contains = true;
+                }
+
+            }
+            if (!contains)
+            {
+                ColorChanger.TextColor(ConsoleColor.Red);
+                Console.WriteLine("No movies found!");
+                ColorChanger.TextColor(ConsoleColor.White);
+            }
+        } 
+        else
+        {
+            ColorChanger.TextColor(ConsoleColor.Red);
+            Console.WriteLine("No movies found!");
+            ColorChanger.TextColor(ConsoleColor.White);
+        }
         PressEnter();
     }
 
@@ -69,101 +146,43 @@ public class Menu
             }
         }
     }
-
-    public static int[] GetSeats(int TicketAmount, MovieTime selectedmovie)
+    public static void ShowConsumptionDetails()
     {
-        while (true)
+        
+        var consumptionList = Data.LoadConsumptions();
+
+        for (int i = 0; i < consumptionList.Count; i++)
         {
-            Console.WriteLine("Which seats would you like?");
-            string input = Console.ReadLine();
-            string[] result = input.Split(' ');
-            if (result.Length==TicketAmount)
-            {
-                int[] numberlist = new int[result.Length];
-                for (int i = 0; i < result.Length; i++)
-                {
-                    if (Int32.TryParse(result[i], out int ParsedInput))
-                    {
-                        // moet nog checken of de seat vrij is of niet. \|/
-                        if (ParsedInput < 1 || selectedmovie.GetRoom().GetSeat()[ParsedInput].getTaken())
-                        {
-                            Console.WriteLine($"Enter a valid value please.");
-                        }
-                        else
-                        {
-                            numberlist[i] = ParsedInput;
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Please enter a different value.");
-                    }
-                }
-                if (Object.ReferenceEquals(numberlist[0].GetType(), 10.GetType()))
-                {
-                    return numberlist;
-                }
-            }
-            else
-            {
-                Console.WriteLine($"Please enter {TicketAmount} different numbers.. ");
-            }
+                Console.WriteLine(consumptionList[i].GetDetails());
         }
-            
+        PressEnter();
+        MakeConsumption();
     }
 
-    public static void FillSeats() 
+    public static void MakeConsumption()
     {
-        List<Seat> list = Data.LoadSeats();
-        for (int x = 1; x < 101; x++)
+        var consumptionList = Data.LoadConsumptions();
+
+        for (int i = 0; i < consumptionList.Count; i++)
         {
-            list.Add(new Seat(x, false));
+            Console.WriteLine(i+1 + ") "+ consumptionList[i].GetName());
         }
-        var SerializedList = JsonConvert.SerializeObject(list, Formatting.Indented);
-        File.WriteAllText(@"../../../data/seatData.json", SerializedList);
-        Console.WriteLine("STORED!");
-    }
-
-    public static void MakeRoom()
-    {
-        var Seatlist = Data.LoadSeats();
-        Room Room1 = new Room("zaal2", 100, Seatlist);
-        Room Room2 = new Room("zaal3", 100, Seatlist);
-        List<Room> RoomList = Data.LoadRooms();
-        RoomList.Add(Room1);
-        string SerializedRoomList = JsonConvert.SerializeObject(RoomList, Formatting.Indented);
-        File.WriteAllText(@"../../../data/roomData.json", SerializedRoomList);
-    }
-
-    public static void MakeMovieTime()
-    {
-        List<Room> RoomList = Data.LoadRooms();
-        List<Movie> MovieList = Data.LoadMovies();
-        Random rnd = new Random();
-        int month = rnd.Next(5, 13);
-        int day = rnd.Next(1, 28);
-        int hour = rnd.Next(0, 23);
-        int randomRoom = rnd.Next(0, RoomList.Count - 1);
-        int randomMovie = rnd.Next(0, MovieList.Count - 1);
-        //
-        DateTime timeReservation = new DateTime(2020, month, day, hour, 0, 0);
-        List<MovieTime> list = Data.LoadMovieTimes();
-        list.Add(new MovieTime(MovieList[randomMovie], RoomList[randomRoom], timeReservation));
-        var SerializedList = JsonConvert.SerializeObject(list, Formatting.Indented);
-        File.WriteAllText(@"../../../data/movieTimesData.json", SerializedList);
+        int numberchoice = IntegerInput("Enter the consumption you want to add to your order", consumptionList.Count);
+        Consumption consumptionchoice = consumptionList[numberchoice - 1];
+        Console.WriteLine("You made the choice of" + consumptionchoice.GetName());
 
     }
 
     //List<Reservation>
     public static int MakeReservation()
     {
-        FillSeats();
-        List<Consumption> ConsumptionList = Data.LoadConsumptions();
-        string[] allergies = new string[] { "peanuts", "sweetcorn" };
-        Consumption consumption = new Consumption("Popcorn", "Crunchy popcorn", "Medium", allergies);
-        ConsumptionList.Add(consumption);
-        string SerializedConsumptionList = JsonConvert.SerializeObject(ConsumptionList, Formatting.Indented);
-        File.WriteAllText(@"../../../data/consumptionData.json", SerializedConsumptionList);
+        Console.Clear();
+        ColorChanger.BackgroundColor(ConsoleColor.White);
+        ColorChanger.TextColor(ConsoleColor.Black);
+        Console.WriteLine("=====New Reservation=====");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.White);
+
         // Makes Lists from the data in the JSON
         List<Room> RoomList = Data.LoadRooms();
         List<Movie> MovieList = Data.LoadMovies();
@@ -189,11 +208,11 @@ public class Menu
         {
             if (SortedMovieTimes[x -1].GetRoom().IsFull() == true)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
+                ColorChanger.TextColor(ConsoleColor.Red);
                 Console.WriteLine(x + ") " + SortedMovieTimes[x -1].GetMovieTimeDetails());
-                Console.ForegroundColor = ConsoleColor.Gray;
             } else
             {
+                ColorChanger.TextColor(ConsoleColor.White);
                 Console.WriteLine(x + ") " + SortedMovieTimes[x -1].GetMovieTimeDetails());
             }
         }
@@ -201,7 +220,11 @@ public class Menu
 
         if (SortedMovieTimes[MovieNumber-1].GetRoom().IsFull())
         {
+            ColorChanger.TextColor(ConsoleColor.Red);
             Console.WriteLine("Sorry, this movie has no more room left. Please select a different movie.");
+            ColorChanger.TextColor(ConsoleColor.White);
+            Customer.PressEnter();
+            Console.Clear();
             MakeReservation();
         }
         else
@@ -267,12 +290,37 @@ public class Menu
                     ReservationList.Add(Reservation);
                     string SerializedReservationList = JsonConvert.SerializeObject(ReservationList, Formatting.Indented);
                     File.WriteAllText(@"../../../data/reservationData.json", SerializedReservationList);
-                    Console.WriteLine($"The cost of {AdultTicketAmount} adult tickets : ${AdultTicketAmount * 20}\nThe cost of {ChildTicketAmount} child tickets : ${ChildTicketAmount * 15}\nTotal cost :  ${AdultTicketAmount*20 + ChildTicketAmount*15}");
+
+                    ColorChanger.TextColor(ConsoleColor.Green);
+                    Console.WriteLine("You've succesfully made a reservation, see you soon!");
+                    ColorChanger.TextColor(ConsoleColor.White);
+                    Console.WriteLine($"The cost of {AdultTicketAmount} adult tickets : ${AdultTicketAmount * 20}\nThe cost of {ChildTicketAmount} child tickets : ${ChildTicketAmount * 15}\nTotal cost : ${AdultTicketAmount*20 + ChildTicketAmount*15}");
                     PressEnter();
                     return 0;
 
                 case "n":
-                    MakeReservation();
+                    while (true)
+                    {
+                        Console.WriteLine("Do you want to make another reservation? (y/n)");
+                        string input = Console.ReadLine();
+                        if (input.ToLower() == "y")
+                        {
+                            MakeReservation();
+                            break;
+                        }
+                        else if (input.ToLower() == "n")
+                        {
+                            Customer.CustomerMenu();
+                            break;
+                        }
+                        else
+                        {
+                            ColorChanger.TextColor(ConsoleColor.Red);
+                            Console.WriteLine("Enter one of the options!");
+                            ColorChanger.TextColor(ConsoleColor.White);
+                            continue;
+                        }
+                    }
                     return 0;
 
                 default:
@@ -295,12 +343,39 @@ public class Menu
         {
             // Let the user enter credentials 
             Console.Clear();
+            ColorChanger.BackgroundColor(ConsoleColor.White);
+            ColorChanger.TextColor(ConsoleColor.Black);
             Console.WriteLine("=====Login=====\n");
+            ColorChanger.BackgroundColor(ConsoleColor.Black);
+            ColorChanger.TextColor(ConsoleColor.White);
             Console.WriteLine("Username: ");
             string un = Console.ReadLine();
             Console.WriteLine("Password: ");
-            string pw = Console.ReadLine();
-
+            string pw = "";
+            // Hide password input
+            while (true)
+            {
+                ConsoleKeyInfo key = Console.ReadKey(true);
+                if (key.Key != ConsoleKey.Backspace && key.Key != ConsoleKey.Enter)
+                {
+                    pw += key.KeyChar;
+                    Console.Write(key.KeyChar);
+                    Thread.Sleep(200);
+                    Console.Write("\b*");
+                }
+                else
+                {
+                    if (key.Key == ConsoleKey.Backspace && pw.Length > 0)
+                    {
+                        pw = pw.Substring(0, (pw.Length - 1));
+                        Console.Write("\b \b");
+                    }
+                    else if (key.Key == ConsoleKey.Enter)
+                    {
+                        break;
+                    }
+                }
+            } 
 
             // Loop over all the users from the JSON and check if one has the given credentials
             foreach (User user in Data.LoadUsers())
@@ -320,7 +395,7 @@ public class Menu
                 Console.Clear();
                 if (authorizedUser.GetRole() == "admin")
                 {
-                    Administrator.Menu();
+                    Administrator.AdminMenu();
                     loginLoop = false;
                 } else
                 {
@@ -333,7 +408,11 @@ public class Menu
             {
                 // Wrong credentials. Prompt the user to try again or leave.
                 Console.Clear();
+                ColorChanger.BackgroundColor(ConsoleColor.White);
+                ColorChanger.TextColor(ConsoleColor.Red);
                 Console.WriteLine("Wrong username or password");
+                ColorChanger.BackgroundColor(ConsoleColor.Black);
+                ColorChanger.TextColor(ConsoleColor.White);
                 Console.WriteLine("1. Try again");
                 Console.WriteLine("2. Go back");
                 string option = Console.ReadLine();
@@ -353,16 +432,33 @@ public class Menu
         bool loginSuccesfull = false;
         //menu options
         Console.Clear();
+        ColorChanger.BackgroundColor(ConsoleColor.White);
+        ColorChanger.TextColor(ConsoleColor.Black);
         Console.WriteLine("=====Welcome to Jack Cinema.=====");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.Gray);
+        Console.WriteLine("\nHere you can see information of movies and see the prices for the tickets.\nLogin to place a reservation.\n");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.White);
+
         if (loginSuccesfull)
         {
-            Console.WriteLine("Welcome, " + authorizedUser.GetFirstName());
+            ColorChanger.BackgroundColor(ConsoleColor.White);
+            ColorChanger.TextColor(ConsoleColor.Black);
+            Console.WriteLine("Welcome, " + authorizedUser.GetFirstName() + "\n");
+            ColorChanger.BackgroundColor(ConsoleColor.Black);
+            ColorChanger.TextColor(ConsoleColor.White);
         }
-        Console.WriteLine("1) For movie availability");
-        Console.WriteLine("2) For ticket information");
-        Console.WriteLine("3) Log in");
-        Console.WriteLine("4) Exit");
-        
+
+        Console.WriteLine("1) Show movie times and availability");
+        Console.WriteLine("2) Show list of current available movies");
+        Console.WriteLine("3) Show ticket information");
+        Console.WriteLine("4) Show consumption information");
+        Console.WriteLine("5) Search for a movie");
+        Console.WriteLine("6) Log in");
+        Console.WriteLine("7) Register account");
+        Console.WriteLine("8) Exit");
+
         Console.Write("\r\nSelect an option: ");
         //switch checking which number is pressed
         switch (Console.ReadLine())
@@ -371,12 +467,24 @@ public class Menu
                 ShowMovieDetails();
                 return true;
             case "2":
-                ShowTicketDetails();
+                ShowAvailableMovies();
                 return true;
             case "3":
-                Login_information();
+                ShowTicketDetails();
                 return true;
             case "4":
+                ShowConsumptionDetails();
+                return true;
+            case "5":
+                SearchMovies();
+                return true;
+            case "6":
+                Login_information();
+                return true;
+            case "7":
+                Register_information();
+                return true;
+            case "8":
                 return false;
             case "5":
                 MakeMovieTime();
@@ -386,5 +494,103 @@ public class Menu
                 return true;
         }
 
+    }
+
+    private void Register_information()
+    {
+        // TODO: Change this to registering
+        // Prepare variables
+        bool registerFailed = false;
+        bool registerLoop = true;
+
+        // Loop while user wants to try to enter a user account
+        while (registerLoop)
+        {
+            // Reset failed variable
+            registerFailed = false;
+
+            // Let the user enter credentials 
+            Console.Clear();
+            ColorChanger.BackgroundColor(ConsoleColor.White);
+            ColorChanger.TextColor(ConsoleColor.Black);
+            Console.WriteLine("=====Register=====\n");
+            ColorChanger.BackgroundColor(ConsoleColor.Black);
+            ColorChanger.TextColor(ConsoleColor.White);
+            Console.WriteLine("Username: ");
+            string un = Console.ReadLine();
+            Console.WriteLine("Password: ");
+            string pw = "";
+            // Hide password input
+            while (true)
+            {
+                ConsoleKeyInfo key = Console.ReadKey(true);
+                if (key.Key != ConsoleKey.Backspace && key.Key != ConsoleKey.Enter)
+                {
+                    pw += key.KeyChar;
+                    Console.Write(key.KeyChar);
+                    Thread.Sleep(200);
+                    Console.Write("\b*");
+                }
+                else
+                {
+                    if (key.Key == ConsoleKey.Backspace && pw.Length > 0)
+                    {
+                        pw = pw.Substring(0, (pw.Length - 1));
+                        Console.Write("\b \b");
+                    }
+                    else if (key.Key == ConsoleKey.Enter)
+                    {
+                        break;
+                    }
+                }
+            }
+            Console.WriteLine("\nFirst Name: ");
+            string fn = Console.ReadLine();
+            Console.WriteLine("Last Name: ");
+            string ln = Console.ReadLine();
+
+            // Loop over all the users from the JSON and check if one has the given credentials
+            foreach (User user in Data.LoadUsers())
+            {
+                if (user.GetUsername() == un)
+                {
+                    registerFailed = true;
+                }
+
+            }
+
+            // If registering failed, show error
+            if (registerFailed)
+            {
+                ColorChanger.BackgroundColor(ConsoleColor.White);
+                ColorChanger.TextColor(ConsoleColor.Red);
+                Console.WriteLine("Someone has that username");
+                ColorChanger.BackgroundColor(ConsoleColor.Black);
+                ColorChanger.TextColor(ConsoleColor.White);
+                Console.WriteLine("Press enter to try again");
+                Console.ReadLine();
+
+            }
+            else
+            {
+                // Success
+                Console.Clear();
+                ColorChanger.BackgroundColor(ConsoleColor.Black);
+                ColorChanger.TextColor(ConsoleColor.Green);
+                Console.WriteLine("Successfully registered!");
+                ColorChanger.BackgroundColor(ConsoleColor.Black);
+                ColorChanger.TextColor(ConsoleColor.White);
+                Console.WriteLine($"Welcome {fn}!");
+                Console.WriteLine();
+                PressEnter();
+                registerLoop = false;
+
+                // Add user to JSON
+                List<User> list = Data.LoadUsers();
+                list.Add(new User(un, pw, fn, ln, "user"));
+                var SerializedList = JsonConvert.SerializeObject(list, Formatting.Indented);
+                File.WriteAllText(@"../../../data/userData.json", SerializedList); 
+            }
+        }
     }
 }

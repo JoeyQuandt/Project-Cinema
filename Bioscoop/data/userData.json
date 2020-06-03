@@ -3,8 +3,8 @@
     "id": "680042c0-d107-41cf-9970-46f4cd2c6833",
     "username": "admin",
     "password": "pw",
-    "firstname": "admin",
-    "lastname": "Lastname",
+    "firstName": "admin",
+    "lastName": "Lastname",
     "description": "Admin account",
     "role": "admin"
   },
@@ -12,8 +12,8 @@
     "id": "9eaeb3fb-3844-4f34-951c-b46607af2c74",
     "username": "user",
     "password": "pw",
-    "firstname": "Lennert",
-    "lastname": "Lastname",
+    "firstName": "Lennert",
+    "lastName": "Lastname",
     "description": "Random user account",
     "role": "user"
   },
@@ -21,8 +21,8 @@
     "id": "e72ea71b-31a3-4d73-930a-4d4818a33c7b",
     "username": "user2",
     "password": "pw",
-    "firstname": "Thomas",
-    "lastname": "Lastname",
+    "firstName": "Thomas",
+    "lastName": "Lastname",
     "description": "Another random user account",
     "role": "user"
   },
@@ -30,8 +30,8 @@
     "id": "ec5f0e6e-90fd-4211-b9c3-70a7174c2c16",
     "username": "user3",
     "password": "pw",
-    "firstname": "Kimberly",
-    "lastname": "Lastname",
+    "firstName": "Kimberly",
+    "lastName": "Lastname",
     "description": "Random user account",
     "role": "user"
   },
@@ -39,9 +39,18 @@
     "id": "fb3c8868-9359-4d4a-966d-855223a4991c",
     "username": "user4",
     "password": "pw",
-    "firstname": "Joey",
-    "lastname": "Lastname",
+    "firstName": "Joey",
+    "lastName": "Lastname",
     "description": "Random user account",
+    "role": "user"
+  },
+  {
+    "id": "f23a721e-096d-4414-a6c9-49bb7c6a6e95",
+    "username": "newuser",
+    "password": "pw",
+    "firstName": "First",
+    "lastName": "last",
+    "description": "",
     "role": "user"
   }
 ]

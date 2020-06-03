@@ -15,7 +15,11 @@ public static class Administrator
     // Function to give an error to the user.
     private static void ErrorCode()
     {
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.Red);
         Console.WriteLine("Error, only use the numbers from the option menu");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.White);
     }
 
     // Function that lists all movies as possible menu options. 
@@ -62,7 +66,11 @@ public static class Administrator
                 } else
                 {
                     // Out of bounds, show error
+                    ColorChanger.BackgroundColor(ConsoleColor.Black);
+                    ColorChanger.TextColor(ConsoleColor.Red);
                     Console.WriteLine("Please choose a number between 0 and " + movies.Count.ToString() + ".");
+                    ColorChanger.BackgroundColor(ConsoleColor.Black);
+                    ColorChanger.TextColor(ConsoleColor.White);
                 }
                 PressEnter();
             }
@@ -121,7 +129,11 @@ public static class Administrator
                     Movie movie = movies[x];
                     // Clear console
                     Console.Clear();
+                    ColorChanger.BackgroundColor(ConsoleColor.White);
+                    ColorChanger.TextColor(ConsoleColor.Black);
                     Console.WriteLine("Welcome to the 'Change a movie' wizard!");
+                    ColorChanger.BackgroundColor(ConsoleColor.Black);
+                    ColorChanger.TextColor(ConsoleColor.White);
 
                     // Ask user for the movie information
                     Console.WriteLine("Please insert the new name of the movie:");
@@ -142,7 +154,11 @@ public static class Administrator
                     {
                         // Repeat the details and ask if its okay
                         Console.Clear();
+                        ColorChanger.BackgroundColor(ConsoleColor.White);
+                        ColorChanger.TextColor(ConsoleColor.Black);
                         Console.WriteLine("Movie details:");
+                        ColorChanger.BackgroundColor(ConsoleColor.Black);
+                        ColorChanger.TextColor(ConsoleColor.White);
                         Console.WriteLine(title);
                         Console.WriteLine(description);
                         Console.WriteLine(duration.ToString());
@@ -153,7 +169,11 @@ public static class Administrator
                         {
                             Console.Clear();
                             loop2 = false;
+                            ColorChanger.BackgroundColor(ConsoleColor.Black);
+                            ColorChanger.TextColor(ConsoleColor.Green);
                             Console.WriteLine("Changed the movie to: " + title + "!");
+                            ColorChanger.BackgroundColor(ConsoleColor.Black);
+                            ColorChanger.TextColor(ConsoleColor.White);
 
                             // Update JSON by adding the changed movie
                             List<Movie> list = Data.LoadMovies();
@@ -181,7 +201,11 @@ public static class Administrator
                         else
                         {
                             Console.Clear();
+                            ColorChanger.BackgroundColor(ConsoleColor.Black);
+                            ColorChanger.TextColor(ConsoleColor.Red);
                             Console.WriteLine("Please choose 'y' or 'n'");
+                            ColorChanger.BackgroundColor(ConsoleColor.Black);
+                            ColorChanger.TextColor(ConsoleColor.White);
                             PressEnter();
                         }
                     }
@@ -190,7 +214,11 @@ public static class Administrator
                 else
                 {
                     // Out of bounds, show error
+                    ColorChanger.BackgroundColor(ConsoleColor.Black);
+                    ColorChanger.TextColor(ConsoleColor.Red);
                     Console.WriteLine("Please choose a number between 0 and " + movies.Count.ToString() + ".");
+                    ColorChanger.BackgroundColor(ConsoleColor.Black);
+                    ColorChanger.TextColor(ConsoleColor.White);
                 }
                 PressEnter();
             }
@@ -263,7 +291,11 @@ public static class Administrator
                 else
                 {
                     // Out of bounds, show error
+                    ColorChanger.BackgroundColor(ConsoleColor.Black);
+                    ColorChanger.TextColor(ConsoleColor.Red);
                     Console.WriteLine("Please choose a number between 0 and " + movies.Count.ToString() + ".");
+                    ColorChanger.BackgroundColor(ConsoleColor.Black);
+                    ColorChanger.TextColor(ConsoleColor.White);
                 }
                 PressEnter();
             }
@@ -292,7 +324,11 @@ public static class Administrator
     {
         // Clear console
         Console.Clear();
+        ColorChanger.BackgroundColor(ConsoleColor.White);
+        ColorChanger.TextColor(ConsoleColor.Black);
         Console.WriteLine("Welcome to the 'Add a movie' wizard!");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.White);
 
         // Ask user for the movie information
         Console.WriteLine("Please insert the name of the movie:");
@@ -331,7 +367,12 @@ public static class Administrator
                 var SerializedList = JsonConvert.SerializeObject(list, Formatting.Indented);
                 File.WriteAllText(@"../../../data/movieData.json", SerializedList);
 
+                ColorChanger.BackgroundColor(ConsoleColor.Black);
+                ColorChanger.TextColor(ConsoleColor.Green);
                 Console.WriteLine("Added the movie " + title + "!");
+                ColorChanger.BackgroundColor(ConsoleColor.Black);
+                ColorChanger.TextColor(ConsoleColor.White);
+
                 PressEnter();
 
             } else if(inp == "n")
@@ -345,43 +386,72 @@ public static class Administrator
             else
             {
                 Console.Clear();
+
+                ColorChanger.BackgroundColor(ConsoleColor.Black);
+                ColorChanger.TextColor(ConsoleColor.Red);
                 Console.WriteLine("Please choose 'y' or 'n'");
+                ColorChanger.BackgroundColor(ConsoleColor.Black);
+                ColorChanger.TextColor(ConsoleColor.White);
+
                 PressEnter();
             }
         }
 
     }
 
-    public static void Menu()
+    public static void AdminMenu()
     {
+
         bool loop = true;
         while (loop)
         {
             Console.Clear();
+
             // Present the menu options
-            Console.WriteLine("Welcome to the admin part");
-            Console.WriteLine("1) View all movies");
-            Console.WriteLine("2) Add a movie");
-            Console.WriteLine("3) Edit a movie");
-            Console.WriteLine("4) Remove a movie");
-            Console.WriteLine("x) Exit the admin part and go back to the main menu");
+            ColorChanger.BackgroundColor(ConsoleColor.White);
+            ColorChanger.TextColor(ConsoleColor.Black);
+            Console.WriteLine("Welcome to the admin dashboard");
+            ColorChanger.BackgroundColor(ConsoleColor.Black);
+            ColorChanger.TextColor(ConsoleColor.White);
+
+            Console.WriteLine("");
+            Console.WriteLine("1) Show movie times and availability");
+            Console.WriteLine("2) Show list of current available movies");
+            Console.WriteLine("3) Show ticket information");
+            Console.WriteLine("4) Search for a movie");
+            Console.WriteLine("5) View all movies");
+            Console.WriteLine("6) Add a movie");
+            Console.WriteLine("7) Edit a movie");
+            Console.WriteLine("8) Remove a movie");
+            Console.WriteLine("9) Exit the admin part and go back to the main menu");
             // Prompt the user to choose
             switch (Console.ReadLine())
             {
                 case "1":
-                    ListMoviesAsOptions();
+                    Menu.ShowMovieDetails();
                     continue;
                 case "2":
-                    AddMovie();
+                    Menu.ShowAvailableMovies();
                     continue;
                 case "3":
-                    ChangeMovie();
+                    Menu.ShowTicketDetails();
                     continue;
                 case "4":
+                    Menu.SearchMovies();
+                    continue;
+                case "5":
+                    ListMoviesAsOptions();
+                    continue;
+                case "6":
+                    AddMovie();
+                    continue;
+                case "7":
+                    ChangeMovie();
+                    continue;
+                case "8":
                     RemoveMovie();
                     continue;
-                case "x":
-                    Console.WriteLine("Option 5");
+                case "9":
                     loop = false;
                     continue;
                 default:
