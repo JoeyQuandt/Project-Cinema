@@ -395,7 +395,7 @@ public class Menu
         Console.WriteLine("1) Show movie times and availability");
         Console.WriteLine("2) Show list of current available movies");
         Console.WriteLine("3) Show ticket information");
-        Console.WriteLine("4) Show consumption information");
+        Console.WriteLine("4) Show all consumptions");
         Console.WriteLine("5) Search for a movie");
         Console.WriteLine("6) Log in");
         Console.WriteLine("7) Register account");

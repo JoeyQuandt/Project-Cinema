@@ -419,12 +419,13 @@ public static class Administrator
             Console.WriteLine("1) Show movie times and availability");
             Console.WriteLine("2) Show list of current available movies");
             Console.WriteLine("3) Show ticket information");
-            Console.WriteLine("4) Search for a movie");
-            Console.WriteLine("5) View all movies");
-            Console.WriteLine("6) Add a movie");
-            Console.WriteLine("7) Edit a movie");
-            Console.WriteLine("8) Remove a movie");
-            Console.WriteLine("9) Exit the admin part and go back to the main menu");
+            Console.WriteLine("4) Show all consumptions");
+            Console.WriteLine("5) Search for a movie");
+            Console.WriteLine("6) View all movies");
+            Console.WriteLine("7) Add a movie");
+            Console.WriteLine("8) Edit a movie");
+            Console.WriteLine("9) Remove a movie");
+            Console.WriteLine("10) Exit the admin part and go back to the main menu");
             // Prompt the user to choose
             switch (Console.ReadLine())
             {
@@ -438,21 +439,24 @@ public static class Administrator
                     Menu.ShowTicketDetails();
                     continue;
                 case "4":
-                    Menu.SearchMovies();
+                    Menu.ShowConsumptionDetails();
                     continue;
                 case "5":
-                    ListMoviesAsOptions();
+                    Menu.SearchMovies();
                     continue;
                 case "6":
-                    AddMovie();
+                    ListMoviesAsOptions();
                     continue;
                 case "7":
-                    ChangeMovie();
+                    AddMovie();
                     continue;
                 case "8":
-                    RemoveMovie();
+                    ChangeMovie();
                     continue;
                 case "9":
+                    RemoveMovie();
+                    continue;
+                case "10":
                     loop = false;
                     continue;
                 default:
