@@ -189,7 +189,13 @@ public class Menu
         Console.WriteLine("You made the choice of" + consumptionchoice.GetName());
 
     }
+    public void makeRooms()
+    {
+        string RoomName = Console.ReadLine();
+        int seatAmount = IntegerInput("seat limit");
 
+
+    }
     //List<Reservation>
     public static int MakeReservation()
     {
@@ -496,6 +502,8 @@ public class Menu
                 return true;
             case "8":
                 return false;
+            case "9":
+                makeRooms();
             default:
                 ErrorMessage();
                 return true;
