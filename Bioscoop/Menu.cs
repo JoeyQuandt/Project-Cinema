@@ -193,7 +193,11 @@ public class Menu
     {
         string RoomName = Console.ReadLine();
         int seatAmount = IntegerInput("seat limit");
-
+        List<Seat> SeatList;
+        for (int i = 0; i < seatAmount; i++)
+        {
+            SeatList[i] = new Seat(i, false);
+        }
 
     }
     //List<Reservation>
