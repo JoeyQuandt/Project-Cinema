@@ -5,7 +5,7 @@ using System.IO;
 
 public static class Customer
 { 
-	// Function to ask the user to press enter to continuef
+	// Function to ask the user to press enter to continue
 	public static void PressEnter()
 	{
 		Console.WriteLine("Press Enter to continue");
@@ -264,7 +264,6 @@ public static class Customer
 
 								// Reload reservation list
 								reservations = Data.LoadReservations();
-
 								ColorChanger.TextColor(ConsoleColor.Green);
 								Console.WriteLine("You succesfully cancelled your reservation");
 								ColorChanger.TextColor(ConsoleColor.White);
