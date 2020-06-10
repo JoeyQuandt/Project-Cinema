@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 
 public class Menu
 {
@@ -25,26 +26,42 @@ public class Menu
     public static void ShowMovieDetails()
     {
         Console.Clear();
+        ColorChanger.BackgroundColor(ConsoleColor.White);
+        ColorChanger.TextColor(ConsoleColor.Black);
+        Console.WriteLine("=====Movie Schedule=====");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.Gray);
         Console.WriteLine("This is the schedule of the movies. The movies that are colored in red are either full or unavailable.\n");
+        ColorChanger.TextColor(ConsoleColor.White);
         foreach (MovieTime movie in Data.LoadMovieTimes())
         {
-            if (movie.GetRoom().IsFull())
+            if (movie.GetDate() > DateTime.Now)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(movie.GetMovieTimeDetails() + " (VOL)" + "\n==============");
-            } else
-            {
-                Console.ForegroundColor = ConsoleColor.Gray;
-                Console.WriteLine(movie.GetMovieTimeDetails() + "\n==============");
+                if (movie.GetRoom().IsFull())
+                {
+                    ColorChanger.TextColor(ConsoleColor.Red);
+                    Console.WriteLine(movie.GetMovieTimeDetails() + " (FULL)" + "\n==============");
+                }
+                else
+                {
+                    ColorChanger.TextColor(ConsoleColor.White);
+                    Console.WriteLine(movie.GetMovieTimeDetails() + "\n==============");
+                }
             }
-
         }
+        ColorChanger.TextColor(ConsoleColor.White);
         PressEnter();
     }
     public static void ShowAvailableMovies()
     {
         Console.Clear();
+        ColorChanger.BackgroundColor(ConsoleColor.White);
+        ColorChanger.TextColor(ConsoleColor.Black);
+        Console.WriteLine("=====Available Movies=====");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.Gray);
         Console.WriteLine("These are the movies that are currently available.\n");
+        ColorChanger.TextColor(ConsoleColor.White);
         foreach (Movie movie in Data.LoadMovies())
         {
             
@@ -56,107 +73,58 @@ public class Menu
     public static void ShowTicketDetails()
     {
         Console.Clear();
+        ColorChanger.BackgroundColor(ConsoleColor.White);
+        ColorChanger.TextColor(ConsoleColor.Black);
         Console.WriteLine("=====Ticket Information=====");
-        Console.WriteLine("Here you can see all the information about prices\nFor Adults(18 years and older): $20\nFor Children(17 years and younger): $15");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.Gray);
+        Console.WriteLine("Here you can see all the information about prices.\n");
+        ColorChanger.TextColor(ConsoleColor.White);
+        Console.WriteLine("- Adults (18 years and older): $20\n- Children (17 years and younger): $15\n");
         PressEnter();
-    }
-
-    public static void MakeMovietimes()
-    {
-        var RoomList = Data.LoadRooms();
-        var MovieList = Data.LoadMovies();
-
-     Random rnd = new Random();
-     int month = rnd.Next(6, 12);
-    int day = rnd.Next(1, 28);
-     int hour = rnd.Next(0, 23);
-     int randomRoom = rnd.Next(0, RoomList.Count - 1);
-     int randomMovie = rnd.Next(0, MovieList.Count - 1);
-    DateTime timeReservation = new DateTime(2020, month, day, hour, 0, 0);
-
-
-    List<MovieTime> list = Data.LoadMovieTimes();
-    list.Add(new MovieTime(MovieList[randomMovie], RoomList[randomRoom], timeReservation));
-    var SerializedList = JsonConvert.SerializeObject(list, Formatting.Indented);
-    File.WriteAllText(@"../../../data/movieTimesData.json", SerializedList);
-    Console.WriteLine("STORED!");
     }
 
     //Search movie
     public static void SearchMovies()
     {
         Console.Clear();
+        ColorChanger.BackgroundColor(ConsoleColor.White);
+        ColorChanger.TextColor(ConsoleColor.Black);
         Console.WriteLine("=====Search movie=====");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.Gray);
+        Console.WriteLine("Search by movie title\n");
+        ColorChanger.TextColor(ConsoleColor.White);
         string searchInput = Console.ReadLine();
         bool contains = false;
-        foreach (Movie movie in Data.LoadMovies())
-        {
-            if (movie.name.ToLower().Contains(searchInput.ToLower()))
-            {
-                Console.WriteLine(movie.GetMovieDetails() + "\n");
-                contains = true;
-            }
 
-        }
-        if (!contains)
+        if (searchInput != "")
         {
+            foreach (Movie movie in Data.LoadMovies())
+            {
+                if (movie.name.ToLower().Contains(searchInput.ToLower()))
+                {
+                    Console.WriteLine(movie.GetMovieDetails() + "\n");
+                    contains = true;
+                }
+
+            }
+            if (!contains)
+            {
+                ColorChanger.TextColor(ConsoleColor.Red);
+                Console.WriteLine("No movies found!");
+                ColorChanger.TextColor(ConsoleColor.White);
+            }
+        } 
+        else
+        {
+            ColorChanger.TextColor(ConsoleColor.Red);
             Console.WriteLine("No movies found!");
+            ColorChanger.TextColor(ConsoleColor.White);
         }
         PressEnter();
     }
-    public static int[] GetSeats(int TicketAmount, MovieTime selectedmovie)
-    {
-        while (true)
-        {
-            Console.WriteLine("Which seats would you like?");
-            string input = Console.ReadLine();
-            string[] result = input.Split(' ');
-            if (result.Length == TicketAmount)
-            {
-                int[] numberlist = new int[result.Length];
-                for (int i = 0; i < result.Length; i++)
-                {
-                    if (Int32.TryParse(result[i], out int ParsedInput))
-                    {
-                        // moet nog checken of de seat vrij is of niet. \|/
-                        if (ParsedInput < 1 || selectedmovie.GetRoom().GetSeat()[ParsedInput].getTaken())
-                        {
-                            Console.WriteLine($"Enter a valid value please.");
-                        }
-                        else
-                        {
-                            numberlist[i] = ParsedInput;
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Please enter a different value.");
-                    }
-                }
-                if (Object.ReferenceEquals(numberlist[0].GetType(), 10.GetType()))
-                {
-                    return numberlist;
-                }
-            }
-            else
-            {
-                Console.WriteLine($"Please enter {TicketAmount} different numbers.. ");
-            }
-        }
 
-    }
-
-    public static void FillSeats()
-    {
-        List<Seat> list = Data.LoadSeats();
-        for (int x = 1; x < 201; x++)
-        {
-            list.Add(new Seat(x, false));
-        }
-        var SerializedList = JsonConvert.SerializeObject(list, Formatting.Indented);
-        File.WriteAllText(@"../../../data/seatData.json", SerializedList);
-        Console.WriteLine("STORED!");
-    }
     // A function made to be able to error handle inputs where you want an integer as result.
     // Parameters are for a message and a limit 
     public static int IntegerInput(string Message, int Limit = 100, int LowLimit = 1)
@@ -186,58 +154,31 @@ public class Menu
     }
     public static void ShowConsumptionDetails()
     {
+        
         var consumptionList = Data.LoadConsumptions();
+
         for (int i = 0; i < consumptionList.Count; i++)
         {
-            Console.WriteLine(consumptionList[i].GetDetails());
+                Console.WriteLine(consumptionList[i].GetDetails());
         }
         PressEnter();
+        MakeConsumption();
     }
 
-    public static List<Consumption> OrderConsumption()
+    public static void MakeConsumption()
     {
         var consumptionList = Data.LoadConsumptions();
-        bool ordering = true;
-        List<Consumption> orderedConsumptions = new List<Consumption>();
-        while (ordering)
-        {
-            for (int i = 0; i < consumptionList.Count; i++)
-            {
-                Console.WriteLine(i + 1 + ") " + consumptionList[i].GetName());
-            }
-            int numberchoice = IntegerInput("Enter the consumption you want to add to your order", consumptionList.Count);
-            int Amount = IntegerInput("How many would you like?", 10);
-            for (int j = 0; j < Amount; j++)
-            {
-                orderedConsumptions.Add(consumptionList[numberchoice - 1]);
-            }
 
-            Console.WriteLine("Would you like to order another consumption? Y/N");
-            string input = Console.ReadLine();
-            if (input.ToLower() == "n")
-            {
-                ordering = false;
-            } 
+        for (int i = 0; i < consumptionList.Count; i++)
+        {
+            Console.WriteLine(i+1 + ") "+ consumptionList[i].GetName());
         }
-        return orderedConsumptions;
+        int numberchoice = IntegerInput("Enter the consumption you want to add to your order", consumptionList.Count);
+        Consumption consumptionchoice = consumptionList[numberchoice - 1];
+        Console.WriteLine("You made the choice of" + consumptionchoice.GetName());
 
     }
-    public void makeRooms()
-    {
-        List<Seat> seats = Data.LoadSeats();
-        string RoomName = Console.ReadLine();
-        int seatAmount = IntegerInput("seat limit", 200);
-        List<Seat> SeatList = new List<Seat>();
-        for (int i = 0; i < seatAmount; i++)
-        {
-            SeatList.Add(seats[i]);
-        }
-        List<Room> RoomList = Data.LoadRooms();
-        Room newRoom = new Room(RoomName, seatAmount, SeatList);
-        RoomList.Add(newRoom);
-        string SerializedRoomList = JsonConvert.SerializeObject(RoomList, Formatting.Indented);
-        File.WriteAllText(@"../../../data/roomData.json", SerializedRoomList);
-    }
+
     //List<Reservation>
     public static int MakeReservation()
     {
@@ -300,25 +241,7 @@ public class Menu
                 case "y":
                     int AdultTicketAmount = IntegerInput("How many adult tickets do you want?", SortedMovieTimes[MovieNumber - 1].GetRoom().GetAvailableSeats());
                     int ChildTicketAmount = IntegerInput("How many child tickets do you want?", SortedMovieTimes[MovieNumber - 1].GetRoom().GetAvailableSeats() - AdultTicketAmount, 0);
-                    // For when more types of tickets will be added
-                    // int childTicketAmount = Integer_input("How many child tickets do you want?", ticketAmount - adultTicketAmount);
-                    Console.WriteLine("\nThe free seats have a green display and the taken seats are red.\nPlease enter your seats as following: 11 22 33 45 . (seat+space)\n");
-                    Span<int> storage = stackalloc int[40];
-                    int zero = 11;
-                    foreach (ref int item in storage)
-                    {
-                        item = zero++;
-                        Console.Write($"[{item}]");
-                        if (item == 20 || item == 30 || item == 40 || item == 50)
-                        {
-                            Console.WriteLine("\n");
-                        }
-                        if (item == 15 || item == 25 || item == 35 || item == 45)
-                        {
-                            Console.Write("     ");
-                        }
-                    }
-                    int[] chosenSeatNumbers = GetSeats(AdultTicketAmount + ChildTicketAmount, SortedMovieTimes[MovieNumber - 1]);
+
                     List<Ticket> TicketListReservation =  new List<Ticket>();
                     List<Ticket> TicketList = Data.LoadTickets();
                     int SeatNumber = SortedMovieTimes[MovieNumber-1].GetRoom().GetTakenSeats();
@@ -419,7 +342,9 @@ public class Menu
                 if (key.Key != ConsoleKey.Backspace && key.Key != ConsoleKey.Enter)
                 {
                     pw += key.KeyChar;
-                    Console.Write("*");
+                    Console.Write(key.KeyChar);
+                    Thread.Sleep(200);
+                    Console.Write("\b*");
                 }
                 else
                 {
@@ -511,7 +436,7 @@ public class Menu
         Console.WriteLine("1) Show movie times and availability");
         Console.WriteLine("2) Show list of current available movies");
         Console.WriteLine("3) Show ticket information");
-        Console.WriteLine("4) Show all consumptions");
+        Console.WriteLine("4) Show consumption information");
         Console.WriteLine("5) Search for a movie");
         Console.WriteLine("6) Log in");
         Console.WriteLine("7) Register account");
@@ -544,7 +469,6 @@ public class Menu
                 return true;
             case "8":
                 return false;
-
             default:
                 ErrorMessage();
                 return true;
@@ -583,7 +507,9 @@ public class Menu
                 if (key.Key != ConsoleKey.Backspace && key.Key != ConsoleKey.Enter)
                 {
                     pw += key.KeyChar;
-                    Console.Write("*");
+                    Console.Write(key.KeyChar);
+                    Thread.Sleep(200);
+                    Console.Write("\b*");
                 }
                 else
                 {
@@ -598,7 +524,7 @@ public class Menu
                     }
                 }
             }
-            Console.WriteLine("First Name: ");
+            Console.WriteLine("\nFirst Name: ");
             string fn = Console.ReadLine();
             Console.WriteLine("Last Name: ");
             string ln = Console.ReadLine();

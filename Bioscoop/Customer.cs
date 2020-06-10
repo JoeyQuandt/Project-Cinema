@@ -120,8 +120,8 @@ public static class Customer
 					DateTime currentDateTime = DateTime.Now;
 					DateTime reservationDateTime = reservation.movieRoom.GetDate();
 
-					// Check if it's not within 24 hours before start movie
-					if (!(reservationDateTime <= currentDateTime.AddHours(24) && reservationDateTime >= currentDateTime.AddHours(-24)))
+					// Check if it's not within 48 hours before start movie
+					if (!(reservationDateTime <= currentDateTime.AddHours(48) && reservationDateTime >= currentDateTime.AddHours(-48)))
 					{
 						// Check if user really want to change the reservation
 						Console.WriteLine("Are you sure? (y/n)");
@@ -247,8 +247,8 @@ public static class Customer
 					DateTime currentDateTime = DateTime.Now;
 					DateTime reservationDateTime = reservation.movieRoom.GetDate();
 
-					// Check if it's not within 24 hours before start movie
-					if (!(reservationDateTime <= currentDateTime.AddHours(24) && reservationDateTime >= currentDateTime.AddHours(-24)))
+					// Check if it's not within 48 hours before start movie
+					if (!(reservationDateTime <= currentDateTime.AddHours(48) && reservationDateTime >= currentDateTime.AddHours(-48)))
 					{
 						// Check if user really want to remove the reservation
 						Console.WriteLine("Are you sure? y/n");
