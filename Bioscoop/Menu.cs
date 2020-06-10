@@ -211,13 +211,7 @@ public class Menu
             {
                 orderedConsumptions.Add(consumptionList[numberchoice - 1]);
             }
-            Console.WriteLine($"This is your current order\n====================\n");
-            
 
-            for (int x = 0; x < consumptionList.Count; x++)
-            {
-                var count = myList.Count(item => item == object2Count);
-            }
             Console.WriteLine("Would you like to order another consumption? Y/N");
             string input = Console.ReadLine();
             if (input.ToLower() == "n")
@@ -550,9 +544,7 @@ public class Menu
                 return true;
             case "8":
                 return false;
-            case "9":
-                OrderConsumption();
-                return true;
+
             default:
                 ErrorMessage();
                 return true;

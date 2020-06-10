@@ -52,5 +52,14 @@
     "lastName": "last",
     "description": "",
     "role": "user"
+  },
+  {
+    "id": "12dedf84-058c-4376-ade3-5ed51c171a61",
+    "username": "mike",
+    "password": "secret",
+    "firstName": "mike",
+    "lastName": "mike",
+    "description": "",
+    "role": "user"
   }
 ]
