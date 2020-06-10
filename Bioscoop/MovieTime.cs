@@ -17,7 +17,7 @@ public class MovieTime
 
 	public string GetMovieTimeDetails()
 	{
-		return $"{this.movie.GetMovieTitle()} \n{this.date.ToString("dddd dd MMMM yyyy HH:mm")} \nRoom: {this.room.GetRoomName()}";
+		return $"Title: {this.movie.GetMovieTitle()}\nDuration: {this.movie.GetMovieDuration()} minutes\nDate: {this.date.ToString("dddd dd MMMM yyyy HH:mm")} \n{this.room.GetRoomName()}";
 	}
 	public DateTime GetDate()
 	{

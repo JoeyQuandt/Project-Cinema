@@ -35,17 +35,21 @@ public class Menu
         ColorChanger.TextColor(ConsoleColor.White);
         foreach (MovieTime movie in Data.LoadMovieTimes())
         {
-            if (movie.GetRoom().IsFull())
+            if (movie.GetDate() > DateTime.Now)
             {
-                ColorChanger.TextColor(ConsoleColor.Red);
-                Console.WriteLine(movie.GetMovieTimeDetails() + " (FULL)" + "\n==============");
-            } else
-            {
-                ColorChanger.TextColor(ConsoleColor.White);
-                Console.WriteLine(movie.GetMovieTimeDetails() + "\n==============");
+                if (movie.GetRoom().IsFull())
+                {
+                    ColorChanger.TextColor(ConsoleColor.Red);
+                    Console.WriteLine(movie.GetMovieTimeDetails() + " (FULL)" + "\n==============");
+                }
+                else
+                {
+                    ColorChanger.TextColor(ConsoleColor.White);
+                    Console.WriteLine(movie.GetMovieTimeDetails() + "\n==============");
+                }
             }
-
         }
+        ColorChanger.TextColor(ConsoleColor.White);
         PressEnter();
     }
     public static void ShowAvailableMovies()
@@ -88,6 +92,8 @@ public class Menu
         ColorChanger.TextColor(ConsoleColor.Black);
         Console.WriteLine("=====Search movie=====");
         ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.Gray);
+        Console.WriteLine("Search by movie title\n");
         ColorChanger.TextColor(ConsoleColor.White);
         string searchInput = Console.ReadLine();
         bool contains = false;
@@ -235,8 +241,6 @@ public class Menu
                 case "y":
                     int AdultTicketAmount = IntegerInput("How many adult tickets do you want?", SortedMovieTimes[MovieNumber - 1].GetRoom().GetAvailableSeats());
                     int ChildTicketAmount = IntegerInput("How many child tickets do you want?", SortedMovieTimes[MovieNumber - 1].GetRoom().GetAvailableSeats() - AdultTicketAmount, 0);
-                    // For when more types of tickets will be added
-                    // int childTicketAmount = Integer_input("How many child tickets do you want?", ticketAmount - adultTicketAmount);
 
                     List<Ticket> TicketListReservation =  new List<Ticket>();
                     List<Ticket> TicketList = Data.LoadTickets();
