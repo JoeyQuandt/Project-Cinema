@@ -78,7 +78,7 @@ public class Menu
     List<MovieTime> list = Data.LoadMovieTimes();
     list.Add(new MovieTime(MovieList[randomMovie], RoomList[randomRoom], timeReservation));
     var SerializedList = JsonConvert.SerializeObject(list, Formatting.Indented);
-    File.WriteAllText(@"../../../data/json1.json", SerializedList);
+    File.WriteAllText(@"../../../data/movieTimesData.json", SerializedList);
     Console.WriteLine("STORED!");
     }
 
@@ -194,7 +194,7 @@ public class Menu
         PressEnter();
     }
 
-    public static List<Consumption> MakeConsumption()
+    public static List<Consumption> OrderConsumption()
     {
         var consumptionList = Data.LoadConsumptions();
         bool ordering = true;
@@ -210,6 +210,13 @@ public class Menu
             for (int j = 0; j < Amount; j++)
             {
                 orderedConsumptions.Add(consumptionList[numberchoice - 1]);
+            }
+            Console.WriteLine($"This is your current order\n====================\n");
+            
+
+            for (int x = 0; x < consumptionList.Count; x++)
+            {
+                var count = myList.Count(item => item == object2Count);
             }
             Console.WriteLine("Would you like to order another consumption? Y/N");
             string input = Console.ReadLine();
@@ -544,7 +551,7 @@ public class Menu
             case "8":
                 return false;
             case "9":
-                MakeMovietimes();
+                OrderConsumption();
                 return true;
             default:
                 ErrorMessage();
