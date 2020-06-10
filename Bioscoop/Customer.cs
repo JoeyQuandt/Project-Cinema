@@ -5,7 +5,7 @@ using System.IO;
 
 public static class Customer
 { 
-	// Function to ask the user to press enter to continuef
+	// Function to ask the user to press enter to continue
 	public static void PressEnter()
 	{
 		Console.WriteLine("Press Enter to continue");

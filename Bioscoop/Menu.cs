@@ -61,6 +61,27 @@ public class Menu
         PressEnter();
     }
 
+    public static void MakeMovietimes()
+    {
+        var RoomList = Data.LoadRooms();
+        var MovieList = Data.LoadMovies();
+
+     Random rnd = new Random();
+     int month = rnd.Next(6, 12);
+    int day = rnd.Next(1, 28);
+     int hour = rnd.Next(0, 23);
+     int randomRoom = rnd.Next(0, RoomList.Count - 1);
+     int randomMovie = rnd.Next(0, MovieList.Count - 1);
+    DateTime timeReservation = new DateTime(2020, month, day, hour, 0, 0);
+
+
+    List<MovieTime> list = Data.LoadMovieTimes();
+    list.Add(new MovieTime(MovieList[randomMovie], RoomList[randomRoom], timeReservation));
+    var SerializedList = JsonConvert.SerializeObject(list, Formatting.Indented);
+    File.WriteAllText(@"../../../data/json1.json", SerializedList);
+    Console.WriteLine("STORED!");
+    }
+
     //Search movie
     public static void SearchMovies()
     {
@@ -128,7 +149,7 @@ public class Menu
     public static void FillSeats()
     {
         List<Seat> list = Data.LoadSeats();
-        for (int x = 1; x < 101; x++)
+        for (int x = 1; x < 201; x++)
         {
             list.Add(new Seat(x, false));
         }
@@ -165,40 +186,56 @@ public class Menu
     }
     public static void ShowConsumptionDetails()
     {
-        
         var consumptionList = Data.LoadConsumptions();
-
         for (int i = 0; i < consumptionList.Count; i++)
         {
-                Console.WriteLine(consumptionList[i].GetDetails());
+            Console.WriteLine(consumptionList[i].GetDetails());
         }
         PressEnter();
-        MakeConsumption();
     }
 
-    public static void MakeConsumption()
+    public static List<Consumption> MakeConsumption()
     {
         var consumptionList = Data.LoadConsumptions();
-
-        for (int i = 0; i < consumptionList.Count; i++)
+        bool ordering = true;
+        List<Consumption> orderedConsumptions = new List<Consumption>();
+        while (ordering)
         {
-            Console.WriteLine(i+1 + ") "+ consumptionList[i].GetName());
+            for (int i = 0; i < consumptionList.Count; i++)
+            {
+                Console.WriteLine(i + 1 + ") " + consumptionList[i].GetName());
+            }
+            int numberchoice = IntegerInput("Enter the consumption you want to add to your order", consumptionList.Count);
+            int Amount = IntegerInput("How many would you like?", 10);
+            for (int j = 0; j < Amount; j++)
+            {
+                orderedConsumptions.Add(consumptionList[numberchoice - 1]);
+            }
+            Console.WriteLine("Would you like to order another consumption? Y/N");
+            string input = Console.ReadLine();
+            if (input.ToLower() == "n")
+            {
+                ordering = false;
+            } 
         }
-        int numberchoice = IntegerInput("Enter the consumption you want to add to your order", consumptionList.Count);
-        Consumption consumptionchoice = consumptionList[numberchoice - 1];
-        Console.WriteLine("You made the choice of" + consumptionchoice.GetName());
+        return orderedConsumptions;
 
     }
     public void makeRooms()
     {
+        List<Seat> seats = Data.LoadSeats();
         string RoomName = Console.ReadLine();
-        int seatAmount = IntegerInput("seat limit");
-        List<Seat> SeatList;
+        int seatAmount = IntegerInput("seat limit", 200);
+        List<Seat> SeatList = new List<Seat>();
         for (int i = 0; i < seatAmount; i++)
         {
-            SeatList[i] = new Seat(i, false);
+            SeatList.Add(seats[i]);
         }
-
+        List<Room> RoomList = Data.LoadRooms();
+        Room newRoom = new Room(RoomName, seatAmount, SeatList);
+        RoomList.Add(newRoom);
+        string SerializedRoomList = JsonConvert.SerializeObject(RoomList, Formatting.Indented);
+        File.WriteAllText(@"../../../data/roomData.json", SerializedRoomList);
     }
     //List<Reservation>
     public static int MakeReservation()
@@ -507,7 +544,8 @@ public class Menu
             case "8":
                 return false;
             case "9":
-                makeRooms();
+                MakeMovietimes();
+                return true;
             default:
                 ErrorMessage();
                 return true;
