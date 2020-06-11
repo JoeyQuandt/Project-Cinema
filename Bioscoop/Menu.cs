@@ -152,9 +152,16 @@ public class Menu
             }
         }
     }
+    // Show consumption information
     public static void ShowConsumptionDetails()
     {
         Console.Clear();
+        ColorChanger.BackgroundColor(ConsoleColor.White);
+        ColorChanger.TextColor(ConsoleColor.Black);
+        Console.WriteLine("=====Consumption Information=====");
+        ColorChanger.BackgroundColor(ConsoleColor.Black);
+        ColorChanger.TextColor(ConsoleColor.White);
+
         var consumptionList = Data.LoadConsumptions();
 
         for (int i = 0; i < consumptionList.Count; i++)
@@ -164,6 +171,7 @@ public class Menu
         PressEnter();
     }
 
+    // Make order for consumptions
     public static void MakeConsumption()
     {
         var consumptionList = Data.LoadConsumptions();
@@ -178,7 +186,6 @@ public class Menu
 
     }
 
-    //List<Reservation>
     public static int MakeReservation()
     {
         Console.Clear();
