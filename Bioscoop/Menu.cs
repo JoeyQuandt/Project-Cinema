@@ -154,7 +154,7 @@ public class Menu
     }
     public static void ShowConsumptionDetails()
     {
-        
+        Console.Clear();
         var consumptionList = Data.LoadConsumptions();
 
         for (int i = 0; i < consumptionList.Count; i++)

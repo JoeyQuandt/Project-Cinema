@@ -703,5 +703,35 @@
     "id": "34182eea-116d-4dcd-b0ca-96c35affaf62",
     "seatNumber": 10,
     "type": "Adult"
+  },
+  {
+    "id": "0965fcb1-7719-4c3a-bf1e-d418654832f9",
+    "seatNumber": 0,
+    "type": "Adult"
+  },
+  {
+    "id": "580935c9-267b-4f98-834a-90e537a123c7",
+    "seatNumber": 0,
+    "type": "Adult"
+  },
+  {
+    "id": "6b044ad6-51c9-40fe-a5e1-ccbda469b523",
+    "seatNumber": 0,
+    "type": "Adult"
+  },
+  {
+    "id": "71ac484b-0806-4bb5-b680-92c7da0d8fa6",
+    "seatNumber": 1,
+    "type": "Adult"
+  },
+  {
+    "id": "7e52acb9-0ef4-4c6d-92ff-017fb5a42dc5",
+    "seatNumber": 2,
+    "type": "Child"
+  },
+  {
+    "id": "413573ee-ea95-44f5-ad65-9c5e7959b93c",
+    "seatNumber": 3,
+    "type": "Child"
   }
 ]

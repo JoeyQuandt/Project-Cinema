@@ -1,18 +1,18 @@
 [
   {
-    "id": "b15da74b-f102-460f-b6be-38a2dbcc196e",
+    "id": "1efbd94f-099b-485d-bfff-d19bf53d38e6",
     "movie": {
-      "id": "a6949fe0-990d-4012-9f13-8a996f28d640",
-      "name": "Revenge of someone Italian",
-      "description": "A revenge about an italian dispute",
+      "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
+      "name": "Cory in the house",
+      "description": "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.",
       "actors": null,
       "releaseDate": "0001-01-01T00:00:00",
       "ageRestriction": 0,
-      "duration": 129
+      "duration": 90
     },
     "room": {
-      "id": "d840a541-9fed-41fe-85eb-99bc9af93957",
-      "name": "Zaal 1",
+      "id": "f90394f9-2c12-4120-9e34-0342a6e72913",
+      "name": "Zaal 2",
       "seats": [
         {
           "id": "22e5eef7-56ad-405f-bbd4-858caf67e0f7",
@@ -388,137 +388,12 @@
           "id": "f9dff7c2-0614-4355-be7c-c26d45f3a50f",
           "number": 75,
           "taken": false
-        },
-        {
-          "id": "8b36f9e7-5113-40e4-bef9-6a9496f912ce",
-          "number": 76,
-          "taken": false
-        },
-        {
-          "id": "9c3f9464-94ab-4fa7-97ba-1cbc1f01ea8a",
-          "number": 77,
-          "taken": false
-        },
-        {
-          "id": "67c9a1f3-8d0a-44bc-a06b-0cc1fe9c131c",
-          "number": 78,
-          "taken": false
-        },
-        {
-          "id": "b30ad935-18a1-4b25-af50-744940f3e459",
-          "number": 79,
-          "taken": false
-        },
-        {
-          "id": "719e99c0-2e04-403a-922b-6a2d93314f98",
-          "number": 80,
-          "taken": false
-        },
-        {
-          "id": "9583eefe-3e86-41c0-b281-d1f7cc08db7e",
-          "number": 81,
-          "taken": false
-        },
-        {
-          "id": "7f29ed38-7d06-40de-986b-95a98f279f55",
-          "number": 82,
-          "taken": false
-        },
-        {
-          "id": "4e196541-a0ac-4263-b412-29fa166e1d5b",
-          "number": 83,
-          "taken": false
-        },
-        {
-          "id": "a054fcd1-ed05-4a9b-be3d-b53ef476ace0",
-          "number": 84,
-          "taken": false
-        },
-        {
-          "id": "5c98f81a-5934-481b-9fe3-2b4c0cb888cf",
-          "number": 85,
-          "taken": false
-        },
-        {
-          "id": "15f94520-c27b-4ac0-b228-bd67eee4968e",
-          "number": 86,
-          "taken": false
-        },
-        {
-          "id": "9f270ac6-6340-4f4e-a3d5-4c94081ed5bd",
-          "number": 87,
-          "taken": false
-        },
-        {
-          "id": "868fbeac-aa06-48f9-b814-9e341d2f9928",
-          "number": 88,
-          "taken": false
-        },
-        {
-          "id": "dedc7c4c-fc5f-489b-8386-115779a5cdf9",
-          "number": 89,
-          "taken": false
-        },
-        {
-          "id": "e2507d5e-e77c-4dfe-974a-9000e227682f",
-          "number": 90,
-          "taken": false
-        },
-        {
-          "id": "0a5c84b6-21de-44ba-8f85-3e93d5d7e3a1",
-          "number": 91,
-          "taken": false
-        },
-        {
-          "id": "ec3744e6-4ad8-44e7-b3e8-6aca6edb09d6",
-          "number": 92,
-          "taken": false
-        },
-        {
-          "id": "89c5165c-05a6-482f-9201-03b04715806c",
-          "number": 93,
-          "taken": false
-        },
-        {
-          "id": "48e00e27-a63d-4abb-9df5-47ce4c7b6b91",
-          "number": 94,
-          "taken": false
-        },
-        {
-          "id": "a886cb3d-51e2-48a5-96a7-33d44b048f62",
-          "number": 95,
-          "taken": false
-        },
-        {
-          "id": "78ef2c34-69c7-4596-8d8c-d159e0cdff7b",
-          "number": 96,
-          "taken": false
-        },
-        {
-          "id": "d0db2772-4c22-4e84-b032-94ef8d91f7c1",
-          "number": 97,
-          "taken": false
-        },
-        {
-          "id": "418e409e-5a5d-4fc5-9743-d640f0d5c58e",
-          "number": 98,
-          "taken": false
-        },
-        {
-          "id": "08265e99-74fc-4d7a-86ea-5529a461c948",
-          "number": 99,
-          "taken": false
-        },
-        {
-          "id": "d1b9681b-7434-4e21-8685-ae68fba5aacb",
-          "number": 100,
-          "taken": false
         }
       ],
       "takenSeats": 0,
-      "seatAmount": 100
+      "seatAmount": 75
     },
-    "date": "2020-10-07T00:00:00"
+    "date": "2020-06-18T08:00:00"
   },
   {
     "id": "28cf2f7b-a144-41a4-8dee-56bd88694be8",
@@ -1036,7 +911,7 @@
           "taken": false
         }
       ],
-      "takenSeats": 0,
+      "takenSeats": 1,
       "seatAmount": 100
     },
     "date": "2020-06-19T19:00:00"
@@ -1557,7 +1432,7 @@
           "taken": false
         }
       ],
-      "takenSeats": 0,
+      "takenSeats": 1,
       "seatAmount": 100
     },
     "date": "2020-08-03T15:00:00"
@@ -1959,19 +1834,19 @@
     "date": "2020-08-06T16:00:00"
   },
   {
-    "id": "1efbd94f-099b-485d-bfff-d19bf53d38e6",
+    "id": "b15da74b-f102-460f-b6be-38a2dbcc196e",
     "movie": {
-      "id": "f67b8d63-4590-4583-82fe-2ddc26d873d8",
-      "name": "Cory in the house",
-      "description": "A comedy film about a young boy whose father becomes the president of the United States all of a sudden.",
+      "id": "a6949fe0-990d-4012-9f13-8a996f28d640",
+      "name": "Revenge of someone Italian",
+      "description": "A revenge about an italian dispute",
       "actors": null,
       "releaseDate": "0001-01-01T00:00:00",
       "ageRestriction": 0,
-      "duration": 90
+      "duration": 129
     },
     "room": {
-      "id": "f90394f9-2c12-4120-9e34-0342a6e72913",
-      "name": "Zaal 2",
+      "id": "d840a541-9fed-41fe-85eb-99bc9af93957",
+      "name": "Zaal 1",
       "seats": [
         {
           "id": "22e5eef7-56ad-405f-bbd4-858caf67e0f7",
@@ -2347,12 +2222,137 @@
           "id": "f9dff7c2-0614-4355-be7c-c26d45f3a50f",
           "number": 75,
           "taken": false
+        },
+        {
+          "id": "8b36f9e7-5113-40e4-bef9-6a9496f912ce",
+          "number": 76,
+          "taken": false
+        },
+        {
+          "id": "9c3f9464-94ab-4fa7-97ba-1cbc1f01ea8a",
+          "number": 77,
+          "taken": false
+        },
+        {
+          "id": "67c9a1f3-8d0a-44bc-a06b-0cc1fe9c131c",
+          "number": 78,
+          "taken": false
+        },
+        {
+          "id": "b30ad935-18a1-4b25-af50-744940f3e459",
+          "number": 79,
+          "taken": false
+        },
+        {
+          "id": "719e99c0-2e04-403a-922b-6a2d93314f98",
+          "number": 80,
+          "taken": false
+        },
+        {
+          "id": "9583eefe-3e86-41c0-b281-d1f7cc08db7e",
+          "number": 81,
+          "taken": false
+        },
+        {
+          "id": "7f29ed38-7d06-40de-986b-95a98f279f55",
+          "number": 82,
+          "taken": false
+        },
+        {
+          "id": "4e196541-a0ac-4263-b412-29fa166e1d5b",
+          "number": 83,
+          "taken": false
+        },
+        {
+          "id": "a054fcd1-ed05-4a9b-be3d-b53ef476ace0",
+          "number": 84,
+          "taken": false
+        },
+        {
+          "id": "5c98f81a-5934-481b-9fe3-2b4c0cb888cf",
+          "number": 85,
+          "taken": false
+        },
+        {
+          "id": "15f94520-c27b-4ac0-b228-bd67eee4968e",
+          "number": 86,
+          "taken": false
+        },
+        {
+          "id": "9f270ac6-6340-4f4e-a3d5-4c94081ed5bd",
+          "number": 87,
+          "taken": false
+        },
+        {
+          "id": "868fbeac-aa06-48f9-b814-9e341d2f9928",
+          "number": 88,
+          "taken": false
+        },
+        {
+          "id": "dedc7c4c-fc5f-489b-8386-115779a5cdf9",
+          "number": 89,
+          "taken": false
+        },
+        {
+          "id": "e2507d5e-e77c-4dfe-974a-9000e227682f",
+          "number": 90,
+          "taken": false
+        },
+        {
+          "id": "0a5c84b6-21de-44ba-8f85-3e93d5d7e3a1",
+          "number": 91,
+          "taken": false
+        },
+        {
+          "id": "ec3744e6-4ad8-44e7-b3e8-6aca6edb09d6",
+          "number": 92,
+          "taken": false
+        },
+        {
+          "id": "89c5165c-05a6-482f-9201-03b04715806c",
+          "number": 93,
+          "taken": false
+        },
+        {
+          "id": "48e00e27-a63d-4abb-9df5-47ce4c7b6b91",
+          "number": 94,
+          "taken": false
+        },
+        {
+          "id": "a886cb3d-51e2-48a5-96a7-33d44b048f62",
+          "number": 95,
+          "taken": false
+        },
+        {
+          "id": "78ef2c34-69c7-4596-8d8c-d159e0cdff7b",
+          "number": 96,
+          "taken": false
+        },
+        {
+          "id": "d0db2772-4c22-4e84-b032-94ef8d91f7c1",
+          "number": 97,
+          "taken": false
+        },
+        {
+          "id": "418e409e-5a5d-4fc5-9743-d640f0d5c58e",
+          "number": 98,
+          "taken": false
+        },
+        {
+          "id": "08265e99-74fc-4d7a-86ea-5529a461c948",
+          "number": 99,
+          "taken": false
+        },
+        {
+          "id": "d1b9681b-7434-4e21-8685-ae68fba5aacb",
+          "number": 100,
+          "taken": false
         }
       ],
-      "takenSeats": 0,
-      "seatAmount": 75
+      "takenSeats": 4,
+      "seatAmount": 100
     },
-    "date": "2020-06-18T08:00:00"
+    "date": "2020-10-07T00:00:00"
   },
   {
     "id": "bef65fdb-d584-493d-9dca-1cedb1103696",

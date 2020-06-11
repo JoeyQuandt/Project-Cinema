@@ -356,6 +356,9 @@ public static class Customer
 				case "3":
 					Menu.ShowTicketDetails();
 					continue;
+				case "4":
+					Menu.ShowConsumptionDetails();
+					continue;
 				case "5":
 					Menu.SearchMovies();
 					continue;
