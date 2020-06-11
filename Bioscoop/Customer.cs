@@ -264,7 +264,6 @@ public static class Customer
 
 								// Reload reservation list
 								reservations = Data.LoadReservations();
-
 								ColorChanger.TextColor(ConsoleColor.Green);
 								Console.WriteLine("You succesfully cancelled your reservation");
 								ColorChanger.TextColor(ConsoleColor.White);

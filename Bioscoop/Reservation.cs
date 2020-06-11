@@ -4,7 +4,6 @@ using System.Collections.Generic;
 public class Reservation
 {
     public Guid id;
-    //public User user;
     public string user;
     public List<Ticket> ticketlist;
     public MovieTime movieRoom;
@@ -13,7 +12,6 @@ public class Reservation
     {
         // Get all new information
         id = Guid.NewGuid();
-        //this.user = user;
         this.user = user;
         this.ticketlist = ticketlist;
         this.movieRoom = MovieRoom;
