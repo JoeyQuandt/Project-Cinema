@@ -1,5 +1,5 @@
 ﻿using System;
-
+// A class we never ended up using
 public class Actor
 {
     private Guid id;

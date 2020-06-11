@@ -162,7 +162,6 @@ public class Menu
                 Console.WriteLine(consumptionList[i].GetDetails());
         }
         PressEnter();
-        MakeConsumption();
     }
 
     public static void MakeConsumption()
@@ -209,6 +208,7 @@ public class Menu
                 Removed++;
             }
         }
+
         // A for loop that shows all the movie titles that are in the database. And also checks if a movie is full or not
         for (int x = 1; x < SortedMovieTimes.Count + 1; x++)
         {
@@ -222,8 +222,9 @@ public class Menu
                 Console.WriteLine(x + ") " + SortedMovieTimes[x -1].GetMovieTimeDetails());
             }
         }
-        int MovieNumber = IntegerInput("Enter the number of the movie you want to reserve for.", SortedMovieTimes.Count);
 
+        int MovieNumber = IntegerInput("Enter the number of the movie you want to reserve for.", SortedMovieTimes.Count);
+        //  Checks if the chosen movie is full to double check
         if (SortedMovieTimes[MovieNumber-1].GetRoom().IsFull())
         {
             ColorChanger.TextColor(ConsoleColor.Red);
@@ -233,6 +234,7 @@ public class Menu
             Console.Clear();
             MakeReservation();
         }
+        // Confirmation + Ticket and reservation creation.
         else
         {
             Console.WriteLine($"Confirm to place a reservation for {SortedMovieTimes[MovieNumber-1].GetMovie().GetMovieTitle()}\ny/n");
